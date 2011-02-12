@@ -1,0 +1,172 @@
+Framework
+  * PRNotification
+    ~ (int)id
+    ~ (PRApplication *)fromApp
+    ~ (NSString *)title
+    ~ (NSString *)textMessage
+    ~ (NSView *)customContent
+    ~ (NSImage *)icon
+    ~ (PRInputForm *)inputForm
+    ~ (id)callbackObject
+    ~ (selector)callbackSelector
+
+    - init:(NSString *)title
+        textContent:(NSString *)textMessage
+        customContent:(NSView *)customContent (^)
+        icon:(NSImage *)icon (^)
+        inputForm:(PRInputForm *)inputForm (^)
+        type:(PRNotificationType)type
+        expires:(NSDate *)date
+        
+    - notifyOnEvent:(id)callbackObject
+        withSelector:(selector)callbackSelector
+          // The selector is called with (PREvent *)event
+      
+    + textNotificationWithTitle:(NSString *)title
+        message:(NSString *)message
+        icon:(NSImage *)icon (^)
+        inputForm:(PRInputForm *)inputForm (^)
+        type:(PRNotificationType)type
+        expires:(NSDate *)date
+        
+    + customNotificationWithTitle:(NSString *)title
+        content:(NSView *)content
+        icon:(NSImage *)icon (^)
+        inputForm:(PRInputForm *)inputForm (^)
+        type:(PRNotificationType)type
+        expires:(NSDate *)date
+      
+  * PRNotificationManager
+    ~ (NSMutableArray *)notifications
+
+    + listen
+        // Listens for events about a notification from Notification Center
+        // and notifies the specified objects for that notification
+        
+    + notify:(PRNotification *)notification
+        // Overwrites any existing notification
+        
+    + clear:(PRNotification *)notification
+    
+    + clearAll
+    
+    + expire:(PRNotification *)notification
+    
+
+Application (Notification Center)
+  * AppController
+    - listen
+          // Listen to messages from all other applications
+
+    - notify:(PRNotification *)notification
+    
+    - showNotificationPaneForApps:(NSArray *)apps
+    
+    - showNotificationPaneWithFirstApp:(PRApplication *)app
+    
+    - showNotificationBubbleWithNotifications:(PRApplication *)notifications
+    
+    - notificationHovered:(id)sender
+    
+    - notificationClicked:(id)sender
+    
+    - notificationClearClicked:(id)sender
+    
+    - notificationButtonClicked:(id)sender
+    
+    - clearNotification:(PRNotification *)notification
+    
+    - showInputForm:(PRInputForm *)inputForm
+        forNotification:(PRNotification *)notification
+          // Hides all other input forms for containing notification
+
+  * PRViewGenerator
+    - applicationViewForApplication:(PRApplication *)app
+          // Generates a PRApplicationView for the application to be
+          // added to the notification pane
+    
+    - notificationViewForNotification:(PRNotification *)notification
+          // Generates a PRNotificationView for the notification to be
+          // added to the corresponding PRApplicationView
+
+  * PRApplicationView
+    // NSView subclass
+    
+    - addNotificationViews:(NSArray *)notificationViews
+    
+    - removeNotificationView:(PRNotificationView *)notificationView
+
+  * PRNotificationView
+    // NSView subclass
+
+  * PRNotificationPane
+    - showWithApplicationViews:(NSArray *)applicationViews
+    
+    - showBubbleWithApplicationViews:(NSArray *)applicationViews
+        forTime:(int)milliseconds
+
+    - hide
+    
+  * PRNotificationCenter
+    ~ (NSMutableArray *)applications
+    ~ (NSMutableArray *)expiredNotifications
+
+    - notificationForID:(int)id
+    
+    - notify:(PRNotification *)notification
+        // Overwrites any existing notification
+    
+    - clear:(PRNotification *)notification
+    
+    - clearAllForApp:(PRApplication *)app
+    
+    - expire:(PRNotification *)notification
+    
+    - submitForm:(PRInputForm *)inputForm
+        submitButtonID:(NSString *)id
+    
+    - activeNotificationsForApp:(PRApplication *)app
+    
+    - expiredNotifications
+    
+
+Shared Classes
+  * PRApplication
+    ~ (NSString *)id
+
+  * PRNotificationType
+    # DONE
+    # IN_PROGRESS
+    # TIME_SENSITIVE
+    
+  * PREvent
+    # READ
+    # CLEARED
+    # INPUT_SUBMIT
+    
+  * PRButton
+    ~ (NSString *)id
+    ~ (NSButton *)button
+    ~ (PRButtonType)type
+    ~ (BOOL)hideFormOnClick
+
+  * PRButtonType
+    # SUBMIT
+    # SHOW_FORM
+    
+  * PRInputForm
+    ~ (NSMutableArray *)elements
+    
+    - notifyOnSubmit:(id)callbackObject
+        withSelector:(selector)callbackSelector
+          // The selector is called with (NSArray *)formData
+     
+    - addInputTextField:(NSTextField *)textField
+        id:(NSString *)id
+
+    - addSubmitButton:(NSButton *)button
+        id:(NSString *)id
+        hideFormOnClick:(BOOL)hideForm
+    
+    - addSubForm:(PRInputForm *)form
+        showOnButtonClick:(NSButton *)button
