@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <NCApplication.h>
+#import "NCApplication.h"
 
 
 @interface NCNotification : NSObject {
