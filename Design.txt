@@ -1,172 +1,172 @@
-1 Framework
-1   * NCNotificationManager
-1     ~ (NSMutableArray *)notifications
+ 1 Framework
+ 1   * NCNotificationManager
+ 1     ~ (NSMutableArray *)notifications
 
-      + listen
-          // Listens for events about a notification from Notification Center
-          // and notifies the specified objects for that notification
-          
-1     + notify:(NCNotification *)notification
-1         // Overwrites any existing notification
-          
-      + clear:(NCNotification *)notification
-      
-      + clearAll
-      
-      + expire:(NCNotification *)notification
-      
-
-1 Application (Notification Center)
-1   * AppController
-1     - listen
-1           // Listen to messages from all other applications
-
-1     - notify:(NCNotification *)notification
-      
-1     - showNotificationPaneForApps:(NSArray *)apps
-      
-      - showNotificationPaneWithFirstApp:(NCApplication *)app
-      
-      - showNotificationBubbleWithNotifications:(NCApplication *)notifications
-      
-      - notificationHovered:(id)sender
-      
-      - notificationClicked:(id)sender
-      
-      - notificationClearClicked:(id)sender
-      
-      - notificationButtonClicked:(id)sender
-      
-      - clearNotification:(NCNotification *)notification
-      
-      - showInputForm:(NCInputForm *)inputForm
-          forNotification:(NCNotification *)notification
-            // Hides all other input forms for containing notification
-
-1   * NCViewGenerator
-1     - applicationViewForApplication:(NCApplication *)app
-1           // Generates a NCApplicationView for the application to be
-1           // added to the notification pane
-      
-1     - notificationViewForNotification:(NCNotification *)notification
-1           // Generates a NCNotificationView for the notification to be
-1           // added to the corresponding NCApplicationView
-
-1   * NCApplicationView
-1     // NSView subclass
-      
-1     - addNotificationViews:(NSArray *)notificationViews
-      
-      - removeNotificationView:(NCNotificationView *)notificationView
-
-1   * NCNotificationView
-1     // NSView subclass
-
-1   * NCNotificationPane
-1     - showWithApplicationViews:(NSArray *)applicationViews
-      
-      - showBubbleWithApplicationViews:(NSArray *)applicationViews
-          forTime:(NSNumber *)milliseconds
-
-      - hide
-      
-1   * NCNotificationCenter
-1     ~ (NSMutableArray *)applications
-1     ~ (NSMutableArray *)expiredNotifications
-
-1     - notificationForID:(NSNumber *)id
-      
-1     - notify:(NCNotification *)notification
-1         // Overwrites any existing notification
-      
-      - clear:(NCNotification *)notification
-      
-      - clearAllForApp:(NCApplication *)app
-      
-      - expire:(NCNotification *)notification
-      
-      - submitForm:(NCInputForm *)inputForm
-          submitButtonID:(NSString *)id
-      
-1     - activeNotificationsForApp:(NCApplication *)app
-      
-      - expiredNotifications
-      
-
-1 Shared Classes
-1   * NCNotification
-1     ~ (NSNumber *)id
-1     ~ (NCApplication *)fromApp
-1     ~ (NSString *)title
-1     ~ (NSString *)textMessage
-      ~ (NSView *)customContent
-      ~ (NSImage *)icon
-      ~ (NCInputForm *)inputForm
-      ~ (id)callbackObject
-      ~ (selector)callbackSelector
-
-1     - init:(NSString *)title
-1         textContent:(NSString *)textMessage
-1         customContent:(NSView *)customContent (^)
-1         icon:(NSImage *)icon (^)
-1         inputForm:(NCInputForm *)inputForm (^)
-1         type:(NCNotificationType)type
-1         expires:(NSDate *)date
-          
-      - notifyOnEvent:(id)callbackObject
-          withSelector:(selector)callbackSelector
-            // The selector is called with (NCEvent *)event
-        
-      + textNotificationWithTitle:(NSString *)title
-          message:(NSString *)message
-          icon:(NSImage *)icon (^)
-          inputForm:(NCInputForm *)inputForm (^)
-          type:(NCNotificationType)type
-          expires:(NSDate *)date
-          
-      + customNotificationWithTitle:(NSString *)title
-          content:(NSView *)content
-          icon:(NSImage *)icon (^)
-          inputForm:(NCInputForm *)inputForm (^)
-          type:(NCNotificationType)type
-          expires:(NSDate *)date
-        
-1   * NCApplication
-1     ~ (NSString *)id
-
-    * NCNotificationType
-      # DONE
-      # IN_NCOGRESS
-      # TIME_SENSITIVE
-      
-    * NCEvent
-      # READ
-      # CLEARED
-      # INPUT_SUBMIT
-      
-    * NCButton
-      ~ (NSString *)id
-      ~ (NSButton *)button
-      ~ (NCButtonType)type
-      ~ (BOOL)hideFormOnClick
-
-    * NCButtonType
-      # SUBMIT
-      # SHOW_FORM
-      
-    * NCInputForm
-      ~ (NSMutableArray *)elements
-      
-      - notifyOnSubmit:(id)callbackObject
-          withSelector:(selector)callbackSelector
-            // The selector is called with (NSArray *)formData
+       + listen
+           // Listens for events about a notification from Notification Center
+           // and notifies the specified objects for that notification
+           
+ 1     + notify:(NCNotification *)notification
+ 1         // Overwrites any existing notification
+           
+       + clear:(NCNotification *)notification
        
-      - addInputTextField:(NSTextField *)textField
-          id:(NSString *)id
+       + clearAll
+       
+       + expire:(NCNotification *)notification
+       
 
-      - addSubmitButton:(NSButton *)button
-          id:(NSString *)id
-          hideFormOnClick:(BOOL)hideForm
-      
-      - addSubForm:(NCInputForm *)form
-          showOnButtonClick:(NSButton *)button
+ 1 Application (Notification Center)
+ 1   * AppController
+ 1     - listen
+ 1           // Listen to messages from all other applications
+
+ 1     - notify:(NCNotification *)notification
+       
+ 1     - showNotificationPaneForApps:(NSArray *)apps
+       
+       - showNotificationPaneWithFirstApp:(NCApplication *)app
+       
+       - showNotificationBubbleWithNotifications:(NCApplication *)notifications
+       
+       - notificationHovered:(id)sender
+       
+       - notificationClicked:(id)sender
+       
+       - notificationClearClicked:(id)sender
+       
+       - notificationButtonClicked:(id)sender
+       
+       - clearNotification:(NCNotification *)notification
+       
+       - showInputForm:(NCInputForm *)inputForm
+           forNotification:(NCNotification *)notification
+             // Hides all other input forms for containing notification
+
+ 1   * NCViewGenerator
+ 1     - applicationViewForApplication:(NCApplication *)app
+ 1           // Generates a NCApplicationView for the application to be
+ 1           // added to the notification pane
+       
+ 1     - notificationViewForNotification:(NCNotification *)notification
+ 1           // Generates a NCNotificationView for the notification to be
+ 1           // added to the corresponding NCApplicationView
+
+ 1   * NCApplicationView
+ 1     // NSView subclass
+       
+ 1     - addNotificationViews:(NSArray *)notificationViews
+       
+       - removeNotificationView:(NCNotificationView *)notificationView
+
+ 1   * NCNotificationView
+ 1     // NSView subclass
+
+ 1   * NCNotificationPane
+ 1     - showWithApplicationViews:(NSArray *)applicationViews
+       
+       - showBubbleWithApplicationViews:(NSArray *)applicationViews
+           forTime:(NSNumber *)milliseconds
+
+       - hide
+       
+ 1   * NCNotificationCenter
+ 1     ~ (NSMutableArray *)applications
+ 1     ~ (NSMutableArray *)expiredNotifications
+
+ 1     - notificationForID:(NSNumber *)id
+       
+ 1     - notify:(NCNotification *)notification
+ 1         // Overwrites any existing notification
+       
+       - clear:(NCNotification *)notification
+       
+       - clearAllForApp:(NCApplication *)app
+       
+       - expire:(NCNotification *)notification
+       
+       - submitForm:(NCInputForm *)inputForm
+           submitButtonID:(NSString *)id
+       
+ 1     - activeNotificationsForApp:(NCApplication *)app
+       
+       - expiredNotifications
+       
+
+ 1 Shared Classes
+ 1   * NCNotification
+ 1     ~ (NSNumber *)id
+ 1     ~ (NCApplication *)fromApp
+ 1     ~ (NSString *)title
+ 1     ~ (NSString *)textMessage
+       ~ (NSView *)customContent
+       ~ (NSImage *)icon
+       ~ (NCInputForm *)inputForm
+       ~ (id)callbackObject
+       ~ (selector)callbackSelector
+
+ 1     - init:(NSString *)title
+ 1         textContent:(NSString *)textMessage
+ 1         customContent:(NSView *)customContent (^)
+ 1         icon:(NSImage *)icon (^)
+ 1         inputForm:(NCInputForm *)inputForm (^)
+ 1         type:(NCNotificationType)type
+ 1         expires:(NSDate *)date
+           
+       - notifyOnEvent:(id)callbackObject
+           withSelector:(selector)callbackSelector
+             // The selector is called with (NCEvent *)event
+         
+       + textNotificationWithTitle:(NSString *)title
+           message:(NSString *)message
+           icon:(NSImage *)icon (^)
+           inputForm:(NCInputForm *)inputForm (^)
+           type:(NCNotificationType)type
+           expires:(NSDate *)date
+           
+       + customNotificationWithTitle:(NSString *)title
+           content:(NSView *)content
+           icon:(NSImage *)icon (^)
+           inputForm:(NCInputForm *)inputForm (^)
+           type:(NCNotificationType)type
+           expires:(NSDate *)date
+         
+ 1   * NCApplication
+ 1     ~ (NSString *)id
+
+     * NCNotificationType
+       # DONE
+       # IN_NCOGRESS
+       # TIME_SENSITIVE
+       
+     * NCEvent
+       # READ
+       # CLEARED
+       # INPUT_SUBMIT
+       
+     * NCButton
+       ~ (NSString *)id
+       ~ (NSButton *)button
+       ~ (NCButtonType)type
+       ~ (BOOL)hideFormOnClick
+
+     * NCButtonType
+       # SUBMIT
+       # SHOW_FORM
+       
+     * NCInputForm
+       ~ (NSMutableArray *)elements
+       
+       - notifyOnSubmit:(id)callbackObject
+           withSelector:(selector)callbackSelector
+             // The selector is called with (NSArray *)formData
+        
+       - addInputTextField:(NSTextField *)textField
+           id:(NSString *)id
+
+       - addSubmitButton:(NSButton *)button
+           id:(NSString *)id
+           hideFormOnClick:(BOOL)hideForm
+       
+       - addSubForm:(NCInputForm *)form
+           showOnButtonClick:(NSButton *)button
