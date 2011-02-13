@@ -66,7 +66,7 @@
 1     - showWithApplicationViews:(NSArray *)applicationViews
       
       - showBubbleWithApplicationViews:(NSArray *)applicationViews
-          forTime:(int)milliseconds
+          forTime:(NSNumber *)milliseconds
 
       - hide
       
@@ -74,7 +74,7 @@
 1     ~ (NSMutableArray *)applications
 1     ~ (NSMutableArray *)expiredNotifications
 
-1     - notificationForID:(int)id
+1     - notificationForID:(NSNumber *)id
       
 1     - notify:(NCNotification *)notification
 1         // Overwrites any existing notification
@@ -95,7 +95,7 @@
 
 1 Shared Classes
 1   * NCNotification
-1     ~ (int)id
+1     ~ (NSNumber *)id
 1     ~ (NCApplication *)fromApp
 1     ~ (NSString *)title
 1     ~ (NSString *)textMessage
