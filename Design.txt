@@ -105,7 +105,7 @@
        ~ (id)callbackObject
        ~ (selector)callbackSelector
 
- 1     - init:(NSString *)title
+ 1     + notificationWithTitle:(NSString *)title
  1         textContent:(NSString *)textMessage
  1         customContent:(NSView *)customContent (^)
  1         icon:(NSImage *)icon (^)
