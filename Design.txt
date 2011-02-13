@@ -133,6 +133,8 @@
          
  1   * NCApplication
  1     ~ (NSString *)id
+ 1     
+ 1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
 
      * NCNotificationType
        # DONE
