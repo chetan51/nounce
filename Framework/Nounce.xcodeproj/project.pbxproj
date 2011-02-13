@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		617001AC1307961C000B7763 /* NCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 617001AA1307961C000B7763 /* NCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		617001AD1307961C000B7763 /* NCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 617001AB1307961C000B7763 /* NCNotification.m */; };
+		61E01B351307BD130075442B /* NCApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E01B331307BD130075442B /* NCApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61E01B361307BD130075442B /* NCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01B341307BD130075442B /* NCApplication.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -21,6 +23,8 @@
 		32DBCF5E0370ADEE00C91783 /* Nounce_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nounce_Prefix.pch; sourceTree = "<group>"; };
 		617001AA1307961C000B7763 /* NCNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotification.h; sourceTree = "<group>"; };
 		617001AB1307961C000B7763 /* NCNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotification.m; sourceTree = "<group>"; };
+		61E01B331307BD130075442B /* NCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplication.h; sourceTree = "<group>"; };
+		61E01B341307BD130075442B /* NCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplication.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Nounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -81,6 +85,8 @@
 			children = (
 				617001AA1307961C000B7763 /* NCNotification.h */,
 				617001AB1307961C000B7763 /* NCNotification.m */,
+				61E01B331307BD130075442B /* NCApplication.h */,
+				61E01B341307BD130075442B /* NCApplication.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -119,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				617001AC1307961C000B7763 /* NCNotification.h in Headers */,
+				61E01B351307BD130075442B /* NCApplication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				617001AD1307961C000B7763 /* NCNotification.m in Sources */,
+				61E01B361307BD130075442B /* NCApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
