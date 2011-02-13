@@ -7,11 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Nounce/NCNotification.h>
 
 @interface NounceAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+
+- (void) listen;
+- (void) notify:(NCNotification *)notification;
 
 @end

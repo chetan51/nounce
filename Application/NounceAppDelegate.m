@@ -12,8 +12,30 @@
 
 @synthesize window;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application 
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+	[self listen];
+}
+
+- (void) listen
+{
+	[[NSDistributedNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(notificationPosted:)
+	 name:@"Nounce"
+	 object:nil];
+}
+
+- (void) notificationPosted:(NSNotification *)message
+{
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo]
+																				objectForKey:@"notification"]];
+	[self performSelectorOnMainThread:@selector(notify:) withObject:notification waitUntilDone:NO];
+}
+
+- (void) notify:(NCNotification *)notification
+{
+	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
 }
 
 @end
