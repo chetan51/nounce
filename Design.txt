@@ -1,4 +1,4 @@
- 1 Framework
+   Framework
 .1   * NCNotificationManager
 .1     ~ (NSMutableDictionary *)notifications
 
@@ -16,7 +16,7 @@
        + expire:(NCNotification *)notification
        
 
- 1 Application (Notification Center)
+   Application (Notification Center)
  1   * AppController
  1     - listen
  1           // Listen to messages from all other applications
@@ -93,7 +93,7 @@
        - expiredNotifications
        
 
- 1 Shared Classes
+   Shared Classes
 .1   * NCNotification
 .1     ~ (NSNumber *)id
 .1     ~ (NCApplication *)fromApp
