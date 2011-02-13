@@ -18,10 +18,11 @@
 + (void) notify:(NCNotification *)notification {
 	[notifications setObject:notification forKey:[notification ID]];
 	
+	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
 	[[NSDistributedNotificationCenter defaultCenter]
 	 postNotificationName:@"Nounce"
 	 object:nil
-	 userInfo:[NSDictionary dictionaryWithObject:notification forKey:@"notification"]];
+	 userInfo:[NSDictionary dictionaryWithObject:archivedNotification forKey:@"notification"]];
 }
 
 + (void) dealloc {

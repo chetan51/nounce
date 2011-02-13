@@ -31,6 +31,26 @@
 	return notification;
 }
 
+- (void) encodeWithCoder: (NSCoder *) coder
+{
+    [coder encodeObject:ID			forKey:@"ID"];
+    [coder encodeObject:fromApp		forKey:@"fromApp"];
+    [coder encodeObject:title		forKey:@"title"];
+    [coder encodeObject:textContent forKey:@"textContent"];
+}
+
+- (id) initWithCoder: (NSCoder *) coder
+{
+    if (self = [super init]) {
+        ID			= [coder decodeObjectForKey:@"ID"];
+        fromApp		= [coder decodeObjectForKey:@"fromApp"];
+        title		= [coder decodeObjectForKey:@"title"];
+        textContent = [coder decodeObjectForKey:@"textContent"];
+    }
+	
+    return (self);
+}
+
 - (void) dealloc
 {
     [ID release];

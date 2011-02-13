@@ -22,4 +22,18 @@
 	return application;
 }
 
+- (void) encodeWithCoder: (NSCoder *) coder
+{
+    [coder encodeObject:ID forKey:@"ID"];
+}
+
+- (id) initWithCoder: (NSCoder *) coder
+{
+    if (self = [super init]) {
+        ID = [coder decodeObjectForKey:@"ID"];
+    }
+	
+    return (self);
+}
+
 @end
