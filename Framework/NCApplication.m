@@ -13,4 +13,13 @@
 
 @synthesize ID;
 
++ applicationWithBundleIdentifier:(NSString *)bundleIdentifier
+{
+	NCApplication *application = [[NCApplication alloc] autorelease];
+	
+	[application setID:bundleIdentifier];
+	
+	return application;
+}
+
 @end

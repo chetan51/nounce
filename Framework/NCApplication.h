@@ -15,4 +15,6 @@
 
 @property (retain) NSNumber *ID;
 
++ applicationWithBundleIdentifier:(NSString *)bundleIdentifier;
+
 @end
