@@ -7,13 +7,16 @@
 //
 
 #import "NounceTestApplicationAppDelegate.h"
+#import <Nounce/NCNotification.h>
+#import <Nounce/NCNotificationManager.h>
 
 @implementation NounceTestApplicationAppDelegate
 
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application 
+	NCNotification *notification = [NCNotification notificationWithTitle:@"Test Notification" textContent:@"testing..."];
+	[NCNotificationManager notify:notification];
 }
 
 @end
