@@ -94,19 +94,19 @@
        
 
  1 Shared Classes
- 1   * NCNotification
- 1     ~ (NSNumber *)id
- 1     ~ (NCApplication *)fromApp
- 1     ~ (NSString *)title
- 1     ~ (NSString *)textContent
+.1   * NCNotification
+.1     ~ (NSNumber *)id
+.1     ~ (NCApplication *)fromApp
+.1     ~ (NSString *)title
+.1     ~ (NSString *)textContent
        ~ (NSView *)customContent
        ~ (NSImage *)icon
        ~ (NCInputForm *)inputForm
        ~ (id)callbackObject
        ~ (selector)callbackSelector
 
- 1     + notificationWithTitle:(NSString *)title
- 1         textContent:(NSString *)textContent
+.1     + notificationWithTitle:(NSString *)title
+.1         textContent:(NSString *)textContent
            customContent:(NSView *)customContent (^)
            icon:(NSImage *)icon (^)
            inputForm:(NCInputForm *)inputForm (^)
@@ -131,10 +131,10 @@
            type:(NCNotificationType)type
            expires:(NSDate *)date
          
- 1   * NCApplication
- 1     ~ (NSString *)id
- 1     
- 1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
+.1   * NCApplication
+.1     ~ (NSString *)id
+.1     
+.1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
 
      * NCNotificationType
        # DONE
