@@ -11,16 +11,20 @@
 
 @implementation NCNotificationManager
 
-- (id) init {
-	self = [super init];
-    if (self)
-    {
-        notifications = [[NSMutableArray alloc] init];
-    }
-    return self;
++ (void) initialize {
+	notifications = [[NSMutableDictionary alloc] init];
 }
 
-- (void) dealloc {
++ (void) notify:(NCNotification *)notification {
+	[notifications setObject:notification forKey:[notification ID]];
+	
+	[[NSDistributedNotificationCenter defaultCenter]
+	 postNotificationName:@"Nounce"
+	 object:nil
+	 userInfo:[NSDictionary dictionaryWithObject:notification forKey:@"notification"]];
+}
+
++ (void) dealloc {
 	[notifications release];
 	[super dealloc];
 }

@@ -7,10 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "NCNotification.h"
 
 @interface NCNotificationManager : NSObject {
-	NSMutableArray *notifications;
+	
 }
+
+static NSMutableDictionary *notifications;
+
++ (void) notify:(NCNotification *)notification;
 
 @end
