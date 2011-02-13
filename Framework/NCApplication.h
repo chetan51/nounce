@@ -10,10 +10,10 @@
 
 
 @interface NCApplication : NSObject {
-	NSNumber *ID;
+	NSString *ID;
 }
 
-@property (retain) NSNumber *ID;
+@property (retain) NSString *ID;
 
 + applicationWithBundleIdentifier:(NSString *)bundleIdentifier;
 
