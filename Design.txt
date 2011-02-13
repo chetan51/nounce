@@ -21,6 +21,8 @@
  1     - listen
  1           // Listen to messages from all other applications
 
+ 1     - notificationPosted:(NSNotification *)message
+ 
  1     - notify:(NCNotification *)notification
        
  1     - showNotificationPaneForApps:(NSArray *)apps
