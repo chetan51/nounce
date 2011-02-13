@@ -21,6 +21,7 @@
 {
 	NCNotification *notification = [[NCNotification alloc] autorelease];
 	
+	[notification setID:[NSNumber numberWithInt:0]]; // stubbed
 	[notification setTitle:title];
 	[notification setTextContent:textContent];
 	NCApplication *fromApp = [NCApplication applicationWithBundleIdentifier:
