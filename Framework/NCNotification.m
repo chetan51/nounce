@@ -14,14 +14,25 @@
 @synthesize ID;
 @synthesize fromApp;
 @synthesize title;
-@synthesize textMessage;
+@synthesize textContent;
+
++ (NCNotification *) notificationWithTitle:(NSString *)title
+							   textContent:(NSString *)textContent
+{
+	NCNotification *notification = [[NCNotification alloc] autorelease];
+	
+	[notification setTitle:title];
+	[notification setTextContent:textContent];
+	
+	return notification;
+}
 
 - (void) dealloc
 {
     [ID release];
 	[fromApp release];
 	[title release];
-	[textMessage release];
+	[textContent release];
     [super dealloc];
 }
 

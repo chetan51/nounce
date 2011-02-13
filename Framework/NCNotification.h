@@ -14,12 +14,15 @@
 	NSNumber *ID;
 	NCApplication *fromApp;
 	NSString *title;
-	NSString *textMessage;
+	NSString *textContent;
 }
 
 @property (retain) NSNumber *ID;
 @property (retain) NCApplication *fromApp;
 @property (retain) NSString *title;
-@property (retain) NSString *textMessage;
+@property (retain) NSString *textContent;
+
++ (NCNotification *) notificationWithTitle:(NSString *)title
+							   textContent:(NSString *)textContent;
 
 @end
