@@ -107,11 +107,11 @@
 
  1     + notificationWithTitle:(NSString *)title
  1         textContent:(NSString *)textContent
- 1         customContent:(NSView *)customContent (^)
- 1         icon:(NSImage *)icon (^)
- 1         inputForm:(NCInputForm *)inputForm (^)
- 1         type:(NCNotificationType)type
- 1         expires:(NSDate *)date
+           customContent:(NSView *)customContent (^)
+           icon:(NSImage *)icon (^)
+           inputForm:(NCInputForm *)inputForm (^)
+           type:(NCNotificationType)type
+           expires:(NSDate *)date
            
        - notifyOnEvent:(id)callbackObject
            withSelector:(selector)callbackSelector
