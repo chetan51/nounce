@@ -98,7 +98,7 @@
  1     ~ (NSNumber *)id
  1     ~ (NCApplication *)fromApp
  1     ~ (NSString *)title
- 1     ~ (NSString *)textMessage
+ 1     ~ (NSString *)textContent
        ~ (NSView *)customContent
        ~ (NSImage *)icon
        ~ (NCInputForm *)inputForm
@@ -106,7 +106,7 @@
        ~ (selector)callbackSelector
 
  1     + notificationWithTitle:(NSString *)title
- 1         textContent:(NSString *)textMessage
+ 1         textContent:(NSString *)textContent
  1         customContent:(NSView *)customContent (^)
  1         icon:(NSImage *)icon (^)
  1         inputForm:(NCInputForm *)inputForm (^)
