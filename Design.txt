@@ -6,8 +6,8 @@
            // Listens for events about a notification from Notification Center
            // and notifies the specified objects for that notification
            
- 1     + notify:(NCNotification *)notification
- 1         // Overwrites any existing notification
+.1     + notify:(NCNotification *)notification
+.1         // Overwrites any existing notification
            
        + clear:(NCNotification *)notification
        
