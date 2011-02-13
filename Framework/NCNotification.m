@@ -23,6 +23,9 @@
 	
 	[notification setTitle:title];
 	[notification setTextContent:textContent];
+	NCApplication *fromApp = [NCApplication applicationWithBundleIdentifier:
+							  [[NSBundle mainBundle] bundleIdentifier]];
+	[notification setFromApp:fromApp];
 	
 	return notification;
 }
