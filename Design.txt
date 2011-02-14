@@ -46,22 +46,22 @@
              // Hides all other input forms for containing notification
 
  1   * NCViewGenerator
- 1     - applicationViewForApplication:(NCApplication *)app
- 1           // Generates a NCApplicationView for the application to be
- 1           // added to the notification pane
+ 1     - applicationCellForApplication:(NCApplication *)app
+ 1           // Generates a NCApplicationCell for the application to be
+ 1           // displayed in the notification pane
        
- 1     - notificationViewForNotification:(NCNotification *)notification
- 1           // Generates a NCNotificationView for the notification to be
- 1           // added to the corresponding NCApplicationView
+ 1     - notificationCellForNotification:(NCNotification *)notification
+ 1           // Generates a NCNotificationCell for the notification to be
+ 1           // displayed in the notification pane
 
- 1   * NCApplicationView
+ 1   * NCApplicationCell
  1     // NSView subclass
        
  1     - addNotificationViews:(NSArray *)notificationViews
        
-       - removeNotificationView:(NCNotificationView *)notificationView
+       - removeNotificationView:(NCNotificationCell *)notificationView
 
- 1   * NCNotificationView
+ 1   * NCNotificationCell
  1     // NSView subclass
 
  1   * NCNotificationPane
