@@ -72,7 +72,7 @@
 
        - hide
        
- 1   * NCNotificationCenter
+ 1   * NCNotificationCenter (singleton)
  1     ~ (NSMutableDictionary *)applications
  1     ~ (NSMutableArray *)expiredNotifications
 
