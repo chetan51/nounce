@@ -74,7 +74,7 @@
        
  1   * NCNotificationCenter (singleton)
  1     ~ (NSMutableDictionary *)applications
- 1     ~ (NSMutableArray *)expiredNotifications
+       ~ (NSMutableArray *)expiredNotifications
 
  1     - notificationForID:(NSNumber *)id
        
