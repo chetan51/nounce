@@ -56,10 +56,6 @@
 
  1   * NCApplicationCell
  1     // NSView subclass
-       
- 1     - addNotificationViews:(NSArray *)notificationViews
-       
-       - removeNotificationView:(NCNotificationCell *)notificationView
 
  1   * NCNotificationCell
  1     // NSView subclass
