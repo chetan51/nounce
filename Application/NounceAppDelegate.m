@@ -14,6 +14,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
+	[notificationPane setDataSource:notificationCenter];
+	
 	[self listen];
 }
 

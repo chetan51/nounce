@@ -8,9 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Nounce/NCNotification.h>
+#import "NCNotificationCenter.h"
 
 @interface NounceAppDelegate : NSObject <NSApplicationDelegate> {
+	NCNotificationCenter *notificationCenter;
+	
     NSWindow *window;
+	IBOutlet NSOutlineView *notificationPane;
 }
 
 @property (assign) IBOutlet NSWindow *window;
