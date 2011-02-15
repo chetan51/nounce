@@ -68,12 +68,14 @@
 
        - hide
        
- 1   * NCNotificationCenter (singleton)
+ 1   * NCNotificationCenter (singleton, implements NSOutlineViewDataSource)
  1     ~ (NSMutableDictionary *)applications
+ 1           // Indexed by application ID
+ 1     ~ (NSMutableDictionary *)notifications
+ 1           // Indexed by application ID
        ~ (NSMutableArray *)expiredNotifications
+             // Ordered by time expired
 
- 1     - notificationForID:(NSNumber *)id
-       
  1     - notify:(NCNotification *)notification
  1         // Overwrites any existing notification
        
@@ -85,10 +87,6 @@
        
        - submitForm:(NCInputForm *)inputForm
            submitButtonID:(NSString *)id
-       
- 1     - activeNotificationsForApp:(NCApplication *)app
-       
-       - expiredNotifications
        
 
    Shared Classes
