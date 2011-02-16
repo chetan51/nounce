@@ -69,17 +69,17 @@
        - hide
        
  1   * NCNotificationCenter (singleton, implements NSOutlineViewDataSource)
- 1     ~ (NSMutableDictionary *)applications
- 1           // Indexed by application ID
- 1     ~ (NSMutableDictionary *)notifications
- 1           // Indexed by application ID
+.1     ~ (NSMutableDictionary *)applications
+.1           // Indexed by application ID
+.1     ~ (NSMutableDictionary *)notifications
+.1           // Indexed by application ID
        ~ (NSMutableArray *)expiredNotifications
              // Ordered by time expired
 
 .1     - activeNotificationsForApplication:(NCApplication *)application
 
- 1     - notify:(NCNotification *)notification
- 1         // Overwrites any existing notification
+.1     - notify:(NCNotification *)notification
+.1         // Overwrites any existing notification
        
        - clear:(NCNotification *)notification
        
