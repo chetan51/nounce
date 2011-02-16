@@ -131,6 +131,7 @@
          
 .1   * NCApplication
 .1     ~ (NSString *)id
+.1     ~ (NSString *)name
 .1     
 .1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
 
