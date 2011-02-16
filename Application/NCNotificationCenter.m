@@ -77,7 +77,7 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 - (id) outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
 	if ([item isKindOfClass:[NCApplication class]]) {
-		return [item ID];
+		return [item name];
 	}
 	if ([item isKindOfClass:[NCNotification class]]) {
 		return [item title];

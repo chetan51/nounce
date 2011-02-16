@@ -11,9 +11,11 @@
 
 @interface NCApplication : NSObject {
 	NSString *ID;
+	NSString *name;
 }
 
 @property (retain) NSString *ID;
+@property (retain) NSString *name;
 
 + applicationWithBundleIdentifier:(NSString *)bundleIdentifier;
 

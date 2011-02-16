@@ -41,7 +41,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		6170039713079EAC000B7763 /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
-		61E01B0C1307BA920075442B /* Nounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nounce.framework; path = build/Debug/Nounce.framework; sourceTree = "<group>"; };
+		61E01B0C1307BA920075442B /* Nounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1107310486CEB800E47090 /* NounceTestApplication-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NounceTestApplication-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* NounceTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NounceTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
