@@ -80,7 +80,7 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 		return [item name];
 	}
 	if ([item isKindOfClass:[NCNotification class]]) {
-		return [item title];
+		return [NSString stringWithFormat:@"%@ - %@", [item title], [item textContent]];
 	}
     
     return nil;
