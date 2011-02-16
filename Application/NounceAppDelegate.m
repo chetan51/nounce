@@ -41,6 +41,7 @@
 	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
 	[notificationCenter notify:notification];
 	[notificationPane reloadData];
+	[notificationPane expandItem:nil expandChildren:YES];
 }
 
 @end
