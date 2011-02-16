@@ -76,6 +76,8 @@
        ~ (NSMutableArray *)expiredNotifications
              // Ordered by time expired
 
+.1     - activeNotificationsForApplication:(NCApplication *)application
+
  1     - notify:(NCNotification *)notification
  1         // Overwrites any existing notification
        
