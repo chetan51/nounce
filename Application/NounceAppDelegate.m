@@ -39,6 +39,8 @@
 - (void) notify:(NCNotification *)notification
 {
 	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
+	[notificationCenter notify:notification];
+	[notificationPane reloadData];
 }
 
 @end
