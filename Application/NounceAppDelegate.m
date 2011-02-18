@@ -7,6 +7,7 @@
 //
 
 #import "NounceAppDelegate.h"
+#import "NCApplicationView.h"
 
 @implementation NounceAppDelegate
 
@@ -16,6 +17,9 @@
 {
 	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
 	[notificationPane setDataSource:notificationCenter];
+	
+	viewController = [[NCViewController alloc] init];
+	[viewController setApplicationViews:applicationViews];
 	
 	[self listen];
 }
@@ -42,6 +46,16 @@
 	[notificationCenter notify:notification];
 	[notificationPane reloadData];
 	[notificationPane expandItem:nil expandChildren:YES];
+	
+	NCApplicationView *appView = [[NCApplicationView alloc] init];
+	[appView setApplication:[notification fromApp]];
+	[viewController addApplicationView:appView]; 
+}
+
+- (void) dealloc
+{
+	[viewController release];
+	[super dealloc];
 }
 
 @end
