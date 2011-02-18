@@ -15,6 +15,7 @@
 		6108EFB9130E57040072CA89 /* NCApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFB8130E57040072CA89 /* NCApplicationView.m */; };
 		6108EFBE130E570D0072CA89 /* NCNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFBD130E570D0072CA89 /* NCNotificationView.m */; };
 		6108EFC3130E572C0072CA89 /* NCApplicationCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */; };
+		6108F103130E664A0072CA89 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6108F102130E664A0072CA89 /* NotificationView.xib */; };
 		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01D4A13088AB10075442B /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4613088AB10075442B /* RoundedView.m */; };
@@ -60,6 +61,7 @@
 		6108EFBD130E570D0072CA89 /* NCNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationView.m; sourceTree = "<group>"; };
 		6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplicationCollectionViewItem.h; sourceTree = "<group>"; };
 		6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplicationCollectionViewItem.m; sourceTree = "<group>"; };
+		6108F102130E664A0072CA89 /* NotificationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
 		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01D4613088AB10075442B /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		61E01D4713088AB10075442B /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* Nounce-Info.plist */,
+				6108F102130E664A0072CA89 /* NotificationView.xib */,
 				6108EFAD130E56AA0072CA89 /* ApplicationView.xib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -239,6 +242,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				6108EFAE130E56AA0072CA89 /* ApplicationView.xib in Resources */,
+				6108F103130E664A0072CA89 /* NotificationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

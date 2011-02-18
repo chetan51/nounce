@@ -12,5 +12,6 @@
 @implementation NCApplicationView
 
 @synthesize application;
+@synthesize notifications;
 
 @end

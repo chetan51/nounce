@@ -12,8 +12,11 @@
 
 @interface NCApplicationView : NSObject {
 	NCApplication *application;
+	
+	NSArrayController *notifications;
 }
 
 @property (retain) NCApplication *application;
+@property (retain) NSArrayController *notifications;
 
 @end

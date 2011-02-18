@@ -8,6 +8,8 @@
 
 #import "NounceAppDelegate.h"
 #import "NCApplicationView.h"
+#import "NCNotificationView.h"
+
 
 @implementation NounceAppDelegate
 
@@ -46,7 +48,13 @@
 	
 	NCApplicationView *appView = [[NCApplicationView alloc] init];
 	[appView setApplication:[notification fromApp]];
-	[viewController addApplicationView:appView]; 
+	[viewController addApplicationView:appView];
+	
+	NCNotificationView *notificationView = [[NCNotificationView alloc] init];
+	[notificationView setNotification:notification];
+	NSLog(@"%@", [appView notifications]);
+	[[appView notifications] addObject:notificationView];
+	NSLog(@"%@", [appView notifications]);
 }
 
 - (void) dealloc

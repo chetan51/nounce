@@ -13,7 +13,10 @@
 
 - (void) awakeFromNib
 {
-	NSLog(@"awoken");
+	if ([self representedObject]) {
+		NSLog(@"%@", [self representedObject]);
+		[[self representedObject] setNotifications:notifications];
+	}
 }
 
 @end
