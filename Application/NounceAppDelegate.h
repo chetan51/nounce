@@ -16,7 +16,6 @@
 	NCViewController *viewController;
 	
     NSWindow *window;
-	IBOutlet NSOutlineView *notificationPane;
 	IBOutlet NSArrayController *applicationViews;
 }
 

@@ -16,7 +16,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
-	[notificationPane setDataSource:notificationCenter];
 	
 	viewController = [[NCViewController alloc] init];
 	[viewController setApplicationViews:applicationViews];
@@ -44,8 +43,6 @@
 {
 	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
 	[notificationCenter notify:notification];
-	[notificationPane reloadData];
-	[notificationPane expandItem:nil expandChildren:YES];
 	
 	NCApplicationView *appView = [[NCApplicationView alloc] init];
 	[appView setApplication:[notification fromApp]];

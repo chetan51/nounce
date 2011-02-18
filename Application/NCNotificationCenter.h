@@ -21,9 +21,4 @@
 - (NSDictionary *) activeNotificationsForApplication:(NCApplication *)application;
 - (void) notify:(NCNotification *)notification;
 
-- (int)	outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item;
-- (id) outlineView:(NSOutlineView *)outlineView child:(int)index ofItem:(id)item;
-- (id) outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item;
-
 @end
