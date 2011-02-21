@@ -16,6 +16,7 @@
 		6108EFBE130E570D0072CA89 /* NCNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFBD130E570D0072CA89 /* NCNotificationView.m */; };
 		6108EFC3130E572C0072CA89 /* NCApplicationCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */; };
 		6108F103130E664A0072CA89 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6108F102130E664A0072CA89 /* NotificationView.xib */; };
+		61DAE1B0131231C200DA922C /* NCNotificationCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DAE1AF131231C200DA922C /* NCNotificationCollectionViewItem.m */; };
 		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01D4A13088AB10075442B /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4613088AB10075442B /* RoundedView.m */; };
@@ -62,6 +63,8 @@
 		6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplicationCollectionViewItem.h; sourceTree = "<group>"; };
 		6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplicationCollectionViewItem.m; sourceTree = "<group>"; };
 		6108F102130E664A0072CA89 /* NotificationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
+		61DAE1AE131231C200DA922C /* NCNotificationCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationCollectionViewItem.h; sourceTree = "<group>"; };
+		61DAE1AF131231C200DA922C /* NCNotificationCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationCollectionViewItem.m; sourceTree = "<group>"; };
 		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01D4613088AB10075442B /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		61E01D4713088AB10075442B /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				6108EFBD130E570D0072CA89 /* NCNotificationView.m */,
 				6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */,
 				6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */,
+				61DAE1AE131231C200DA922C /* NCNotificationCollectionViewItem.h */,
+				61DAE1AF131231C200DA922C /* NCNotificationCollectionViewItem.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				6108EFB9130E57040072CA89 /* NCApplicationView.m in Sources */,
 				6108EFBE130E570D0072CA89 /* NCNotificationView.m in Sources */,
 				6108EFC3130E572C0072CA89 /* NCApplicationCollectionViewItem.m in Sources */,
+				61DAE1B0131231C200DA922C /* NCNotificationCollectionViewItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
