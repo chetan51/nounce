@@ -10,7 +10,7 @@
 
 
 @interface NCApplicationCollectionViewItem : NSCollectionViewItem {
-	IBOutlet NSArrayController *notifications;
+	IBOutlet NSMutableArray *notifications;
 }
 
 - (void) awakeFromNib;

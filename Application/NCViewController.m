@@ -11,7 +11,7 @@
 
 @implementation NCViewController
 
-- (void) setApplicationViews:(NSArrayController *)appViews
+- (void) setApplicationViews:(NSMutableArray *)appViews
 {
 	applicationViews = appViews;
 }
@@ -19,6 +19,11 @@
 - (void) addApplicationView:(NCApplicationView *)appView
 {
 	[applicationViews addObject:appView];
+}
+
+- (void)notify:(NCNotification *)notification
+{
+	
 }
 
 @end
