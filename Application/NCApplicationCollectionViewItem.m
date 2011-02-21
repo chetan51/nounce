@@ -7,14 +7,14 @@
 //
 
 #import "NCApplicationCollectionViewItem.h"
+#import "NCApplicationView.h"
 
 
 @implementation NCApplicationCollectionViewItem
 
 - (void) awakeFromNib
 {
-	if ([self representedObject]) {
-		NSLog(@"%@", [self representedObject]);
+	if ([self representedObject] && [[self representedObject] isKindOfClass:[NCApplicationView class]]) {
 		[[self representedObject] setNotifications:notifications];
 	}
 }
