@@ -12,10 +12,10 @@
 
 
 @interface NCViewController : NSObject {
-	NSMutableArray *applicationViews;
+	NSArrayController *applicationViews;
 }
 
-- (void) setApplicationViews:(NSMutableArray *)appViews;
+- (void) setApplicationViews:(NSArrayController *)appViews;
 - (void) addApplicationView:(NCApplicationView *)appView;
 - (void) notify:(NCNotification *)notification;
 

@@ -13,10 +13,10 @@
 @interface NCApplicationView : NSObject {
 	NCApplication *application;
 	
-	NSMutableArray *notifications;
+	NSArrayController *notifications;
 }
 
 @property (retain) NCApplication *application;
-@property (retain) NSMutableArray *notifications;
+@property (retain) NSArrayController *notifications;
 
 @end

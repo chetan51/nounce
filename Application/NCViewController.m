@@ -11,7 +11,7 @@
 
 @implementation NCViewController
 
-- (void) setApplicationViews:(NSMutableArray *)appViews
+- (void) setApplicationViews:(NSArrayController *)appViews
 {
 	applicationViews = appViews;
 }
