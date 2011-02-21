@@ -18,7 +18,6 @@
 
 + (NCNotificationCenter*)sharedNotificationCenter;
 
-- (NSDictionary *) activeNotificationsForApplication:(NCApplication *)application;
 - (void) notify:(NCNotification *)notification;
 
 @end

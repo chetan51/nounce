@@ -13,11 +13,6 @@
 
 static NCNotificationCenter *sharedNotificationCenter = nil;
 
-- (NSDictionary *) activeNotificationsForApplication:(NCApplication *)application
-{
-	return [notifications objectForKey:[application ID]];
-}
-
 - (void) notify:(NCNotification *)notification
 {
 	[applications setObject:[notification fromApp] forKey:[[notification fromApp] ID]];

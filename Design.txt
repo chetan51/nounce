@@ -45,12 +45,6 @@
            forNotification:(NCNotification *)notification
              // Hides all other input forms for containing notification
 
- 1   * NCApplicationCell
- 1     // NSView subclass
-
- 1   * NCNotificationCell
- 1     // NSView subclass
-
  1   * NCNotificationPane
  1     - showWithApplicationViews:(NSArray *)applicationViews
        
@@ -59,15 +53,13 @@
 
        - hide
        
- 1   * NCNotificationCenter (singleton, implements NSOutlineViewDataSource)
+ 1   * NCNotificationCenter (singleton)
 .1     ~ (NSMutableDictionary *)applications
 .1           // Indexed by application ID
 .1     ~ (NSMutableDictionary *)notifications
 .1           // Indexed by application ID
        ~ (NSMutableArray *)expiredNotifications
              // Ordered by time expired
-
-.1     - activeNotificationsForApplication:(NCApplication *)application
 
 .1     - notify:(NCNotification *)notification
 .1         // Overwrites any existing notification
@@ -81,6 +73,18 @@
        - submitForm:(NCInputForm *)inputForm
            submitButtonID:(NSString *)id
        
+ 1   * NCViewController (singleton)
+ 1     ~ (NSArrayController *)applicationViews
+      
+ 1     - notify:(NCNotification *)notification
+     
+.1   * NCApplicationView
+.1     ~ (NCApplication *)application
+.1     ~ (NSArrayController *)notificationViews
+
+.1   * NCNotificationView
+.1     ~ (NCNotification *)notification
+
 
    Shared Classes
 .1   * NCNotification
