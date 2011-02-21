@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NCApplicationView.h"
+#import "NCNotificationView.h"
 #import "Nounce/NCNotification.h"
 
 
@@ -16,7 +17,6 @@
 }
 
 - (void) setApplicationViews:(NSArrayController *)appViews;
-- (void) addApplicationView:(NCApplicationView *)appView;
 - (void) notify:(NCNotification *)notification;
 
 @end
