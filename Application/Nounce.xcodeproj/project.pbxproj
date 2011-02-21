@@ -89,18 +89,18 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */,
-				6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */,
-				6108EFB7130E57040072CA89 /* NCApplicationView.h */,
-				6108EFB8130E57040072CA89 /* NCApplicationView.m */,
-				6108EFBC130E570D0072CA89 /* NCNotificationView.h */,
-				6108EFBD130E570D0072CA89 /* NCNotificationView.m */,
 				256AC3D80F4B6AC300CF3369 /* NounceAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* NounceAppDelegate.m */,
 				61E01FA1130A00E60075442B /* NCNotificationCenter.h */,
 				61E01FA2130A00E60075442B /* NCNotificationCenter.m */,
 				6108EFB2130E56F20072CA89 /* NCViewController.h */,
 				6108EFB3130E56F20072CA89 /* NCViewController.m */,
+				6108EFB7130E57040072CA89 /* NCApplicationView.h */,
+				6108EFB8130E57040072CA89 /* NCApplicationView.m */,
+				6108EFBC130E570D0072CA89 /* NCNotificationView.h */,
+				6108EFBD130E570D0072CA89 /* NCNotificationView.m */,
+				6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */,
+				6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
