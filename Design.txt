@@ -25,11 +25,11 @@
  
 .1     - notify:(NCNotification *)notification
        
- 1     - showNotificationPaneForApps:(NSArray *)apps
+ 1     - showNotificationPane
        
-       - showNotificationPaneWithFirstApp:(NCApplication *)app
+       - sortApplicationToTopOfNotificationPane:(NSApplication *)application
        
-       - showNotificationBubbleWithNotifications:(NCApplication *)notifications
+       - showNotificationBubbleWithNotifications:(NSArray *)notifications
        
        - notificationHovered:(id)sender
        
@@ -45,15 +45,10 @@
            forNotification:(NCNotification *)notification
              // Hides all other input forms for containing notification
 
- 1   * NCNotificationPane
- 1     - showWithApplicationViews:(NSArray *)applicationViews
+ 1   * NotificationPane (Javascript client)
+ 1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
-       - showBubbleWithApplicationViews:(NSArray *)applicationViews
-           forTime:(NSNumber *)milliseconds
-
-       - hide
-       
- 1   * NCNotificationCenter (singleton)
+.1   * NCNotificationCenter (singleton)
 .1     ~ (NSMutableDictionary *)applications
 .1           // Indexed by application ID
 .1     ~ (NSMutableDictionary *)notifications
@@ -73,18 +68,6 @@
        - submitForm:(NCInputForm *)inputForm
            submitButtonID:(NSString *)id
        
- 1   * NCViewController (singleton)
- 1     ~ (NSArrayController *)applicationViews
-      
- 1     - notify:(NCNotification *)notification
-     
-.1   * NCApplicationView
-.1     ~ (NCApplication *)application
-.1     ~ (NSArrayController *)notificationViews
-
-.1   * NCNotificationView
-.1     ~ (NCNotification *)notification
-
 
    Shared Classes
 .1   * NCNotification
@@ -92,17 +75,17 @@
 .1     ~ (NCApplication *)fromApp
 .1     ~ (NSString *)title
 .1     ~ (NSString *)textContent
-       ~ (NSView *)customContent
-       ~ (NSImage *)icon
-       ~ (NCInputForm *)inputForm
+       ~ (NSString *)htmlContent
+       ~ (NSString *)iconPath
+       ~ (NSString *)htmlInput
        ~ (id)callbackObject
        ~ (selector)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
 .1         textContent:(NSString *)textContent
-           customContent:(NSView *)customContent (^)
-           icon:(NSImage *)icon (^)
-           inputForm:(NCInputForm *)inputForm (^)
+           htmlContent:(NSString *)htmlContent (^)
+           iconPath:(NSString *)iconPath (^)
+           htmlInput:(NSString *)htmlInput (^)
            type:(NCNotificationType)type
            expires:(NSDate *)date
            
@@ -111,22 +94,23 @@
              // The selector is called with (NCEvent *)event
          
        + textNotificationWithTitle:(NSString *)title
-           message:(NSString *)message
-           icon:(NSImage *)icon (^)
-           inputForm:(NCInputForm *)inputForm (^)
+           textContent:(NSString *)textContent
+           iconPath:(NSString *)iconPath (^)
+           htmlInput:(NSString *)htmlInput (^)
            type:(NCNotificationType)type
            expires:(NSDate *)date
            
        + customNotificationWithTitle:(NSString *)title
-           content:(NSView *)content
-           icon:(NSImage *)icon (^)
-           inputForm:(NCInputForm *)inputForm (^)
+           htmlContent:(NSString *)htmlContent (^)
+           iconPath:(NSString *)iconPath (^)
+           htmlInput:(NSString *)htmlInput (^)
            type:(NCNotificationType)type
            expires:(NSDate *)date
          
 .1   * NCApplication
 .1     ~ (NSString *)id
 .1     ~ (NSString *)name
+       ~ (NSString *)iconPath
 .1     
 .1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
 
@@ -139,30 +123,3 @@
        # READ
        # CLEARED
        # INPUT_SUBMIT
-       
-     * NCButton
-       ~ (NSString *)id
-       ~ (NSButton *)button
-       ~ (NCButtonType)type
-       ~ (BOOL)hideFormOnClick
-
-     * NCButtonType
-       # SUBMIT
-       # SHOW_FORM
-       
-     * NCInputForm
-       ~ (NSMutableArray *)elements
-       
-       - notifyOnSubmit:(id)callbackObject
-           withSelector:(selector)callbackSelector
-             // The selector is called with (NSArray *)formData
-        
-       - addInputTextField:(NSTextField *)textField
-           id:(NSString *)id
-
-       - addSubmitButton:(NSButton *)button
-           id:(NSString *)id
-           hideFormOnClick:(BOOL)hideForm
-       
-       - addSubForm:(NCInputForm *)form
-           showOnButtonClick:(NSButton *)button
