@@ -7,27 +7,24 @@
 	<title>Nounce Notification Pane</title>
 	<link rel="stylesheet" type="text/css" href="default.css" />
 	
-	<script type="text/javascript">
-		function testFunction() {
-			window.AppController.NPLog_("test function called");
-		}
-	</script>
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="client.js"></script>
 </head>
 
 <body>
 
-<h1 id="contentTitle">Some kind of title</h1>
-
-<div id="main_content">
-
-    <p>Some content</p>
-    
-    <p>Some more content</p>
-
+<div id="applications">
 </div>
 
-<div>
-    <input id="message_button" type="button" value="Show Message" onClick="window.AppController.NPLog_('button clicked');" />
+<div id="molds">
+	<div class="application-mold">
+		<div class="name"></div>
+		<div class="notifications"></div>
+	</div>
+	<div class="notification-mold">
+		<div class="title"></div>
+		<div class="content"></div>
+	</div>
 </div>
 
 </body>

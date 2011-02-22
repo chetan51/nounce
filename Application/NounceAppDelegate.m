@@ -84,6 +84,22 @@
 {
 	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
 	[notificationCenter notify:notification];
+	[self NPNotify:notification];
+}
+
+
+/* Notification pane functions */
+
+- (void) NPNotify:(NCNotification *)notification
+{
+	NSArray *args = [NSArray arrayWithObjects:
+					 [notification ID],
+					 [notification title],
+					 [notification textContent],
+					 [[notification fromApp] ID],
+					 [[notification fromApp] name],
+					 nil];
+	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
 }
 
 

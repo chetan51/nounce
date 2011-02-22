@@ -25,4 +25,8 @@
 - (void) listen;
 - (void) notify:(NCNotification *)notification;
 
+- (void) NPNotify:(NCNotification *)notification;
+
+- (void)NPLog:(NSString *)message;
+
 @end

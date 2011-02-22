@@ -1,4 +1,8 @@
 body {
-	color: white;
-    padding: 20px;
+	color: #fff;
+    padding: 10px;
+}
+
+#molds {
+	display: none;
 }
