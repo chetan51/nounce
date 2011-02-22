@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Nounce Notification Pane</title>
+	<link rel="stylesheet" type="text/css" href="default.css" />
+	
+	<script type="text/javascript">
+		function testFunction() {
+			window.AppController.NPLog_("test function called");
+		}
+	</script>
+</head>
+
+<body>
+
+<h1 id="contentTitle">Some kind of title</h1>
+
+<div id="main_content">
+
+    <p>Some content</p>
+    
+    <p>Some more content</p>
+
+</div>
+
+<div>
+    <input id="message_button" type="button" value="Show Message" onClick="window.AppController.NPLog_('button clicked');" />
+</div>
+
+</body>
+
+</html>

@@ -13,14 +13,56 @@
 
 @synthesize window;
 
+/* App loading and unloading */
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
 	
-	viewController = [[NCViewController alloc] init];
-	
 	[self listen];
 }
+
+- (void) awakeFromNib
+{
+	[self setupNotificationPane];
+}
+
+- (void) setupNotificationPane
+{
+	// Set up the delegate of the notificationPane for relevant events
+    [notificationPane setDrawsBackground:NO];
+    [notificationPane setUIDelegate:self];
+    [notificationPane setFrameLoadDelegate:self];
+    
+    // Configure notificationPane to let JavaScript talk to this object
+    [[notificationPane windowScriptObject] setValue:self forKey:@"AppController"];
+	
+    /*
+     Notes: 
+	 1. In JavaScript, you can now talk to this object using "window.AppController".
+     
+	 2. You must explicitly allow methods to be called from JavaScript;
+	 See the +isSelectorExcludedFromWebScript: method below for an example.
+     
+	 3. The method on this class which we call from JavaScript is -showMessage:
+	 To call it from JavaScript, we use window.AppController.showMessage_()  <-- NOTE colon becomes underscore!
+	 For more on method-name translation, see:
+	 http://developer.apple.com/documentation/AppleApplications/Conceptual/SafariJSProgTopics/Tasks/ObjCFromJavaScript.html#
+     */
+    
+    // Load the HTML content
+    NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
+    NSString *htmlPath = [resourcesPath stringByAppendingString:@"/index.html"];
+    [[notificationPane mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
+}
+
+- (void) dealloc
+{
+	[super dealloc];
+}
+
+
+/* Listening and responding to notifications */
 
 - (void) listen
 {
@@ -42,13 +84,40 @@
 {
 	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
 	[notificationCenter notify:notification];
-	[viewController notify:notification];
 }
 
-- (void) dealloc
+
+/* Notification pane event handlers */
+
+- (void)NPLog:(NSString *)message
 {
-	[viewController release];
-	[super dealloc];
+	NSLog(@"%@", message);
+}
+
+
+/* WebView initialization */
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+	// Test Javascript function calling
+	[[notificationPane windowScriptObject] evaluateWebScript:@"testFunction()"];
+}
+
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element 
+    defaultMenuItems:(NSArray *)defaultMenuItems
+{
+    return nil; // disable contextual menu for the webView
+}
+
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector
+{
+	/*
+    if (aSelector == @selector(showMessage:)) {
+        return NO;
+    }
+	*/
+
+	return NO; // for development
 }
 
 @end

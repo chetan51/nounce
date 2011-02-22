@@ -7,18 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 #import <Nounce/NCNotification.h>
 #import "NCNotificationCenter.h"
-#import "NCViewController.h"
 
 @interface NounceAppDelegate : NSObject <NSApplicationDelegate> {
 	NCNotificationCenter *notificationCenter;
-	NCViewController *viewController;
 	
     NSWindow *window;
+	IBOutlet WebView *notificationPane;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+
+- (void) setupNotificationPane;
 
 - (void) listen;
 - (void) notify:(NCNotification *)notification;
