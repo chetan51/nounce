@@ -11,13 +11,9 @@
 
 @implementation NCViewController
 
-- (void) setApplicationViews:(NSArrayController *)appViews
-{
-	applicationViews = appViews;
-}
-
 - (void)notify:(NCNotification *)notification
 {
+/*
 	NCApplicationView *appView;
 	NCNotificationView *notificationView;
 	BOOL appFound = NO;
@@ -51,6 +47,7 @@
 		[notificationView setNotification:notification];
 		[[appView notifications] addObject:notificationView];
 	}
+*/
 }
 
 @end

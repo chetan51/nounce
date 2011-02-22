@@ -7,8 +7,6 @@
 //
 
 #import "NounceAppDelegate.h"
-#import "NCApplicationView.h"
-#import "NCNotificationView.h"
 
 
 @implementation NounceAppDelegate
@@ -20,7 +18,6 @@
 	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
 	
 	viewController = [[NCViewController alloc] init];
-	[viewController setApplicationViews:applicationViews];
 	
 	[self listen];
 }

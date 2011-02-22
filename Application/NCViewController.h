@@ -7,16 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NCApplicationView.h"
-#import "NCNotificationView.h"
 #import "Nounce/NCNotification.h"
 
 
 @interface NCViewController : NSObject {
-	NSArrayController *applicationViews;
+	
 }
 
-- (void) setApplicationViews:(NSArrayController *)appViews;
 - (void) notify:(NCNotification *)notification;
 
 @end

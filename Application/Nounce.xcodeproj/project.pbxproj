@@ -9,14 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NounceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NounceAppDelegate.m */; };
-		6108EC3A130CAEA00072CA89 /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EC39130CAEA00072CA89 /* ImageAndTextCell.m */; };
-		6108EFAE130E56AA0072CA89 /* ApplicationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6108EFAD130E56AA0072CA89 /* ApplicationView.xib */; };
 		6108EFB4130E56F20072CA89 /* NCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFB3130E56F20072CA89 /* NCViewController.m */; };
-		6108EFB9130E57040072CA89 /* NCApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFB8130E57040072CA89 /* NCApplicationView.m */; };
-		6108EFBE130E570D0072CA89 /* NCNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFBD130E570D0072CA89 /* NCNotificationView.m */; };
-		6108EFC3130E572C0072CA89 /* NCApplicationCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */; };
-		6108F103130E664A0072CA89 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6108F102130E664A0072CA89 /* NotificationView.xib */; };
-		61DAE1B0131231C200DA922C /* NCNotificationCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DAE1AF131231C200DA922C /* NCNotificationCollectionViewItem.m */; };
 		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01D4A13088AB10075442B /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4613088AB10075442B /* RoundedView.m */; };
@@ -51,20 +44,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		6108EC38130CAEA00072CA89 /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
-		6108EC39130CAEA00072CA89 /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
-		6108EFAD130E56AA0072CA89 /* ApplicationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplicationView.xib; sourceTree = "<group>"; };
 		6108EFB2130E56F20072CA89 /* NCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCViewController.h; sourceTree = "<group>"; };
 		6108EFB3130E56F20072CA89 /* NCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCViewController.m; sourceTree = "<group>"; };
-		6108EFB7130E57040072CA89 /* NCApplicationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplicationView.h; sourceTree = "<group>"; };
-		6108EFB8130E57040072CA89 /* NCApplicationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplicationView.m; sourceTree = "<group>"; };
-		6108EFBC130E570D0072CA89 /* NCNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationView.h; sourceTree = "<group>"; };
-		6108EFBD130E570D0072CA89 /* NCNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationView.m; sourceTree = "<group>"; };
-		6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplicationCollectionViewItem.h; sourceTree = "<group>"; };
-		6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplicationCollectionViewItem.m; sourceTree = "<group>"; };
-		6108F102130E664A0072CA89 /* NotificationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
-		61DAE1AE131231C200DA922C /* NCNotificationCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationCollectionViewItem.h; sourceTree = "<group>"; };
-		61DAE1AF131231C200DA922C /* NCNotificationCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationCollectionViewItem.m; sourceTree = "<group>"; };
 		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01D4613088AB10075442B /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		61E01D4713088AB10075442B /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
@@ -98,14 +79,6 @@
 				61E01FA2130A00E60075442B /* NCNotificationCenter.m */,
 				6108EFB2130E56F20072CA89 /* NCViewController.h */,
 				6108EFB3130E56F20072CA89 /* NCViewController.m */,
-				6108EFB7130E57040072CA89 /* NCApplicationView.h */,
-				6108EFB8130E57040072CA89 /* NCApplicationView.m */,
-				6108EFBC130E570D0072CA89 /* NCNotificationView.h */,
-				6108EFBD130E570D0072CA89 /* NCNotificationView.m */,
-				6108EFC1130E572C0072CA89 /* NCApplicationCollectionViewItem.h */,
-				6108EFC2130E572C0072CA89 /* NCApplicationCollectionViewItem.m */,
-				61DAE1AE131231C200DA922C /* NCNotificationCollectionViewItem.h */,
-				61DAE1AF131231C200DA922C /* NCNotificationCollectionViewItem.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -163,8 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* Nounce-Info.plist */,
-				6108F102130E664A0072CA89 /* NotificationView.xib */,
-				6108EFAD130E56AA0072CA89 /* ApplicationView.xib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 			);
@@ -183,8 +154,6 @@
 		61E01D4513088A9C0075442B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6108EC38130CAEA00072CA89 /* ImageAndTextCell.h */,
-				6108EC39130CAEA00072CA89 /* ImageAndTextCell.m */,
 				61E01D4613088AB10075442B /* RoundedView.m */,
 				61E01D4713088AB10075442B /* RoundedView.h */,
 				61E01D4813088AB10075442B /* TransparentWindow.m */,
@@ -246,8 +215,6 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				6108EFAE130E56AA0072CA89 /* ApplicationView.xib in Resources */,
-				6108F103130E664A0072CA89 /* NotificationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,12 +230,7 @@
 				61E01D4A13088AB10075442B /* RoundedView.m in Sources */,
 				61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */,
 				61E01FA3130A00E60075442B /* NCNotificationCenter.m in Sources */,
-				6108EC3A130CAEA00072CA89 /* ImageAndTextCell.m in Sources */,
 				6108EFB4130E56F20072CA89 /* NCViewController.m in Sources */,
-				6108EFB9130E57040072CA89 /* NCApplicationView.m in Sources */,
-				6108EFBE130E570D0072CA89 /* NCNotificationView.m in Sources */,
-				6108EFC3130E572C0072CA89 /* NCApplicationCollectionViewItem.m in Sources */,
-				61DAE1B0131231C200DA922C /* NCNotificationCollectionViewItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,6 @@
 	NCViewController *viewController;
 	
     NSWindow *window;
-	IBOutlet NSArrayController *applicationViews;
 }
 
 @property (assign) IBOutlet NSWindow *window;
