@@ -26,11 +26,9 @@ function setApplicationView (applicationView) {
  */
 
 $(document).ready(function() {
-	/* Testing
 	notify("0", "test notification", "testing ...", "TestApp", "Test Application");
 	notify("1", "test notification 2", "testing again ...", "TestApp", "Test Application");
 	notify("0", "test notification 3", "testing again 2 ...", "TestApp2", "Test Application 2");
-	*/
 });
 
 /*
