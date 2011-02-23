@@ -16,7 +16,6 @@
 		6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E613147F5D000437CD /* jquery-1.4.2.min.js */; };
 		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
-		61E01D4A13088AB10075442B /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4613088AB10075442B /* RoundedView.m */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
 		61E01FA3130A00E60075442B /* NCNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01FA2130A00E60075442B /* NCNotificationCenter.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -54,8 +53,6 @@
 		614331E513147F5D000437CD /* client.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = client.js; path = HTML/client.js; sourceTree = "<group>"; };
 		614331E613147F5D000437CD /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.4.2.min.js"; path = "HTML/jquery-1.4.2.min.js"; sourceTree = "<group>"; };
 		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
-		61E01D4613088AB10075442B /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
-		61E01D4713088AB10075442B /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
 		61E01FA1130A00E60075442B /* NCNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationCenter.h; sourceTree = "<group>"; };
@@ -121,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				614330971313745E000437CD /* HTML */,
-				61E01D4513088A9C0075442B /* Views */,
+				61E01D4513088A9C0075442B /* Custom Views */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -170,15 +167,13 @@
 			name = HTML;
 			sourceTree = "<group>";
 		};
-		61E01D4513088A9C0075442B /* Views */ = {
+		61E01D4513088A9C0075442B /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				61E01D4613088AB10075442B /* RoundedView.m */,
-				61E01D4713088AB10075442B /* RoundedView.h */,
 				61E01D4813088AB10075442B /* TransparentWindow.m */,
 				61E01D4913088AB10075442B /* TransparentWindow.h */,
 			);
-			name = Views;
+			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +245,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* NounceAppDelegate.m in Sources */,
-				61E01D4A13088AB10075442B /* RoundedView.m in Sources */,
 				61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */,
 				61E01FA3130A00E60075442B /* NCNotificationCenter.m in Sources */,
 			);
