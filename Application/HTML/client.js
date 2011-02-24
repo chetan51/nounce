@@ -45,8 +45,9 @@ function notify (notificationID, notificationTitle, notificationContent, fromApp
 	if (!applicationView) {
 		applicationView = new ApplicationView(fromAppID, fromAppName);
 		setApplicationView(applicationView);
-		applicationViews[fromAppID].setNotification(notificationView);
 	}
+	
+	applicationViews[fromAppID].setNotification(notificationView);
 
 	applicationView.updateDisplay();
 	notificationView.updateDisplay();
@@ -76,6 +77,12 @@ var ApplicationView = function (ID, name)
 	
 	self.setNotification = function (notification)
 	{
+		var existingNotification = self.notifications[notification.ID];
+		
+		if (existingNotification) {
+			notification.display = existingNotification.display;
+		}
+		
 		self.notifications[notification.ID] = notification;
 	}
 	
