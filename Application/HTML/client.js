@@ -49,6 +49,7 @@ function notify (notificationID, notificationTitle, notificationContent, fromApp
 	
 	applicationViews[fromAppID].setNotification(notificationView);
 
+	getApplicationsDiv().show();
 	applicationView.updateDisplay();
 	notificationView.updateDisplay();
 }
