@@ -11,7 +11,7 @@
 
 @implementation NounceAppDelegate
 
-@synthesize window;
+@synthesize notificationWindow;
 
 /* App loading and unloading */
 
@@ -24,7 +24,24 @@
 
 - (void) awakeFromNib
 {
+	[self setupNotificationWindow];
 	[self setupNotificationPane];
+}
+
+- (void) setupNotificationWindow
+{
+	NSRect screenRect = [[NSScreen mainScreen] frame];
+	NSRect windowRect = [notificationWindow frame];
+	
+	// Stretch window fully vertically, minus the system menu bar
+	windowRect.size.height = screenRect.size.height - 20;
+	
+	// Place window on top right of the screen
+	windowRect.origin.y = 0;
+	
+	[notificationWindow setFrame:windowRect display:YES];
+	
+	[notificationWindow orderFront:nil];
 }
 
 - (void) setupNotificationPane

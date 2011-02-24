@@ -14,12 +14,13 @@
 @interface NounceAppDelegate : NSObject <NSApplicationDelegate> {
 	NCNotificationCenter *notificationCenter;
 	
-    NSWindow *window;
+    NSWindow *notificationWindow;
 	IBOutlet WebView *notificationPane;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow *notificationWindow;
 
+- (void) setupNotificationWindow;
 - (void) setupNotificationPane;
 
 - (void) listen;
