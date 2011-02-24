@@ -1,10 +1,15 @@
 body {
 	padding: 0px;
-	background: rgba(0, 0, 0, 0.7);
 }
 
 #molds {
 	display: none;
+}
+
+#applications {
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 10px;
+	padding: 10px;
 }
 
 #applications > .application > .name {
