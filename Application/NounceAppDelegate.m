@@ -26,6 +26,7 @@
 {
 	[self setupNotificationWindow];
 	[self setupNotificationPane];
+	[self setupNotificationStatus];
 }
 
 - (void) setupNotificationWindow
@@ -71,6 +72,29 @@
     NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
     NSString *htmlPath = [resourcesPath stringByAppendingString:@"/index.html"];
     [[notificationPane mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
+}
+
+- (void) setupNotificationStatus
+{
+	// Create notification status WebView
+    float width = 100.0;
+    float height = [[NSStatusBar systemStatusBar] thickness];
+    NSRect viewFrame = NSMakeRect(0, 0, width, height);
+	notificationStatus = [[[WebView alloc] initWithFrame:viewFrame frameName:@"NCNotificationStatus" groupName:@"NCNotificationUI"] autorelease];
+	[[[notificationStatus mainFrame] frameView] setAllowsScrolling:NO];
+	
+	// Set up the delegate of the notificationStatus for relevant events
+    [notificationStatus setDrawsBackground:NO];
+    [notificationStatus setUIDelegate:self];
+    [notificationStatus setFrameLoadDelegate:self];
+	
+	// Configure notificationPane to let JavaScript talk to this object
+    [[notificationStatus windowScriptObject] setValue:self forKey:@"AppController"];
+	
+    // Load the HTML content
+    NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
+    NSString *htmlPath = [resourcesPath stringByAppendingString:@"/status.html"];
+    [[notificationStatus mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
 }
 
 - (void) dealloc
@@ -132,8 +156,16 @@
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-	// Test Javascript function calling
-	[[notificationPane windowScriptObject] evaluateWebScript:@"testFunction()"];
+	if (sender == notificationPane) {
+		// Test Javascript function calling
+		[[notificationPane windowScriptObject] evaluateWebScript:@"testFunction()"];
+	}
+	else if (sender == notificationStatus) {
+		// Add to system status bar
+		float width = 100.0;
+		statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];
+		[statusItem setView:notificationStatus];
+	}
 }
 
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element 

@@ -16,12 +16,16 @@
 	
     NSWindow *notificationWindow;
 	IBOutlet WebView *notificationPane;
+	
+    NSStatusItem *statusItem;
+	IBOutlet WebView *notificationStatus;
 }
 
 @property (assign) IBOutlet NSWindow *notificationWindow;
 
 - (void) setupNotificationWindow;
 - (void) setupNotificationPane;
+- (void) setupNotificationStatus;
 
 - (void) listen;
 - (void) notify:(NCNotification *)notification;

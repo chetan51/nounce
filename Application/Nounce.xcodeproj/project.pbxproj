@@ -14,6 +14,8 @@
 		614330C2131375DB000437CD /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = 614330C1131375DB000437CD /* default.css */; };
 		6143320413148008000437CD /* client.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E513147F5D000437CD /* client.js */; };
 		6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E613147F5D000437CD /* jquery-1.4.2.min.js */; };
+		6143345D1317843B000437CD /* status.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143345C1317843A000437CD /* status.html */; };
+		6143349313178812000437CD /* status.css in Resources */ = {isa = PBXBuildFile; fileRef = 6143349213178812000437CD /* status.css */; };
 		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
@@ -52,6 +54,8 @@
 		614330C1131375DB000437CD /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = HTML/default.css; sourceTree = "<group>"; };
 		614331E513147F5D000437CD /* client.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = client.js; path = HTML/client.js; sourceTree = "<group>"; };
 		614331E613147F5D000437CD /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.4.2.min.js"; path = "HTML/jquery-1.4.2.min.js"; sourceTree = "<group>"; };
+		6143345C1317843A000437CD /* status.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = status.html; path = HTML/status.html; sourceTree = "<group>"; };
+		6143349213178812000437CD /* status.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = status.css; path = HTML/status.css; sourceTree = "<group>"; };
 		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 			children = (
 				6143309B13137483000437CD /* index.html */,
 				614330C1131375DB000437CD /* default.css */,
+				6143345C1317843A000437CD /* status.html */,
+				6143349213178812000437CD /* status.css */,
 				614331E513147F5D000437CD /* client.js */,
 				614331E613147F5D000437CD /* jquery-1.4.2.min.js */,
 			);
@@ -231,6 +237,8 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				6143309C13137483000437CD /* index.html in Resources */,
 				614330C2131375DB000437CD /* default.css in Resources */,
+				6143345D1317843B000437CD /* status.html in Resources */,
+				6143349313178812000437CD /* status.css in Resources */,
 				6143320413148008000437CD /* client.js in Resources */,
 				6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */,
 			);
