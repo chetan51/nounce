@@ -8,6 +8,8 @@
 
 #import "NounceAppDelegate.h"
 
+#define DEFAULTSTATUSITEMLENGTH 100.0
+
 
 @implementation NounceAppDelegate
 
@@ -77,7 +79,7 @@
 - (void) setupNotificationStatus
 {
 	// Create notification status WebView
-    float width = 100.0;
+    float width = DEFAULTSTATUSITEMLENGTH;
     float height = [[NSStatusBar systemStatusBar] thickness];
     NSRect viewFrame = NSMakeRect(0, 0, width, height);
 	notificationStatus = [[[WebView alloc] initWithFrame:viewFrame frameName:@"NCNotificationStatus" groupName:@"NCNotificationUI"] autorelease];
@@ -162,7 +164,7 @@
 	}
 	else if (sender == notificationStatus) {
 		// Add to system status bar
-		float width = 100.0;
+		float width = DEFAULTSTATUSITEMLENGTH;
 		statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];
 		[statusItem setView:notificationStatus];
 	}
