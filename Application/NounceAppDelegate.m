@@ -70,7 +70,7 @@
     
     // Load the HTML content
     NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
-    NSString *htmlPath = [resourcesPath stringByAppendingString:@"/index.html"];
+    NSString *htmlPath = [resourcesPath stringByAppendingString:@"/NotificationPane.html"];
     [[notificationPane mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
 }
 
@@ -93,7 +93,7 @@
 	
     // Load the HTML content
     NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
-    NSString *htmlPath = [resourcesPath stringByAppendingString:@"/status.html"];
+    NSString *htmlPath = [resourcesPath stringByAppendingString:@"/NotificationStatus.html"];
     [[notificationStatus mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
 }
 
