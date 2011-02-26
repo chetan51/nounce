@@ -127,13 +127,13 @@
 {
 	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
 	[notificationCenter notify:notification];
-	[self NPNotify:notification];
+	[self UINotify:notification];
 }
 
 
-/* Notification pane functions */
+/* UI functions */
 
-- (void) NPNotify:(NCNotification *)notification
+- (void) UINotify:(NCNotification *)notification
 {
 	NSArray *args = [NSArray arrayWithObjects:
 					 [notification ID],
@@ -145,18 +145,7 @@
 	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
 }
 
-
-/* Notification pane event handlers */
-
-- (void)NPLog:(NSString *)message
-{
-	NSLog(@"%@", message);
-}
-
-
-/* Notification status event handlers */
-
-- (void) NCNSShowNotificationPane
+- (void) UIShowNotifications
 {
 	[NSApp activateIgnoringOtherApps:YES]; // allows windows of this app to become front
 	[notificationWindow setAlphaValue:0.0];
@@ -164,10 +153,28 @@
     [[notificationWindow animator] setAlphaValue:1.0];
 }
 
-- (void) NCNSHideNotificationPane
+- (void) UIHideNotifications
 {
 	[NSApp hide:nil]; // give focus back to previous app
 	[notificationWindow orderOut:nil];
+}
+
+
+/* Notification pane / status indicator event handlers */
+
+- (void)NCLog:(NSString *)message
+{
+	NSLog(@"%@", message);
+}
+
+- (void) NCShowGeneralNotificationsClicked
+{
+	[self UIShowNotifications];
+}
+
+- (void) NCHideGeneralNotificationsClicked
+{
+	[self UIHideNotifications];
 }
 
 

@@ -43,10 +43,10 @@ $(document).ready(function() {
 function clickedApplicationsDiv(e)
 {
 	if (!notificationPaneVisible) {
-		window.AppController.NCNSShowNotificationPane();
+		window.AppController.NCShowGeneralNotificationsClicked();
 	}
 	else {
-		window.AppController.NCNSHideNotificationPane();
+		window.AppController.NCHideGeneralNotificationsClicked();
 	}
 	
 	notificationPaneVisible = !notificationPaneVisible;

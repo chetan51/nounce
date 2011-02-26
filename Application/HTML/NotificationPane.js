@@ -39,7 +39,7 @@ $(document).ready(function() {
  */
 
 function hoveredApplicationsDiv(e) {
-	window.AppController.NPLog_("hovered over applications div");
+	window.AppController.NCLog_("hovered over applications div");
 }
 
 function notify (notificationID, notificationTitle, notificationContent, fromAppID, fromAppName)
