@@ -166,6 +166,7 @@
 
 - (void) NCNSHideNotificationPane
 {
+	[NSApp hide:nil]; // give focus back to previous app
 	[notificationWindow orderOut:nil];
 }
 
