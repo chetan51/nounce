@@ -60,6 +60,7 @@
     [notificationPane setDrawsBackground:NO];
     [notificationPane setUIDelegate:self];
     [notificationPane setFrameLoadDelegate:self];
+	[notificationPane setEditingDelegate:self];
     
     // Configure notificationPane to let JavaScript talk to this object
     [[notificationPane windowScriptObject] setValue:self forKey:@"AppController"];
@@ -96,6 +97,7 @@
     [notificationStatus setDrawsBackground:NO];
     [notificationStatus setUIDelegate:self];
     [notificationStatus setFrameLoadDelegate:self];
+	[notificationStatus setEditingDelegate:self];
 	
 	// Configure notificationPane to let JavaScript talk to this object
     [[notificationStatus windowScriptObject] setValue:self forKey:@"AppController"];
@@ -209,7 +211,20 @@
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element 
     defaultMenuItems:(NSArray *)defaultMenuItems
 {
-    return nil; // disable contextual menu for the webView
+    return nil; // disable contextual menu
+}
+
+- (BOOL)webView:(WebView *)webView shouldChangeSelectedDOMRange:(DOMRange *)currentRange 
+	 toDOMRange:(DOMRange *)proposedRange 
+	   affinity:(NSSelectionAffinity)selectionAffinity 
+ stillSelecting:(BOOL)flag
+{
+	if (webView == notificationStatus) {
+		return NO; // disable text selection
+	}
+	else {
+		return YES;
+	}
 }
 
 + (BOOL)isSelectorExcludedFromWebScript:(SEL)aSelector
