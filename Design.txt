@@ -91,7 +91,7 @@
            group:(NSString *)group (^)
            groupIcon:(NCIcon *)groupIcon (^)
            notificationIcon:(NCIcon *)notificationIcon (^)
-           input:(NSString *)input (^)
+           input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
        - notifyOnEvent:(id)callbackObject
