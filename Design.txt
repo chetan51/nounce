@@ -43,7 +43,7 @@
        
        - NCNotificationButtonClicked:(id)sender
 
- 1   * NotificationPane (Javascript client)
+ 1   * NotificationPane, NotificationStatus (shared Javascript client)
  1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
 .1   * NCNotificationCenter (singleton)
