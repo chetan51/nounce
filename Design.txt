@@ -81,6 +81,7 @@
 	     // Note: If more than one notifications of the same group are submitted by the same app, the group icon of the latest one will be used in the notification status area
        ~ (NCIcon *)notificationIcon
        ~ (NSString *)input
+       ~ (NSDate *)expires
        ~ (id)callbackObject
        ~ (selector)callbackSelector
 
