@@ -45,6 +45,13 @@
 	windowRect.origin.y = 0;
 	
 	[notificationWindow setFrame:windowRect display:YES];
+	
+	// Listen for focus gained / lost events (make this user-configurable)
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(UIHideGeneralNotifications)
+	 name:NSWindowDidResignKeyNotification
+	 object:notificationWindow];
 }
 
 - (void) setupNotificationPane

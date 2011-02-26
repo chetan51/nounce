@@ -58,8 +58,6 @@ function clickedApplicationsDiv(e)
 	else {
 		window.AppController.NCHideGeneralNotificationsClicked();
 	}
-	
-	notificationPaneVisible = !notificationPaneVisible;
 }
 
 /*
@@ -69,9 +67,11 @@ function clickedApplicationsDiv(e)
 function UIShowGeneralNotifications()
 {
 	selectApplicationsDiv();
+	notificationPaneVisible = true;
 }
 
 function UIHideGeneralNotifications()
 {
 	unselectApplicationsDiv();
+	notificationPaneVisible = false;
 }
