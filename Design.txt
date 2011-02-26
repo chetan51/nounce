@@ -25,25 +25,23 @@
  
 .1     - notify:(NCNotification *)notification
        
- 1     - showNotificationPane
-       
-       - sortApplicationToTopOfNotificationPane:(NSApplication *)application
-       
-       - showNotificationBubbleWithNotifications:(NSArray *)notifications
-       
-       - notificationHovered:(id)sender
-       
-       - notificationClicked:(id)sender
-       
-       - notificationClearClicked:(id)sender
-       
-       - notificationButtonClicked:(id)sender
-       
        - clearNotification:(NCNotification *)notification
        
-       - showInputForm:(NCInputForm *)inputForm
-           forNotification:(NCNotification *)notification
-             // Hides all other input forms for containing notification
+.1     - UIShowNotificationPane
+
+.1     - UIHideNotificationPane
+       
+       - UISortApplicationToTopOfNotificationPane:(NSApplication *)application
+       
+       - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
+       
+       - NCNotificationHovered:(id)sender
+       
+       - NCNotificationClicked:(id)sender
+       
+       - NCNotificationClearClicked:(id)sender
+       
+       - NCNotificationButtonClicked:(id)sender
 
  1   * NotificationPane (Javascript client)
  1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
