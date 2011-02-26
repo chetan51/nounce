@@ -46,7 +46,7 @@
 	
 	[notificationWindow setFrame:windowRect display:YES];
 	
-	// Listen for focus gained / lost events (make this user-configurable)
+	// Listen for focus gained / lost events (TODO: make this user-configurable)
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(UIHideGeneralNotifications)

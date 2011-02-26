@@ -23,7 +23,7 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 	}
 	[appNotifications setObject:notification forKey:[notification ID]];
 	[notifications setObject:appNotifications forKey:[[notification fromApp] ID]];
-	[appNotifications release]; // bad line
+	[appNotifications release]; // TODO: Fix this bad line
 }
 
 /* Singleton stuff */
