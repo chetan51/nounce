@@ -145,18 +145,22 @@
 	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
 }
 
-- (void) UIShowNotifications
+- (void) UIShowGeneralNotifications
 {
 	[NSApp activateIgnoringOtherApps:YES]; // allows windows of this app to become front
 	[notificationWindow setAlphaValue:0.0];
 	[notificationWindow makeKeyAndOrderFront:nil];
     [[notificationWindow animator] setAlphaValue:1.0];
+	
+	[[notificationStatus windowScriptObject] callWebScriptMethod:@"UIShowGeneralNotifications" withArguments:nil];
 }
 
-- (void) UIHideNotifications
+- (void) UIHideGeneralNotifications
 {
 	[NSApp hide:nil]; // give focus back to previous app
 	[notificationWindow orderOut:nil];
+	
+	[[notificationStatus windowScriptObject] callWebScriptMethod:@"UIHideGeneralNotifications" withArguments:nil];
 }
 
 
@@ -169,12 +173,12 @@
 
 - (void) NCShowGeneralNotificationsClicked
 {
-	[self UIShowNotifications];
+	[self UIShowGeneralNotifications];
 }
 
 - (void) NCHideGeneralNotificationsClicked
 {
-	[self UIHideNotifications];
+	[self UIHideGeneralNotifications];
 }
 
 

@@ -36,6 +36,16 @@ $(document).ready(function() {
  * Functions
  */
 
+function selectApplicationsDiv()
+{
+	getApplicationsDiv().removeClass("default").addClass("selected");	
+}
+
+function unselectApplicationsDiv()
+{
+	getApplicationsDiv().removeClass("selected").addClass("default");	
+}
+
 /*
  * Event listeners
  */
@@ -50,4 +60,18 @@ function clickedApplicationsDiv(e)
 	}
 	
 	notificationPaneVisible = !notificationPaneVisible;
+}
+
+/*
+ * AppController event listeners
+ */
+
+function UIShowGeneralNotifications()
+{
+	selectApplicationsDiv();
+}
+
+function UIHideGeneralNotifications()
+{
+	unselectApplicationsDiv();
 }

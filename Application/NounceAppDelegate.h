@@ -31,7 +31,7 @@
 - (void) notify:(NCNotification *)notification;
 
 - (void) UINotify:(NCNotification *)notification;
-- (void) UIShowNotifications;
-- (void) UIHideNotifications;
+- (void) UIShowGeneralNotifications;
+- (void) UIHideGeneralNotifications;
 
 @end
