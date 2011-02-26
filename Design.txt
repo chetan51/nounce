@@ -101,7 +101,7 @@
 .1   * NCApplication
 .1     ~ (NSString *)id
 .1     ~ (NSString *)name
-       ~ (NSString *)iconPath
+       ~ (NCIcon *)icon
 .1     
 .1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
 
