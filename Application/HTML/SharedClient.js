@@ -22,6 +22,19 @@ function setApplicationView (applicationView) {
 	applicationViews[applicationView.ID] = applicationView;
 }
 
+function getTotalApplicationViews () {
+	return applicationViews.length;
+}
+
+function getTotalNotificationViews () {
+	var totalNotificationViews = 0;
+	for (var a in applicationViews) {
+		var applicationView = applicationViews[a];
+		totalNotificationViews += applicationView.getTotalNotifications();
+	}
+	return totalNotificationViews;
+}
+
 /*
  * DOM accessors
  */
@@ -41,6 +54,21 @@ function getNotificationIconsDiv()
 	return $("#notification-icons");
 }
 
+function getNotificationCounterDiv()
+{
+	return getNotificationIconsDiv().children("#counter");
+}
+
+function getNotificationCounterAllDiv()
+{
+	return getNotificationCounterDiv().children(".all");
+}
+
+function getNotificationCounterNewDiv()
+{
+	return getNotificationCounterDiv().children(".new");
+}
+
 /*
  * Initialization
  */
@@ -50,7 +78,7 @@ $(document).ready(function() {
 	notify("0", "test notification", "testing ...", "TestApp", "Test Application");
 	notify("1", "test notification 2", "testing again ...", "TestApp", "Test Application");
 	notify("0", "test notification 3", "testing again 2 ...", "TestApp2", "Test Application 2");
-	 */
+	*/
 	getApplicationsDiv().hover(hoveredApplicationsDiv);
 	getNotificationIconsDiv().click(clickedNotificationIconsDiv);
 });
@@ -75,6 +103,8 @@ function notify (notificationID, notificationTitle, notificationContent, fromApp
 	getApplicationsDiv().show();
 	applicationView.updateDisplay();
 	notificationView.updateDisplay();
+	
+	updateNotificationsCounterAll();
 }
 
 function selectNotificationIconsDiv()
@@ -85,6 +115,10 @@ function selectNotificationIconsDiv()
 function unselectNotificationIconsDiv()
 {
 	getNotificationIconsDiv().removeClass("selected").addClass("default");	
+}
+
+function updateNotificationsCounterAll() {
+	getNotificationCounterAllDiv().html(getTotalNotificationViews());
 }
 
 /*
@@ -145,6 +179,15 @@ var ApplicationView = function (ID, name)
 		self.notifications[notification.ID] = notification;
 	}
 	
+	self.getTotalNotifications = function()
+	{
+		var totalNotifications = 0;
+		for (var n in self.notifications) {
+			totalNotifications++;
+		}
+		return totalNotifications;
+	}
+	
 	self.updateDisplay = function()
 	{
 		if (!self.display) {
@@ -177,3 +220,4 @@ var NotificationView = function (ID, fromAppID, title, content)
 		self.display.children(".content").html(self.content);
 	}
 }
+

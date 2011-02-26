@@ -7,6 +7,7 @@ html, body {
 #notification-icons {
 	height: 100%;
 	min-height: 100%;
+	padding: 1px;
 }
 
 #notification-icons.default {
@@ -15,4 +16,38 @@ html, body {
 
 #notification-icons.selected {
 	background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#222));
+}
+
+#notification-icons > #icons {
+	display: none;
+	overflow: none;
+	padding: 1px;
+	margin-right: 2px;
+	float: right;
+}
+
+#notification-icons > #counter {
+	padding: 1px;
+	margin-right: 2px;
+	float: right;
+	min-width: 18px;
+	border-radius: 7px;
+	border: 1px solid #fff;
+	text-align: center;
+	color: #fff;
+	text-shadow: 0px 0px 0px #000;
+	font-size: 14px;
+	font-family: Tahoma;
+	font-weight: bold;
+}
+
+#notification-icons > #counter > .all {
+	background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#000));
+	opacity: 0.7;
+}
+
+#notification-icons > #counter > .new {
+	display: none;
+	background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#333));
+	opacity: 0.9;
 }

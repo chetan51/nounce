@@ -150,6 +150,7 @@
 					 [[notification fromApp] name],
 					 nil];
 	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
+	[[notificationStatus windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
 }
 
 - (void) UIShowGeneralNotifications
