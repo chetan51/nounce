@@ -54,6 +54,7 @@ function notify (notificationID, notificationTitle, notificationContent, fromApp
 	
 	applicationViews[fromAppID].setNotification(notificationView);
 
+	getPlaceholderDiv().hide();
 	getApplicationsDiv().show();
 	applicationView.updateDisplay();
 	notificationView.updateDisplay();
@@ -66,6 +67,11 @@ function notify (notificationID, notificationTitle, notificationContent, fromApp
 function getApplicationsDiv()
 {
 	return $("#applications");
+}
+
+function getPlaceholderDiv()
+{
+	return $("#placeholder");
 }
 
 /*
