@@ -72,38 +72,22 @@
 .1     ~ (NSNumber *)id
 .1     ~ (NCApplication *)fromApp
 .1     ~ (NSString *)title
-.1     ~ (NSString *)textContent
-       ~ (NSString *)htmlContent
+.1     ~ (NSString *)content
        ~ (NSString *)iconPath
-       ~ (NSString *)htmlInput
+       ~ (NSString *)input
        ~ (id)callbackObject
        ~ (selector)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
-.1         textContent:(NSString *)textContent
-           htmlContent:(NSString *)htmlContent (^)
+.1         content:(NSString *)content
            iconPath:(NSString *)iconPath (^)
-           htmlInput:(NSString *)htmlInput (^)
+           input:(NSString *)input (^)
            type:(NCNotificationType)type
            expires:(NSDate *)date
            
        - notifyOnEvent:(id)callbackObject
            withSelector:(selector)callbackSelector
              // The selector is called with (NCEvent *)event
-         
-       + textNotificationWithTitle:(NSString *)title
-           textContent:(NSString *)textContent
-           iconPath:(NSString *)iconPath (^)
-           htmlInput:(NSString *)htmlInput (^)
-           type:(NCNotificationType)type
-           expires:(NSDate *)date
-           
-       + customNotificationWithTitle:(NSString *)title
-           htmlContent:(NSString *)htmlContent (^)
-           iconPath:(NSString *)iconPath (^)
-           htmlInput:(NSString *)htmlInput (^)
-           type:(NCNotificationType)type
-           expires:(NSDate *)date
          
 .1   * NCApplication
 .1     ~ (NSString *)id
