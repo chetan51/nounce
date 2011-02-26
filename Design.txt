@@ -63,7 +63,7 @@
        
        - expire:(NCNotification *)notification
        
-       - submitForm:(NCInputForm *)inputForm
+       - submitForm:(NSDictionary *)inputData
            submitButtonID:(NSString *)id
        
 
