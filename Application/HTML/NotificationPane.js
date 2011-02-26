@@ -31,15 +31,15 @@ $(document).ready(function() {
 	notify("1", "test notification 2", "testing again ...", "TestApp", "Test Application");
 	notify("0", "test notification 3", "testing again 2 ...", "TestApp2", "Test Application 2");
 	 */
-	getApplicationsDiv().hover(clickedApplicationsDiv);
+	getApplicationsDiv().hover(hoveredApplicationsDiv);
 });
 
 /*
  * Functions
  */
 
-function clickedApplicationsDiv(e) {
-	window.AppController.NPLog_("hovered");
+function hoveredApplicationsDiv(e) {
+	window.AppController.NPLog_("hovered over applications div");
 }
 
 function notify (notificationID, notificationTitle, notificationContent, fromAppID, fromAppName)
