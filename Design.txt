@@ -73,14 +73,14 @@
 .1     ~ (NCApplication *)fromApp
 .1     ~ (NSString *)title
 .1     ~ (NSString *)content
-       ~ (NSString *)iconPath
+       ~ (NCIcon *)icon
        ~ (NSString *)input
        ~ (id)callbackObject
        ~ (selector)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
-           iconPath:(NSString *)iconPath (^)
+           icon:(NCIcon *)icon (^)
            input:(NSString *)input (^)
            type:(NCNotificationType)type
            expires:(NSDate *)date
@@ -101,6 +101,15 @@
        # IN_NCOGRESS
        # TIME_SENSITIVE
        
+     * NCIcon
+       ~ (NSString *)path
+	 
+	 + iconWithPathRelativeToResources:(NSString *)path
+	 
+	 + iconWithAbsolutePath:(NSString *)path
+	 
+	 + iconWithImage:(NSImage *)image
+	 
      * NCEvent
        # READ
        # CLEARED
