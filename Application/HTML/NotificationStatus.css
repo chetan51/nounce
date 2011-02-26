@@ -4,15 +4,15 @@ html, body {
 	height: 100%;
 }
 
-#applications {
+#notification-icons {
 	height: 100%;
 	min-height: 100%;
 }
 
-#applications.default {
+#notification-icons.default {
 	background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#333));
 }
 
-#applications.selected {
+#notification-icons.selected {
 	background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#222));
 }

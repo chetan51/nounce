@@ -8,6 +8,7 @@
  */
 
 applicationViews = {};
+notificationPaneVisible = false;
 
 /*
  * Accessors and setters of global variables
@@ -22,6 +23,25 @@ function setApplicationView (applicationView) {
 }
 
 /*
+ * DOM accessors
+ */
+
+function getApplicationsDiv()
+{
+	return $("#applications");
+}
+
+function getPlaceholderDiv()
+{
+	return $("#placeholder");
+}
+
+function getNotificationIconsDiv()
+{
+	return $("#notification-icons");
+}
+
+/*
  * Initialization
  */
 
@@ -32,15 +52,12 @@ $(document).ready(function() {
 	notify("0", "test notification 3", "testing again 2 ...", "TestApp2", "Test Application 2");
 	 */
 	getApplicationsDiv().hover(hoveredApplicationsDiv);
+	getNotificationIconsDiv().click(clickedNotificationIconsDiv);
 });
 
 /*
  * Functions
  */
-
-function hoveredApplicationsDiv(e) {
-	window.AppController.NCLog_("hovered over applications div");
-}
 
 function notify (notificationID, notificationTitle, notificationContent, fromAppID, fromAppName)
 {
@@ -60,18 +77,48 @@ function notify (notificationID, notificationTitle, notificationContent, fromApp
 	notificationView.updateDisplay();
 }
 
-/*
- * DOM accessors
- */
-
-function getApplicationsDiv()
+function selectNotificationIconsDiv()
 {
-	return $("#applications");
+	getNotificationIconsDiv().removeClass("default").addClass("selected");	
 }
 
-function getPlaceholderDiv()
+function unselectNotificationIconsDiv()
 {
-	return $("#placeholder");
+	getNotificationIconsDiv().removeClass("selected").addClass("default");	
+}
+
+/*
+ * Event listeners
+ */
+
+function hoveredApplicationsDiv(e) {
+	window.AppController.NCLog_("hovered over applications div");
+}
+
+function clickedNotificationIconsDiv(e)
+{
+	if (!notificationPaneVisible) {
+		window.AppController.NCShowGeneralNotificationsClicked();
+	}
+	else {
+		window.AppController.NCHideGeneralNotificationsClicked();
+	}
+}
+
+/*
+ * AppController event listeners
+ */
+
+function UIShowGeneralNotifications()
+{
+	selectNotificationIconsDiv();
+	notificationPaneVisible = true;
+}
+
+function UIHideGeneralNotifications()
+{
+	unselectNotificationIconsDiv();
+	notificationPaneVisible = false;
 }
 
 /*

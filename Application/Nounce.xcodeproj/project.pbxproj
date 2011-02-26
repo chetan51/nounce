@@ -12,11 +12,10 @@
 		61433085131373C5000437CD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433084131373C5000437CD /* WebKit.framework */; };
 		6143309C13137483000437CD /* NotificationPane.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143309B13137483000437CD /* NotificationPane.html */; };
 		614330C2131375DB000437CD /* NotificationPane.css in Resources */ = {isa = PBXBuildFile; fileRef = 614330C1131375DB000437CD /* NotificationPane.css */; };
-		6143320413148008000437CD /* NotificationPane.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E513147F5D000437CD /* NotificationPane.js */; };
+		6143320413148008000437CD /* SharedClient.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E513147F5D000437CD /* SharedClient.js */; };
 		6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E613147F5D000437CD /* jquery-1.4.2.min.js */; };
 		6143345D1317843B000437CD /* NotificationStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143345C1317843A000437CD /* NotificationStatus.html */; };
 		6143349313178812000437CD /* NotificationStatus.css in Resources */ = {isa = PBXBuildFile; fileRef = 6143349213178812000437CD /* NotificationStatus.css */; };
-		6143352F131792AF000437CD /* NotificationStatus.js in Resources */ = {isa = PBXBuildFile; fileRef = 6143352D13179293000437CD /* NotificationStatus.js */; };
 		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
@@ -53,11 +52,10 @@
 		61433084131373C5000437CD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6143309B13137483000437CD /* NotificationPane.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationPane.html; path = HTML/NotificationPane.html; sourceTree = "<group>"; };
 		614330C1131375DB000437CD /* NotificationPane.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationPane.css; path = HTML/NotificationPane.css; sourceTree = "<group>"; };
-		614331E513147F5D000437CD /* NotificationPane.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationPane.js; path = HTML/NotificationPane.js; sourceTree = "<group>"; };
+		614331E513147F5D000437CD /* SharedClient.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = SharedClient.js; path = HTML/SharedClient.js; sourceTree = "<group>"; };
 		614331E613147F5D000437CD /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.4.2.min.js"; path = "HTML/jquery-1.4.2.min.js"; sourceTree = "<group>"; };
 		6143345C1317843A000437CD /* NotificationStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationStatus.html; path = HTML/NotificationStatus.html; sourceTree = "<group>"; };
 		6143349213178812000437CD /* NotificationStatus.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationStatus.css; path = HTML/NotificationStatus.css; sourceTree = "<group>"; };
-		6143352D13179293000437CD /* NotificationStatus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationStatus.js; path = HTML/NotificationStatus.js; sourceTree = "<group>"; };
 		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
@@ -167,10 +165,9 @@
 			children = (
 				6143309B13137483000437CD /* NotificationPane.html */,
 				614330C1131375DB000437CD /* NotificationPane.css */,
-				614331E513147F5D000437CD /* NotificationPane.js */,
+				614331E513147F5D000437CD /* SharedClient.js */,
 				6143345C1317843A000437CD /* NotificationStatus.html */,
 				6143349213178812000437CD /* NotificationStatus.css */,
-				6143352D13179293000437CD /* NotificationStatus.js */,
 				614331E613147F5D000437CD /* jquery-1.4.2.min.js */,
 			);
 			name = HTML;
@@ -240,10 +237,9 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				6143309C13137483000437CD /* NotificationPane.html in Resources */,
 				614330C2131375DB000437CD /* NotificationPane.css in Resources */,
-				6143320413148008000437CD /* NotificationPane.js in Resources */,
+				6143320413148008000437CD /* SharedClient.js in Resources */,
 				6143345D1317843B000437CD /* NotificationStatus.html in Resources */,
 				6143349313178812000437CD /* NotificationStatus.css in Resources */,
-				6143352F131792AF000437CD /* NotificationStatus.js in Resources */,
 				6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
