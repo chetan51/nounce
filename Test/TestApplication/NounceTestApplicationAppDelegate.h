@@ -9,9 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NounceTestApplicationAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
 }
-
-@property (assign) IBOutlet NSWindow *window;
 
 @end

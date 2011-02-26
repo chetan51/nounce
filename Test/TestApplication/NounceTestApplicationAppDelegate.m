@@ -12,8 +12,6 @@
 
 @implementation NounceTestApplicationAppDelegate
 
-@synthesize window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	NCNotification *notification = [NCNotification notificationWithTitle:@"Test Notification" textContent:@"testing..."];
 	[NCNotificationManager notify:notification];
