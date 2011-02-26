@@ -29,6 +29,8 @@
 	[self setupNotificationWindow];
 	[self setupNotificationPane];
 	[self setupNotificationStatus];
+	
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 }
 
 - (void) setupNotificationWindow
@@ -43,8 +45,6 @@
 	windowRect.origin.y = 0;
 	
 	[notificationWindow setFrame:windowRect display:YES];
-	
-	[notificationWindow orderFront:nil];
 }
 
 - (void) setupNotificationPane
@@ -151,6 +151,21 @@
 - (void)NPLog:(NSString *)message
 {
 	NSLog(@"%@", message);
+}
+
+
+/* Notification status event handlers */
+
+- (void) NCNSShowNotificationPane
+{
+	[notificationWindow setAlphaValue:0.0];
+	[notificationWindow makeKeyAndOrderFront:nil];
+    [[notificationWindow animator] setAlphaValue:1.0];
+}
+
+- (void) NCNSHideNotificationPane
+{
+	[notificationWindow orderOut:nil];
 }
 
 
