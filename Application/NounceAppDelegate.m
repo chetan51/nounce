@@ -19,8 +19,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
+	// Object variables
+	notificationCenter = [NCNotificationCenter sharedNotificationCenter];\
 	
+	// Start listening for notifications
 	[self listen];
 }
 
@@ -29,8 +31,6 @@
 	[self setupNotificationWindow];
 	[self setupNotificationPane];
 	[self setupNotificationStatus];
-	
-	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 }
 
 - (void) setupNotificationWindow
@@ -158,6 +158,7 @@
 
 - (void) NCNSShowNotificationPane
 {
+	[NSApp activateIgnoringOtherApps:YES]; // allows windows of this app to become front
 	[notificationWindow setAlphaValue:0.0];
 	[notificationWindow makeKeyAndOrderFront:nil];
     [[notificationWindow animator] setAlphaValue:1.0];
