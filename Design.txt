@@ -73,6 +73,7 @@
 .1     ~ (NCApplication *)fromApp
 .1     ~ (NSString *)title
 .1     ~ (NSString *)content
+       ~ (NCNotificationType)type
        ~ (NCIcon *)icon
        ~ (NSString *)input
        ~ (id)callbackObject
@@ -80,9 +81,9 @@
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
+           type:(NCNotificationType)type (^)  // defaults to DONE
            icon:(NCIcon *)icon (^)
            input:(NSString *)input (^)
-           type:(NCNotificationType)type
            expires:(NSDate *)date
            
        - notifyOnEvent:(id)callbackObject
@@ -98,7 +99,7 @@
 
      * NCNotificationType
        # DONE
-       # IN_NCOGRESS
+       # IN_PROGRESS
        # TIME_SENSITIVE
        
      * NCIcon
