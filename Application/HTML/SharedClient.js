@@ -215,11 +215,15 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 		if (!self.display) {
 			self.display = $("#molds > .notification").clone();
 			getApplicationView(self.fromAppID).display.children(".notifications").append(self.display);
+			
+			if (self.input) {
+				self.display.children(".input").html(self.input);
+				self.display.children(".input").show();
+			}
 		}
 
 		self.display.children(".title").html(self.title);
 		self.display.children(".content").html(self.content);
-		self.display.children(".input").html(self.input);
 	}
 }
 
