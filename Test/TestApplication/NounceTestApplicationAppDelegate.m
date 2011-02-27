@@ -16,7 +16,8 @@
 	NCNotification *notification = [NCNotification
 									notificationWithTitle:@"Test Notification"
 									content:@"testing..."
-									input:nil];
+									input:@"<input type='submit' id='reply' value='Reply'>"
+											"<input type='submit' id='forward' value='Forward'>"];
 	[NCNotificationManager notify:notification];
 	
 	NCNotification *notification2 = [NCNotification
