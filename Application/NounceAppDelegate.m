@@ -205,11 +205,7 @@
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-	if (sender == notificationPane) {
-		// Test Javascript function calling
-		[[notificationPane windowScriptObject] evaluateWebScript:@"testFunction()"];
-	}
-	else if (sender == notificationStatus) {
+	if (sender == notificationStatus) {
 		// Add to system status bar
 		float width = DEFAULTSTATUSITEMLENGTH;
 		statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:width] retain];

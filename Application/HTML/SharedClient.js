@@ -80,7 +80,8 @@ $(document).ready(function() {
 	notify("TestApp2-0", "test notification 3", "testing again 2 ...", 
 "<form><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", "TestApp2", "Test Application 2");
 	*/
-	getApplicationsDiv().hover(hoveredApplicationsDiv);
+	
+	// Add event listeners
 	getNotificationIconsDiv().click(clickedNotificationIconsDiv);
 });
 
@@ -131,10 +132,6 @@ function submitNotificationInputForm(form, notificationID, buttonName)
 /*
  * Event listeners
  */
-
-function hoveredApplicationsDiv(e) {
-	window.AppController.NCLog_("hovered over applications div");
-}
 
 function clickedNotificationIconsDiv(e)
 {
