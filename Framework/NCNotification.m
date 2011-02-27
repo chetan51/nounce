@@ -15,10 +15,10 @@
 @synthesize ID;
 @synthesize fromApp;
 @synthesize title;
-@synthesize textContent;
+@synthesize content;
 
 + (NCNotification *) notificationWithTitle:(NSString *)title
-							   textContent:(NSString *)textContent
+								   content:(NSString *)content
 {
 	NCNotification *notification = [[NCNotification alloc] autorelease];
 	
@@ -30,7 +30,7 @@
 	[notification setID:[NSString stringWithFormat:@"%@-%d", [fromApp ID], notificationID]];
 
 	[notification setTitle:title];
-	[notification setTextContent:textContent];
+	[notification setContent:content];
 	
 	return notification;
 }
@@ -40,7 +40,7 @@
     [coder encodeObject:ID			forKey:@"ID"];
     [coder encodeObject:fromApp		forKey:@"fromApp"];
     [coder encodeObject:title		forKey:@"title"];
-    [coder encodeObject:textContent forKey:@"textContent"];
+    [coder encodeObject:content		forKey:@"content"];
 }
 
 - (id) initWithCoder: (NSCoder *) coder
@@ -49,7 +49,7 @@
         ID			= [coder decodeObjectForKey:@"ID"];
         fromApp		= [coder decodeObjectForKey:@"fromApp"];
         title		= [coder decodeObjectForKey:@"title"];
-        textContent = [coder decodeObjectForKey:@"textContent"];
+        content		= [coder decodeObjectForKey:@"content"];
     }
 	
     return (self);
@@ -60,7 +60,7 @@
     [ID release];
 	[fromApp release];
 	[title release];
-	[textContent release];
+	[content release];
     [super dealloc];
 }
 

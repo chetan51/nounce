@@ -134,7 +134,7 @@
 
 - (void) notify:(NCNotification *)notification
 {
-	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification textContent]);
+	NSLog(@"New notification from %@: %@ - %@", [[notification fromApp] ID], [notification title], [notification content]);
 	[notificationCenter notify:notification];
 	[self UINotify:notification];
 }
@@ -147,7 +147,7 @@
 	NSArray *args = [NSArray arrayWithObjects:
 					 [notification ID],
 					 [notification title],
-					 [notification textContent],
+					 [notification content],
 					 [[notification fromApp] ID],
 					 [[notification fromApp] name],
 					 nil];

@@ -13,10 +13,10 @@
 @implementation NounceTestApplicationAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	NCNotification *notification = [NCNotification notificationWithTitle:@"Test Notification" textContent:@"testing..."];
+	NCNotification *notification = [NCNotification notificationWithTitle:@"Test Notification" content:@"testing..."];
 	[NCNotificationManager notify:notification];
 	
-	NCNotification *notification2 = [NCNotification notificationWithTitle:@"Test Notification 2" textContent:@"testing again..."];
+	NCNotification *notification2 = [NCNotification notificationWithTitle:@"Test Notification 2" content:@"testing again..."];
 	[[notification2 fromApp] setID:@"something"];
 	[[notification2 fromApp] setName:@"Another App"];
 	[NCNotificationManager notify:notification2];
