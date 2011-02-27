@@ -71,7 +71,7 @@
 
    Shared Classes
 .1   * NCNotification
-.1     ~ (NSNumber *)id
+.1     ~ (NSString *)id
            // Prefixed with the fromApp ID's namespace
 .1     ~ (NCApplication *)fromApp
 .1     ~ (NSString *)title
