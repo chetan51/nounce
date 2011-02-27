@@ -16,7 +16,7 @@
 	NCNotification *notification = [NCNotification notificationWithTitle:@"Test Notification" content:@"testing..."];
 	[NCNotificationManager notify:notification];
 	
-	NCNotification *notification2 = [NCNotification notificationWithTitle:@"Test Notification 2" content:@"testing again..."];
+	NCNotification *notification2 = [NCNotification notificationWithTitle:@"Test Notification 2" content:@"<i>testing custom content...</i>"];
 	[[notification2 fromApp] setID:@"something"];
 	[[notification2 fromApp] setName:@"Another App"];
 	[NCNotificationManager notify:notification2];
