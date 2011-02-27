@@ -35,11 +35,11 @@
        
        - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
        
-       - NCNotificationHovered:(id)sender
+       - NCNotificationHovered:(NSString *)notificationID
        
-       - NCNotificationClicked:(id)sender
+       - NCNotificationClicked:(NSString *)notificationID
        
-       - NCNotificationClearClicked:(id)sender
+       - NCNotificationClearClicked:(NSString *)notificationID
        
  2     - NCNotificationInputSubmitted:(NSString *)notificationID withInputData:(NSString *)inputData
              // inputData is JSON string
