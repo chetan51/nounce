@@ -41,7 +41,7 @@
        
        - NCNotificationClearClickedWithID:(NSString *)notificationID
        
- 2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID withButtonID(NSString *)buttonID withInputData:(NSString *)inputData
+ 2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID withButtonID:(NSString *)buttonID withInputData:(NSString *)inputData
              // inputData is JSON string
 
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
