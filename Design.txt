@@ -2,9 +2,9 @@
 .1   * NCNotificationManager
 .1     ~ (NSMutableDictionary *)notifications
 
-       + listen
-           // Listens for events about a notification from Notification Center
-           // and notifies the specified objects for that notification
+ 2     + listen
+ 2         // Listens for events about a notification from Notification Center
+ 2         // and notifies the specified objects for that notification
            
 .1     + notify:(NCNotification *)notification
 .1         // Overwrites any existing notification
