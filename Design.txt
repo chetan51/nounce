@@ -17,7 +17,7 @@
        
 
    Application (Notification Center)
- 1   * AppController
+.1   * AppController
 .1     - listen
 .1           // Listen to messages from all other applications
 
@@ -43,8 +43,8 @@
        
        - NCNotificationButtonClicked:(id)sender
 
- 1   * NotificationPane, NotificationStatus (shared Javascript client)
- 1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
+.1   * NotificationPane, NotificationStatus (shared Javascript client)
+.1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
 .1   * NCNotificationCenter (singleton)
 .1     ~ (NSMutableDictionary *)applications
