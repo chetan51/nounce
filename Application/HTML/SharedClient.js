@@ -139,6 +139,16 @@ function clickedNotificationIconsDiv(e)
 	}
 }
 
+function notificationInputHoveredIn(e)
+{
+	$(this).removeClass("default").addClass("visible");
+}
+
+function notificationInputHoveredOut(e)
+{
+	$(this).removeClass("visible").addClass("default");
+}
+
 /*
  * AppController event listeners
  */
@@ -219,6 +229,7 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 			if (self.input) {
 				self.display.children(".input").html(self.input);
 				self.display.children(".input").show();
+				self.display.children(".input").hover(notificationInputHoveredIn, notificationInputHoveredOut);
 			}
 		}
 
@@ -226,4 +237,3 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 		self.display.children(".content").html(self.content);
 	}
 }
-
