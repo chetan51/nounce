@@ -75,9 +75,10 @@ function getNotificationCounterNewDiv()
 
 $(document).ready(function() {
 	/* Testing
-	notify("0", "test notification", "testing ...", null, "TestApp", "Test Application");
-	notify("1", "test notification 2", "testing again ...", null, "TestApp", "Test Application");
-	notify("0", "test notification 3", "testing again 2 ...", null, "TestApp2", "Test Application 2");
+	notify("TestApp-0", "test notification", "testing ...", "<form><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", "TestApp", "Test Application");
+	notify("TestApp-1", "test notification 2", "testing again ...", null, "TestApp", "Test Application")
+	notify("TestApp2-0", "test notification 3", "testing again 2 ...", 
+"<form><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", "TestApp2", "Test Application 2");
 	*/
 	getApplicationsDiv().hover(hoveredApplicationsDiv);
 	getNotificationIconsDiv().click(clickedNotificationIconsDiv);
@@ -121,6 +122,12 @@ function updateNotificationsCounterAll() {
 	getNotificationCounterAllDiv().html(getTotalNotificationViews());
 }
 
+function submitNotificationInputForm(form, notificationID, buttonName)
+{
+	var inputData = JSON.stringify(form.serializeArray());
+	window.AppController.NCNotificationInputSubmittedWithID_withButtonName_withInputData_(notificationID, buttonName, inputData);
+}
+
 /*
  * Event listeners
  */
@@ -147,6 +154,24 @@ function notificationInputHoveredIn(e)
 function notificationInputHoveredOut(e)
 {
 	$(this).removeClass("visible").addClass("default");
+}
+
+function notificationInputButtonClicked(e, button, notificationID)
+{
+	if (button.hasClass("submit")) {
+		submitNotificationInputForm(button.parents("form"), notificationID, button.attr("name"));
+	}
+	/*
+	else if (button.hasClass("show-form")) {
+		var targetForm = button.attr('rel');
+		if (targetForm) {
+
+		}
+	}
+	*/
+	
+	e.stopPropagation();               
+	e.preventDefault();
 }
 
 /*
@@ -229,7 +254,12 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 			if (self.input) {
 				self.display.children(".input").html(self.input);
 				self.display.children(".input").show();
+				
+				// Add event listeners
 				self.display.children(".input").hover(notificationInputHoveredIn, notificationInputHoveredOut);
+				self.display.children(".input").find("input[type='submit']").click(function(e) {
+					notificationInputButtonClicked(e, $(this), self.ID);
+				});
 			}
 		}
 

@@ -192,6 +192,14 @@
 	[self UIHideGeneralNotifications];
 }
 
+- (void) NCNotificationInputSubmittedWithID:(NSString *)notificationID
+							 withButtonName:(NSString *)buttonName
+							  withInputData:(NSString *)inputData
+{
+	NSLog(@"%@", buttonName);
+	NSLog(@"%@", inputData);
+}
+
 
 /* WebView initialization */
 
