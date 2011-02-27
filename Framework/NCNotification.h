@@ -11,13 +11,13 @@
 
 
 @interface NCNotification : NSObject {
-	NSNumber *ID;
+	NSString *ID;
 	NCApplication *fromApp;
 	NSString *title;
 	NSString *textContent;
 }
 
-@property (retain) NSNumber *ID;
+@property (retain) NSString *ID;
 @property (retain) NCApplication *fromApp;
 @property (retain) NSString *title;
 @property (retain) NSString *textContent;

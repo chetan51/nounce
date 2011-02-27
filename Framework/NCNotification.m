@@ -7,6 +7,7 @@
 //
 
 #import "NCNotification.h"
+#include <stdlib.h>
 
 
 @implementation NCNotification
@@ -21,12 +22,15 @@
 {
 	NCNotification *notification = [[NCNotification alloc] autorelease];
 	
-	[notification setID:[NSNumber numberWithInt:0]]; // stubbed
-	[notification setTitle:title];
-	[notification setTextContent:textContent];
 	NCApplication *fromApp = [NCApplication applicationWithBundleIdentifier:
 							  [[NSBundle mainBundle] bundleIdentifier]];
 	[notification setFromApp:fromApp];
+	
+	int notificationID = arc4random() % 10000;
+	[notification setID:[NSString stringWithFormat:@"%@-%d", [fromApp ID], notificationID]];
+
+	[notification setTitle:title];
+	[notification setTextContent:textContent];
 	
 	return notification;
 }
