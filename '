@@ -35,13 +35,13 @@
        
        - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
        
-       - NCNotificationHoveredWithID:(NSString *)notificationID
+       - NCNotificationHovered:(NSString *)notificationID
        
-       - NCNotificationClickedWithID:(NSString *)notificationID
+       - NCNotificationClicked:(NSString *)notificationID
        
-       - NCNotificationClearClickedWithID:(NSString *)notificationID
+       - NCNotificationClearClicked:(NSString *)notificationID
        
- 2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID withButtonID(NSString *)buttonID withInputData:(NSString *)inputData
+ 2     - NCNotificationInputSubmitted:(NSString *)notificationID withButtonID(NSString *)buttonID withInputData:(NSString *)inputData
              // inputData is JSON string
 
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
@@ -58,21 +58,19 @@
 .1     - notify:(NCNotification *)notification
 .1         // Overwrites any existing notification
        
- 2     - getNotificationWithID:(NSString *)notificationID
-	 
        - clear:(NCNotification *)notification
        
        - clearAllForApp:(NCApplication *)app
        
        - expire:(NCNotification *)notification
        
- 2     - submitFormForNotification:(NCNotification *)notification withInputData:(NSDictionary *)inputData withSubmitButtonID:(NSString *)id
+ 2     - submitForm:(NSDictionary *)inputData
+ 2         submitButtonID:(NSString *)id
        
 
    Shared Classes
 .1   * NCNotification
 .1     ~ (NSNumber *)id
-           // Prefixed with the fromApp ID's namespace
 .1     ~ (NCApplication *)fromApp
 .1     ~ (NSString *)title
 .1     ~ (NSString *)content
