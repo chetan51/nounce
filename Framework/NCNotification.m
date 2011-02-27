@@ -16,9 +16,11 @@
 @synthesize fromApp;
 @synthesize title;
 @synthesize content;
+@synthesize input;
 
 + (NCNotification *) notificationWithTitle:(NSString *)title
 								   content:(NSString *)content
+									 input:(NSString *)input
 {
 	NCNotification *notification = [[NCNotification alloc] autorelease];
 	
@@ -31,6 +33,7 @@
 
 	[notification setTitle:title];
 	[notification setContent:content];
+	[notification setInput:input];
 	
 	return notification;
 }
@@ -41,6 +44,7 @@
     [coder encodeObject:fromApp		forKey:@"fromApp"];
     [coder encodeObject:title		forKey:@"title"];
     [coder encodeObject:content		forKey:@"content"];
+    [coder encodeObject:input		forKey:@"input"];
 }
 
 - (id) initWithCoder: (NSCoder *) coder
@@ -50,6 +54,7 @@
         fromApp		= [coder decodeObjectForKey:@"fromApp"];
         title		= [coder decodeObjectForKey:@"title"];
         content		= [coder decodeObjectForKey:@"content"];
+        input		= [coder decodeObjectForKey:@"input"];
     }
 	
     return (self);
@@ -61,6 +66,7 @@
 	[fromApp release];
 	[title release];
 	[content release];
+	[input release];
     [super dealloc];
 }
 

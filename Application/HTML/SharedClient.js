@@ -75,9 +75,9 @@ function getNotificationCounterNewDiv()
 
 $(document).ready(function() {
 	/* Testing
-	notify("0", "test notification", "testing ...", "TestApp", "Test Application");
-	notify("1", "test notification 2", "testing again ...", "TestApp", "Test Application");
-	notify("0", "test notification 3", "testing again 2 ...", "TestApp2", "Test Application 2");
+	notify("0", "test notification", "testing ...", null, "TestApp", "Test Application");
+	notify("1", "test notification 2", "testing again ...", null, "TestApp", "Test Application");
+	notify("0", "test notification 3", "testing again 2 ...", null, "TestApp2", "Test Application 2");
 	*/
 	getApplicationsDiv().hover(hoveredApplicationsDiv);
 	getNotificationIconsDiv().click(clickedNotificationIconsDiv);
@@ -87,10 +87,10 @@ $(document).ready(function() {
  * Functions
  */
 
-function notify (notificationID, notificationTitle, notificationContent, fromAppID, fromAppName)
+function notify (notificationID, notificationTitle, notificationContent, notificationInput, fromAppID, fromAppName)
 {
 	var applicationView = getApplicationView(fromAppID);
-	var notificationView = new NotificationView(notificationID, fromAppID, notificationTitle, notificationContent);
+	var notificationView = new NotificationView(notificationID, fromAppID, notificationTitle, notificationContent, notificationInput);
 	
 	if (!applicationView) {
 		applicationView = new ApplicationView(fromAppID, fromAppName);
@@ -199,7 +199,7 @@ var ApplicationView = function (ID, name)
 	}
 }
 
-var NotificationView = function (ID, fromAppID, title, content)
+var NotificationView = function (ID, fromAppID, title, content, input)
 {
 	var self = this;
 
@@ -207,6 +207,7 @@ var NotificationView = function (ID, fromAppID, title, content)
 	self.fromAppID = fromAppID;
 	self.title     = title;
 	self.content   = content;
+	self.input     = input;
 	self.display   = null;
 	
 	self.updateDisplay = function()
@@ -218,6 +219,7 @@ var NotificationView = function (ID, fromAppID, title, content)
 
 		self.display.children(".title").html(self.title);
 		self.display.children(".content").html(self.content);
+		self.display.children(".input").html(self.input);
 	}
 }
 

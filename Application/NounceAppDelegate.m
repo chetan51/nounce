@@ -146,10 +146,11 @@
 {
 	NSArray *args = [NSArray arrayWithObjects:
 					 [notification ID],
-					 [notification title],
-					 [notification content],
+					 [notification title] ? [notification title] : (NSString *)[NSNull null],
+					 [notification content] ? [notification content] : (NSString *)[NSNull null],
+					 [notification input] ? [notification input] : (NSString *)[NSNull null],
 					 [[notification fromApp] ID],
-					 [[notification fromApp] name],
+					 [[notification fromApp] name] ? [[notification fromApp] name] : (NSString *)[NSNull null],
 					 nil];
 	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
 	[[notificationStatus windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];

@@ -15,14 +15,17 @@
 	NCApplication *fromApp;
 	NSString *title;
 	NSString *content;
+	NSString *input;
 }
 
 @property (retain) NSString *ID;
 @property (retain) NCApplication *fromApp;
 @property (retain) NSString *title;
 @property (retain) NSString *content;
+@property (retain) NSString *input;
 
 + (NCNotification *) notificationWithTitle:(NSString *)title
-								   content:(NSString *)content;
+								   content:(NSString *)content
+									 input:(NSString *)input;
 
 @end
