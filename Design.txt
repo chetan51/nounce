@@ -41,7 +41,8 @@
        
        - NCNotificationClearClicked:(id)sender
        
-       - NCNotificationButtonClicked:(id)sender
+ 2     - NCNotificationInputSubmitted:(NSString *)notificationID withInputData:(NSString *)inputData
+             // inputData is JSON string
 
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
 .1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
@@ -63,8 +64,8 @@
        
        - expire:(NCNotification *)notification
        
-       - submitForm:(NSDictionary *)inputData
-           submitButtonID:(NSString *)id
+ 2     - submitForm:(NSDictionary *)inputData
+ 2         submitButtonID:(NSString *)id
        
 
    Shared Classes
@@ -80,10 +81,10 @@
            // For notification status area icon
 	     // Note: If more than one notifications of the same group are submitted by the same app, the group icon of the latest one will be used in the notification status area
        ~ (NCIcon *)notificationIcon
-       ~ (NSString *)input
+ 2     ~ (NSString *)input
        ~ (NSDate *)expires
-       ~ (id)callbackObject
-       ~ (selector)callbackSelector
+ 2     ~ (id)callbackObject
+ 2     ~ (selector)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
@@ -91,12 +92,14 @@
            group:(NSString *)group (^)
            groupIcon:(NCIcon *)groupIcon (^)
            notificationIcon:(NCIcon *)notificationIcon (^)
-           input:(NSString *)input (^)  // in HTML format
+ 2         input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
-       - notifyOnEvent:(id)callbackObject
-           withSelector:(selector)callbackSelector
-             // The selector is called with (NCEvent *)event
+ 2     - notifyOnEvent:(id)callbackObject
+ 2         withSelector:(selector)callbackSelector
+ 2           // The selector is called with (NCEvent *)event
+ 2           // and (NSDictionary *)inputData (which is not
+ 2           // nil if event is INPUT_SUBMIT)
          
 .1   * NCApplication
 .1     ~ (NSString *)id
@@ -119,7 +122,7 @@
 	 
 	 + iconWithImage:(NSImage *)image
 	 
-     * NCEvent
-       # READ
-       # CLEARED
-       # INPUT_SUBMIT
+ 2   * NCEvent
+ 2     # READ
+ 2     # CLEARED
+ 2     # INPUT_SUBMIT
