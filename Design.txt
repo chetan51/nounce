@@ -51,7 +51,7 @@
 .1     ~ (NSMutableDictionary *)applications
 .1           // Indexed by application ID
 .1     ~ (NSMutableDictionary *)notifications
-.1           // Indexed by application ID
+.1           // Indexed by notification ID
        ~ (NSMutableArray *)expiredNotifications
              // Ordered by time expired
 

@@ -22,7 +22,7 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 		appNotifications = [[NSMutableDictionary alloc] init];
 	}
 	[appNotifications setObject:notification forKey:[notification ID]];
-	[notifications setObject:appNotifications forKey:[[notification fromApp] ID]];
+	[notifications setObject:appNotifications forKey:[notification ID]];
 	[appNotifications release]; // TODO: Fix this bad line
 }
 
