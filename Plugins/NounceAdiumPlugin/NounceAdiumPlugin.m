@@ -7,6 +7,11 @@
 //
 
 #import "NounceAdiumPlugin.h"
+#import "NCAISender.h"
+
+#import <Nounce/NCNotification.h>
+#import <Nounce/NCNotificationManager.h>
+
 #import <Adium/AISharedAdium.h>
 #import <Adium/AIChat.h>
 #import <Adium/AIContentMessage.h>
@@ -17,7 +22,7 @@
 
 - (void)installPlugin
 {
-	newMessages = [[NSMutableDictionary alloc] init];
+	senders = [[NSMutableDictionary alloc] init];
 	
 	[self listen];
 }
@@ -31,24 +36,28 @@
 {
 	int numUnviewedMessages = [(AIChat *)[[notification userInfo] objectForKey:@"AIChat"] unviewedContentCount];
 	AIContentMessage *contentMessage = (AIContentMessage *)[[notification userInfo] objectForKey:@"AIContentObject"];
-	AIListContact *sender = (AIListContact *)[contentMessage source];
+	AIListContact *senderContact = (AIListContact *)[contentMessage source];
 	
 	if (numUnviewedMessages > 0) {
-		NSMutableArray *messages;
+		// Get / create sender
+		NCAISender *sender;
 		
-		if ([newMessages objectForKey:[sender UID]]) {
-			messages = [newMessages objectForKey:[sender UID]];
-			[messages addObject:contentMessage];
+		if ([senders objectForKey:[senderContact UID]]) {
+			sender = [senders objectForKey:[senderContact UID]];
 		}
 		else {
-			messages = [NSMutableArray arrayWithObject:contentMessage];
-			[newMessages setObject:messages forKey:[sender UID]];
+			sender = [[[NCAISender alloc] init] autorelease];
+			[sender setNewMessages:[[NSMutableArray alloc] init]];
 		}
 		
+		[[sender newMessages] addObject:contentMessage];
+		[senders setObject:sender forKey:[senderContact UID]];
+
+		// Create notification content with the new messages from this sender
 		NSString *notificationContent = @"";
 		NSString *format;
 		
-		NSEnumerator *messagesEnumerator = [messages objectEnumerator];
+		NSEnumerator *messagesEnumerator = [[sender newMessages] objectEnumerator];
 		AIContentMessage *message;
 		int count = 0;
 		
@@ -57,19 +66,39 @@
 			
 			notificationContent = [notificationContent
 								   stringByAppendingFormat:format,
-								   [sender longDisplayName],
+								   [senderContact longDisplayName],
 								   [message messageString]];
 			
 			count++;
 		}
 		
-		NSLog(@"%@", notificationContent);
+		// Build notification for Nounce
+		NCNotification *notification;
+		
+		if ([sender currentNotification]) {
+			notification = [sender currentNotification];
+			[notification setContent:notificationContent];
+		}
+		else {
+			notification = [NCNotification
+							notificationWithTitle:[NSString stringWithFormat:@"Instant Message From %@", [senderContact longDisplayName]]
+							content:notificationContent
+							input:@"<form>"
+							"<input type='text' name='reply' value='message'>"
+							"<input type='submit' name='reply' class='submit' value='Reply'>"
+							"</form>"];
+		}
+		
+		[sender setCurrentNotification:notification];
+		
+		// Send notification to Nounce
+		[NCNotificationManager notify:notification];
 	}
 }
 
 - (void)uninstallPlugin
 {
-    [newMessages release];
+    [senders release];
 }
 
 @end

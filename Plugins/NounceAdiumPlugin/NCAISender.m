@@ -12,5 +12,6 @@
 @implementation NCAISender
 
 @synthesize newMessages;
+@synthesize currentNotification;
 
 @end

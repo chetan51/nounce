@@ -16,5 +16,6 @@
 }
 
 @property (retain) NSMutableArray *newMessages;
+@property (retain) NCNotification *currentNotification;
 
 @end
