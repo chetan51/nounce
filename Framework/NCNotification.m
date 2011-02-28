@@ -22,7 +22,7 @@
 								   content:(NSString *)content
 									 input:(NSString *)input
 {
-	NCNotification *notification = [[NCNotification alloc] autorelease];
+	NCNotification *notification = [[[NCNotification alloc] init] autorelease];
 	
 	NCApplication *fromApp = [NCApplication applicationWithBundleIdentifier:
 							  [[NSBundle mainBundle] bundleIdentifier]];
