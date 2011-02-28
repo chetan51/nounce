@@ -137,3 +137,20 @@
  2     # READ
  2     # CLEARED
  2     # INPUT_SUBMIT
+ 
+
+   Plugins
+     Adium
+ 2     * NounceAdiumPlugin
+ 2       ~ (NSMutableDictionary *)senders
+ 2           // Contains NCAISender's, indexed by sender's UID
+         
+ 2       - messageReceived:(NSNotification *)notification
+         
+ 2       - messageSent:(NSNotification *)notification
+         
+ 2       - responseFromNotification:(NSDictionary *)response
+         
+ 2     * NCAISender
+ 2       ~ (NSMutableArray *)newMessages
+ 2       ~ (NCNotification *)currentNotification
