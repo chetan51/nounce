@@ -118,11 +118,11 @@
      * NCIcon
        ~ (NSString *)path
 	 
-	 + iconWithPathRelativeToResources:(NSString *)path
+       + iconWithPathRelativeToResources:(NSString *)path
 	 
-	 + iconWithAbsolutePath:(NSString *)path
+       + iconWithAbsolutePath:(NSString *)path
 	 
-	 + iconWithImage:(NSImage *)image
+       + iconWithImage:(NSImage *)image
 	 
  2   * NCEvent
  2     # READ
