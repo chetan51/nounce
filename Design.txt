@@ -41,7 +41,7 @@
        
        - NCNotificationClearClickedWithID:(NSString *)notificationID
        
- 2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID withButtonName:(NSString *)buttonName withInputData:(NSString *)inputData
+ 2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
              // inputData is JSON string
 
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
@@ -66,7 +66,7 @@
        
        - expire:(NCNotification *)notification
        
- 2     - submitFormForNotification:(NCNotification *)notification withInputData:(NSDictionary *)inputData withSubmitButtonID:(NSString *)id
+ 2     - submitFormForNotification:(NCNotification *)notification inputData:(NSDictionary *)inputData submitButtonID:(NSString *)id
        
 
    Shared Classes
@@ -97,6 +97,15 @@
  2         input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
+ 2     - addObserver:(id)callbackObject
+ 2         selector:(selector)callbackSelector
+ 2         name:(selector)callbackSelector
+ 2           // The selector is called with (NSDictionary *)response.
+ 2           // response will contain a key called "Event" which maps to an
+ 2           // NCEvent object indicating what kind of response it is.
+ 2           // If it is an INPUT_SUBMIT event, response will also contain
+ 2           // objects for keys "FormName", "ButtonName" and "InputData".
+ 
  2     - notifyOnEvent:(id)callbackObject
  2         withSelector:(selector)callbackSelector
  2           // The selector is called with (NCEvent *)event
