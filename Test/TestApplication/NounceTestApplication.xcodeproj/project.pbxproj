@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NounceTestApplicationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NounceTestApplicationAppDelegate.m */; };
-		6170039A13079EB1000B7763 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6170039713079EAC000B7763 /* Nounce.framework */; };
-		6170039F13079ED2000B7763 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6170039713079EAC000B7763 /* Nounce.framework */; };
+		61434211131BB4FF000437CD /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61434210131BB4FF000437CD /* Nounce.framework */; };
+		614342CA131BB502000437CD /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61434210131BB4FF000437CD /* Nounce.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6170039F13079ED2000B7763 /* Nounce.framework in CopyFiles */,
+				614342CA131BB502000437CD /* Nounce.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,7 +40,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		6170039713079EAC000B7763 /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
+		61434210131BB4FF000437CD /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Framework/build/Release/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01B0C1307BA920075442B /* Nounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1107310486CEB800E47090 /* NounceTestApplication-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NounceTestApplication-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* NounceTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NounceTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,8 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6170039A13079EB1000B7763 /* Nounce.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				61434211131BB4FF000437CD /* Nounce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +79,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6170039713079EAC000B7763 /* Nounce.framework */,
+				61434210131BB4FF000437CD /* Nounce.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -234,6 +234,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Framework/build/Debug\"",
+					"\"$(SRCROOT)/../../Framework/build/Release\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -243,6 +244,7 @@
 				GCC_PREFIX_HEADER = NounceTestApplication_Prefix.pch;
 				INFOPLIST_FILE = "NounceTestApplication-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = NounceTestApplication;
 			};
 			name = Debug;
@@ -255,6 +257,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Framework/build/Debug\"",
+					"\"$(SRCROOT)/../../Framework/build/Release\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -274,6 +277,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;

@@ -16,8 +16,8 @@
 		6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E613147F5D000437CD /* jquery-1.4.2.min.js */; };
 		6143345D1317843B000437CD /* NotificationStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143345C1317843A000437CD /* NotificationStatus.html */; };
 		6143349313178812000437CD /* NotificationStatus.css in Resources */ = {isa = PBXBuildFile; fileRef = 6143349213178812000437CD /* NotificationStatus.css */; };
-		61E01C75130866BE0075442B /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
-		61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61E01C74130866BE0075442B /* Nounce.framework */; };
+		6143420C131BB4EA000437CD /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6143420B131BB4EA000437CD /* Nounce.framework */; };
+		6143420D131BB4ED000437CD /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6143420B131BB4EA000437CD /* Nounce.framework */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
 		61E01FA3130A00E60075442B /* NCNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01FA2130A00E60075442B /* NCNotificationCenter.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -32,7 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				61E01C80130866DB0075442B /* Nounce.framework in CopyFiles */,
+				6143420D131BB4ED000437CD /* Nounce.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 		614331E613147F5D000437CD /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.4.2.min.js"; path = "HTML/jquery-1.4.2.min.js"; sourceTree = "<group>"; };
 		6143345C1317843A000437CD /* NotificationStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationStatus.html; path = HTML/NotificationStatus.html; sourceTree = "<group>"; };
 		6143349213178812000437CD /* NotificationStatus.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationStatus.css; path = HTML/NotificationStatus.css; sourceTree = "<group>"; };
-		61E01C74130866BE0075442B /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
+		6143420B131BB4EA000437CD /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../Framework/build/Release/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
 		61E01FA1130A00E60075442B /* NCNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationCenter.h; sourceTree = "<group>"; };
@@ -70,9 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E01C75130866BE0075442B /* Nounce.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				61433085131373C5000437CD /* WebKit.framework in Frameworks */,
+				6143420C131BB4EA000437CD /* Nounce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +101,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				61E01C74130866BE0075442B /* Nounce.framework */,
+				6143420B131BB4EA000437CD /* Nounce.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -288,6 +288,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Framework/build/Debug\"",
+					"\"$(SRCROOT)/../Framework/build/Release\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -298,6 +299,7 @@
 				GCC_PREFIX_HEADER = Nounce_Prefix.pch;
 				INFOPLIST_FILE = "Nounce-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = Nounce;
 			};
 			name = Debug;
@@ -310,6 +312,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Framework/build/Debug\"",
+					"\"$(SRCROOT)/../Framework/build/Release\"",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
@@ -330,6 +333,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
