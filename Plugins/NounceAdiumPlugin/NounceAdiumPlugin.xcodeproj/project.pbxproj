@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		61433B56131B245F000437CD /* NounceAdiumPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61433B55131B245F000437CD /* NounceAdiumPlugin.m */; };
 		61433E14131B340C000437CD /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433E13131B340C000437CD /* Adium.framework */; };
+		61433FD3131B95AB000437CD /* NCAISender.m in Sources */ = {isa = PBXBuildFile; fileRef = 61433FD2131B95AB000437CD /* NCAISender.m */; };
+		61433FDA131B9614000437CD /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433FD9131B9614000437CD /* Nounce.framework */; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -19,6 +21,9 @@
 		61433B54131B245F000437CD /* NounceAdiumPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceAdiumPlugin.h; sourceTree = "<group>"; };
 		61433B55131B245F000437CD /* NounceAdiumPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NounceAdiumPlugin.m; sourceTree = "<group>"; };
 		61433E13131B340C000437CD /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = "<group>"; };
+		61433FD1131B95AB000437CD /* NCAISender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCAISender.h; sourceTree = "<group>"; };
+		61433FD2131B95AB000437CD /* NCAISender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCAISender.m; sourceTree = "<group>"; };
+		61433FD9131B9614000437CD /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Framework/build/Debug/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		8D576316048677EA00EA77CD /* NounceAdiumPlugin.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NounceAdiumPlugin.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -30,6 +35,7 @@
 			files = (
 				8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */,
 				61433E14131B340C000437CD /* Adium.framework in Frameworks */,
+				61433FDA131B9614000437CD /* Nounce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +56,7 @@
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				61433FD9131B9614000437CD /* Nounce.framework */,
 				61433E13131B340C000437CD /* Adium.framework */,
 				0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */,
 			);
@@ -70,6 +77,8 @@
 			children = (
 				61433B54131B245F000437CD /* NounceAdiumPlugin.h */,
 				61433B55131B245F000437CD /* NounceAdiumPlugin.m */,
+				61433FD1131B95AB000437CD /* NCAISender.h */,
+				61433FD2131B95AB000437CD /* NCAISender.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61433B56131B245F000437CD /* NounceAdiumPlugin.m in Sources */,
+				61433FD3131B95AB000437CD /* NCAISender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +179,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Framework/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -195,6 +206,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Framework/build/Debug\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				HEADER_SEARCH_PATHS = "";
