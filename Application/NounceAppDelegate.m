@@ -193,8 +193,8 @@
 }
 
 - (void) NCNotificationInputSubmittedWithID:(NSString *)notificationID
-							 withButtonName:(NSString *)buttonName
-							  withInputData:(NSString *)inputData
+								 buttonName:(NSString *)buttonName
+								  inputData:(NSString *)inputData
 {
 	NSLog(@"%@", buttonName);
 	NSLog(@"%@", inputData);
