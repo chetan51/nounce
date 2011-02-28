@@ -11,7 +11,9 @@
 
 
 @interface NounceAdiumPlugin : AIPlugin {
-
+	NSMutableDictionary *newMessages; // indexed by sender UID
 }
+
+- (void) listen;
 
 @end
