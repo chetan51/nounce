@@ -81,7 +81,7 @@
 		}
 		else {
 			notification = [NCNotification
-							notificationWithTitle:[NSString stringWithFormat:@"Instant Message From %@", [senderContact longDisplayName]]
+							notificationWithTitle:[NSString stringWithFormat:@"Chat with %@", [senderContact longDisplayName]]
 							content:notificationContent
 							input:@"<form>"
 							"<input type='text' name='reply' value='message'>"
