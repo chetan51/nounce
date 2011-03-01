@@ -153,7 +153,9 @@
  
  2       - chatTypingUpdated:(AIChat *)chat
          
- 2       - updateNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
+ 2       - appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage)message
+ 
+ 2       - updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
          
  2       - responseFromNotification:(NSDictionary *)response
          
