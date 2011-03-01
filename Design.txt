@@ -142,15 +142,26 @@
    Plugins
      Adium
  2     * NounceAdiumPlugin
- 2       ~ (NSMutableDictionary *)senders
- 2           // Contains NCAISender's, indexed by sender's UID
+ 2       ~ (NSMutableDictionary *)chats
+ 2           // Contains NCAIChat's, indexed by chat's UID
          
  2       - messageReceived:(NSNotification *)notification
          
  2       - messageSent:(NSNotification *)notification
+ 
+ 2       - chatNumUnviewedMessagesUpdated:(AIChat *)chat
+ 
+ 2       - chatTypingUpdated:(AIChat *)chat
+         
+ 2       - updateNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
          
  2       - responseFromNotification:(NSDictionary *)response
          
- 2     * NCAISender
+ 2     * NCAIChat
  2       ~ (NSMutableArray *)newMessages
  2       ~ (NCNotification *)currentNotification
+ 
+ 2     * NCAIMessage
+ 2       ~ (bool)isSenderSelf
+ 2       ~ (NSString *)senderName
+ 2       ~ (NSString *)message
