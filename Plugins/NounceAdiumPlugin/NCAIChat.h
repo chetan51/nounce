@@ -10,7 +10,7 @@
 #import <Nounce/NCNotification.h>
 
 
-@interface NCAISender : NSObject {
+@interface NCAIChat : NSObject {
 	NSMutableArray *newMessages;
 	NCNotification *currentNotification;
 }

@@ -8,10 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Adium/AIPlugin.h>
+#import <Adium/AIChatControllerProtocol.h>
 
 
-@interface NounceAdiumPlugin : AIPlugin {
-	NSMutableDictionary *senders;
+@interface NounceAdiumPlugin : AIPlugin <AIChatObserver> {
+	NSMutableDictionary *chats;
 }
 
 - (void) listen;

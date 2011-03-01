@@ -7,7 +7,9 @@
 //
 
 #import "NounceAdiumPlugin.h"
-#import "NCAISender.h"
+
+#import "NCAIChat.h"
+#import "NCAIMessage.h"
 
 #import <Nounce/NCNotification.h>
 #import <Nounce/NCNotificationManager.h>
@@ -22,7 +24,7 @@
 
 - (void)installPlugin
 {
-	senders = [[NSMutableDictionary alloc] init];
+	chats = [[NSMutableDictionary alloc] init];
 	
 	[self listen];
 }
@@ -30,6 +32,7 @@
 - (void) listen
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageReceived:) name:CONTENT_MESSAGE_RECEIVED object:nil];	
+	[adium.chatController registerChatObserver:self];
 }
 
 - (void) messageReceived:(NSNotification *)notification
@@ -38,7 +41,7 @@
 	AIContentMessage *contentMessage = (AIContentMessage *)[[notification userInfo] objectForKey:@"AIContentObject"];
 	AIListContact *senderContact = (AIListContact *)[contentMessage source];
 	
-	if (numUnviewedMessages > 0) {
+/*	if (numUnviewedMessages > 0) {
 		// Get / create sender
 		NCAISender *sender;
 		
@@ -94,11 +97,26 @@
 		// Send notification to Nounce
 		[NCNotificationManager notify:notification];
 	}
+ */
+}
+
+- (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent
+{
+	NSLog(@"chat updated %@", inModifiedKeys);
+	
+	if ([inModifiedKeys containsObject:KEY_UNVIEWED_CONTENT]) {
+		
+	}
+	else if ([inModifiedKeys containsObject:KEY_TYPING]) {
+		
+	}
+	
+	return nil;
 }
 
 - (void)uninstallPlugin
 {
-    [senders release];
+    [chats release];
 }
 
 @end
