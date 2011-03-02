@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NounceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NounceAppDelegate.m */; };
+		61318B11131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */; };
 		61433085131373C5000437CD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433084131373C5000437CD /* WebKit.framework */; };
 		6143309C13137483000437CD /* NotificationPane.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143309B13137483000437CD /* NotificationPane.html */; };
 		614330C2131375DB000437CD /* NotificationPane.css in Resources */ = {isa = PBXBuildFile; fileRef = 614330C1131375DB000437CD /* NotificationPane.css */; };
@@ -49,6 +50,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery.ba-serializeobject.min.js"; path = "HTML/jquery.ba-serializeobject.min.js"; sourceTree = "<group>"; };
 		61433084131373C5000437CD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6143309B13137483000437CD /* NotificationPane.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationPane.html; path = HTML/NotificationPane.html; sourceTree = "<group>"; };
 		614330C1131375DB000437CD /* NotificationPane.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationPane.css; path = HTML/NotificationPane.css; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				6143345C1317843A000437CD /* NotificationStatus.html */,
 				6143349213178812000437CD /* NotificationStatus.css */,
 				614331E613147F5D000437CD /* jquery-1.4.2.min.js */,
+				61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */,
 			);
 			name = HTML;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				6143345D1317843B000437CD /* NotificationStatus.html in Resources */,
 				6143349313178812000437CD /* NotificationStatus.css in Resources */,
 				6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */,
+				61318B11131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
