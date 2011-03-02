@@ -11,6 +11,7 @@
 
 @implementation NCAIChat
 
+@synthesize ID;
 @synthesize newMessages;
 @synthesize currentNotification;
 

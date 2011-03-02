@@ -160,6 +160,7 @@
  2       - responseFromNotification:(NSDictionary *)response
          
 .2     * NCAIChat
+.2       ~ (NSString *)ID
 .2       ~ (NSMutableArray *)newMessages
 .2       ~ (NCNotification *)currentNotification
  
