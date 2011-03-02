@@ -71,6 +71,12 @@
 		chat = [[[NCAIChat alloc] init] autorelease];
 		[chat setID:[givenChat uniqueChatID]];
 		[chat setNewMessages:[[NSMutableArray alloc] init]];
+		if ([givenChat name]) {
+			[chat setName:[givenChat name]];
+		}
+		else {
+			[chat setName:[NSString stringWithFormat:@"Chat with %@", [[givenChat listObject] ownDisplayName]]];
+		}
 	}
 	
 	return chat;
@@ -130,7 +136,7 @@
 	}
 	else {
 		notification = [NCNotification
-						notificationWithTitle:[NSString stringWithFormat:@"Chat with %@", [message senderName]]
+						notificationWithTitle:[chat name]
 						content:notificationContent
 						input:@"<form>"
 						"<input type='text' name='reply' value='message'>"

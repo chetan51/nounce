@@ -12,11 +12,13 @@
 
 @interface NCAIChat : NSObject {
 	NSString *ID;
+	NSString *name;
 	NSMutableArray *newMessages;
 	NCNotification *currentNotification;
 }
 
 @property (retain) NSString *ID;
+@property (retain) NSString *name;
 @property (retain) NSMutableArray *newMessages;
 @property (retain) NCNotification *currentNotification;
 

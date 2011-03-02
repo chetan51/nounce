@@ -161,6 +161,7 @@
          
 .2     * NCAIChat
 .2       ~ (NSString *)ID
+.2       ~ (NSString *)name
 .2       ~ (NSMutableArray *)newMessages
 .2       ~ (NCNotification *)currentNotification
  
