@@ -159,11 +159,11 @@
          
  2       - responseFromNotification:(NSDictionary *)response
          
- 2     * NCAIChat
- 2       ~ (NSMutableArray *)newMessages
- 2       ~ (NCNotification *)currentNotification
+.2     * NCAIChat
+.2       ~ (NSMutableArray *)newMessages
+.2       ~ (NCNotification *)currentNotification
  
- 2     * NCAIMessage
- 2       ~ (bool)isSenderSelf
- 2       ~ (NSString *)senderName
- 2       ~ (NSString *)message
+.2     * NCAIMessage
+.2       ~ (bool)isSenderSelf
+.2       ~ (NSString *)senderName
+.2       ~ (NSString *)message
