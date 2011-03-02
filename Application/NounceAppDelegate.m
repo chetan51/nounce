@@ -7,6 +7,7 @@
 //
 
 #import "NounceAppDelegate.h"
+#import "JSON.h"
 
 #define DEFAULTSTATUSITEMLENGTH 100.0
 
@@ -196,8 +197,11 @@
 								 buttonName:(NSString *)buttonName
 								  inputData:(NSString *)inputData
 {
+	SBJsonParser *parser = [SBJsonParser new];
+	NSDictionary *inputDataDictionary = [parser objectWithString:inputData error:nil];
+	
 	NSLog(@"%@", buttonName);
-	NSLog(@"%@", inputData);
+	NSLog(@"%@", inputDataDictionary);
 }
 
 
