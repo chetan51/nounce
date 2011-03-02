@@ -149,10 +149,10 @@
          
  2       - messageSent:(NSNotification *)notification
  
- 2       - chatNumUnviewedMessagesUpdated:(AIChat *)chat
+ 2       - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
  
- 2       - chatTypingUpdated:(AIChat *)chat
-         
+ 2       - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
+
  2       - appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message
  
  2       - updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
