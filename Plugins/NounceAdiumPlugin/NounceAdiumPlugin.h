@@ -7,8 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
 #import <Adium/AIPlugin.h>
 #import <Adium/AIChatControllerProtocol.h>
+
+#import <Adium/AISharedAdium.h>
+#import <Adium/AIChat.h>
+#import <Adium/AIContentMessage.h>
+#import <Adium/AIListContact.h>
+
+#import "NCAIChat.h"
+#import "NCAIMessage.h"
 
 
 @interface NounceAdiumPlugin : AIPlugin <AIChatObserver> {
@@ -16,5 +25,11 @@
 }
 
 - (void) listen;
+
+- (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
+- (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
+
+- (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;
+- (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages;
 
 @end

@@ -8,16 +8,8 @@
 
 #import "NounceAdiumPlugin.h"
 
-#import "NCAIChat.h"
-#import "NCAIMessage.h"
-
 #import <Nounce/NCNotification.h>
 #import <Nounce/NCNotificationManager.h>
-
-#import <Adium/AISharedAdium.h>
-#import <Adium/AIChat.h>
-#import <Adium/AIContentMessage.h>
-#import <Adium/AIListContact.h>
 
 
 @implementation NounceAdiumPlugin
@@ -35,77 +27,30 @@
 	[adium.chatController registerChatObserver:self];
 }
 
+- (void)uninstallPlugin
+{
+    [chats release];
+}
+
+/* 
+ * Event listeners
+ */
+
 - (void) messageReceived:(NSNotification *)notification
 {
-	int numUnviewedMessages = [(AIChat *)[[notification userInfo] objectForKey:@"AIChat"] unviewedContentCount];
+	AIChat *updatedChat = (AIChat *)[[notification userInfo] objectForKey:@"AIChat"];
 	AIContentMessage *contentMessage = (AIContentMessage *)[[notification userInfo] objectForKey:@"AIContentObject"];
-	AIListContact *senderContact = (AIListContact *)[contentMessage source];
 	
-/*	if (numUnviewedMessages > 0) {
-		// Get / create sender
-		NCAISender *sender;
-		
-		if ([senders objectForKey:[senderContact UID]]) {
-			sender = [senders objectForKey:[senderContact UID]];
-		}
-		else {
-			sender = [[[NCAISender alloc] init] autorelease];
-			[sender setNewMessages:[[NSMutableArray alloc] init]];
-		}
-		
-		[[sender newMessages] addObject:contentMessage];
-		[senders setObject:sender forKey:[senderContact UID]];
-
-		// Create notification content with the new messages from this sender
-		NSString *notificationContent = @"";
-		NSString *format;
-		
-		NSEnumerator *messagesEnumerator = [[sender newMessages] objectEnumerator];
-		AIContentMessage *message;
-		int count = 0;
-		
-		while (message = [messagesEnumerator nextObject]) {
-			format = count == 0 ? @"<b>%@</b>: %@" : @"<br><b>%@</b>: %@";
-			
-			notificationContent = [notificationContent
-								   stringByAppendingFormat:format,
-								   [senderContact longDisplayName],
-								   [message messageString]];
-			
-			count++;
-		}
-		
-		// Build notification for Nounce
-		NCNotification *notification;
-		
-		if ([sender currentNotification]) {
-			notification = [sender currentNotification];
-			[notification setContent:notificationContent];
-		}
-		else {
-			notification = [NCNotification
-							notificationWithTitle:[NSString stringWithFormat:@"Chat with %@", [senderContact longDisplayName]]
-							content:notificationContent
-							input:@"<form>"
-							"<input type='text' name='reply' value='message'>"
-							"<input type='submit' name='reply' class='submit' value='Reply'>"
-							"</form>"];
-		}
-		
-		[sender setCurrentNotification:notification];
-		
-		// Send notification to Nounce
-		[NCNotificationManager notify:notification];
-	}
- */
+	NCAIMessage *message = [self getMessageForContentMessage:contentMessage];
+	NCAIChat *chat = [self getChatForAIChat:updatedChat];
+	[self appendMessageToChat:chat message:message];
 }
 
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent
-{
-	NSLog(@"chat updated %@", inModifiedKeys);
-	
+{	
 	if ([inModifiedKeys containsObject:KEY_UNVIEWED_CONTENT]) {
-		
+		NCAIChat *chat = [self getChatForAIChat:inChat];
+		[self updateAndSubmitNotification:chat numUnviewedMessages:[inChat unviewedContentCount]];
 	}
 	else if ([inModifiedKeys containsObject:KEY_TYPING]) {
 		
@@ -114,9 +59,89 @@
 	return nil;
 }
 
-- (void)uninstallPlugin
+/* 
+ * Accessors
+ */
+
+- (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
 {
-    [chats release];
+	NCAIChat *chat = [chats objectForKey:[givenChat uniqueChatID]];
+	
+	if (!chat) {
+		chat = [[[NCAIChat alloc] init] autorelease];
+		[chat setID:[givenChat uniqueChatID]];
+		[chat setNewMessages:[[NSMutableArray alloc] init]];
+	}
+	
+	return chat;
+}
+
+- (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
+{
+	AIListContact *senderContact = (AIListContact *)[contentMessage source];
+	
+	NCAIMessage *message = [[[NCAIMessage alloc] init] autorelease];
+	[message setMessage:[contentMessage messageString]];
+	[message setIsSenderSelf:NO];
+	[message setSenderName:[senderContact ownDisplayName]];
+	
+	return message;
+}
+
+/* 
+ * Functions
+ */
+
+- (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message
+{
+	[[chat newMessages] addObject:message];
+	[chats setObject:chat forKey:[chat ID]];
+}
+
+- (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
+{
+	// Create notification content with the new messages from this sender
+	NSString *notificationContent = @"";
+	NSString *format;
+	
+	NSEnumerator *messagesEnumerator = [[chat newMessages] reverseObjectEnumerator];
+	NCAIMessage *message;
+	int messageCount = 0;
+	int messageCountOfNonSelfSenders = 0;
+	
+	while ((message = [messagesEnumerator nextObject]) && (messageCountOfNonSelfSenders < numUnviewedMessages)) {
+		format = messageCount == 0 ? @"<b>%@</b>: %@" : @"<b>%@</b>: %@<br>";
+		
+		notificationContent = [[NSString stringWithFormat:format, [message senderName], [message message]]
+							   stringByAppendingString:notificationContent];
+		
+		if (![message isSenderSelf]) {
+			messageCountOfNonSelfSenders++;
+		}
+		messageCount++;
+	}
+	
+	// Build notification for Nounce
+	NCNotification *notification;
+	
+	if ([chat currentNotification]) {
+		notification = [chat currentNotification];
+		[notification setContent:notificationContent];
+	}
+	else {
+		notification = [NCNotification
+						notificationWithTitle:[NSString stringWithFormat:@"Chat with %@", [message senderName]]
+						content:notificationContent
+						input:@"<form>"
+						"<input type='text' name='reply' value='message'>"
+						"<input type='submit' name='reply' class='submit' value='Reply'>"
+						"</form>"];
+	}
+	
+	[chat setCurrentNotification:notification];
+	
+	// Send notification to Nounce
+	[NCNotificationManager notify:notification];
 }
 
 @end
