@@ -16,15 +16,8 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 
 - (void) notify:(NCNotification *)notification
 {
-	[applications setObject:[notification fromApp] forKey:[[notification fromApp] ID]];
-	
-	NSMutableDictionary *appNotifications = [notifications objectForKey:[[notification fromApp] ID]];
-	if (!appNotifications) {
-		appNotifications = [[NSMutableDictionary alloc] init];
-	}
-	[appNotifications setObject:notification forKey:[notification ID]];
-	[notifications setObject:appNotifications forKey:[notification ID]];
-	[appNotifications release]; // TODO: Fix this bad line
+	[applications setObject:[notification fromApp] forKey:[[notification fromApp] ID]];	
+	[notifications setObject:notification forKey:[notification ID]];
 }
 
 /*
