@@ -77,12 +77,12 @@
 
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
 {
-	NCAIChat *chat = [chats objectForKey:[givenChat uniqueChatID]];
+	NCAIChat *chat = [[[chats objectForKey:[givenChat uniqueChatID]] retain] autorelease];
 	
 	if (!chat) {
 		chat = [[[NCAIChat alloc] init] autorelease];
 		[chat setID:[givenChat uniqueChatID]];
-		[chat setNewMessages:[[NSMutableArray alloc] init]];
+		[chat setNewMessages:[[[NSMutableArray alloc] init] autorelease]];
 		if ([givenChat name]) {
 			[chat setName:[givenChat name]];
 		}
