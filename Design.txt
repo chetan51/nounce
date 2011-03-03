@@ -4,8 +4,11 @@
 
  2     + listen
  2         // Listens for events about a notification from Notification Center
- 2         // and notifies the specified objects for that notification
            
+ 2     + notificationResponsePosted:(NSNotification *)message
+ 2         // Notifies the specified objects for the notification for
+ 2         // which a response was posted
+
 .1     + notify:(NCNotification *)notification
 .1         // Overwrites any existing notification
            
@@ -66,7 +69,7 @@
        
        - expire:(NCNotification *)notification
        
- 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)submitButtonID
+ 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonName:(NSString *)submitButtonName
        
 
    Shared Classes
