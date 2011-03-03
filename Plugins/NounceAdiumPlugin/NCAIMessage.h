@@ -16,7 +16,7 @@
 }
 
 @property BOOL isSenderSelf;
-@property (retain) NSString *senderName;
-@property (retain) NSString *message;
+@property (copy) NSString *senderName;
+@property (copy) NSString *message;
 
 @end

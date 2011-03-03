@@ -17,8 +17,8 @@
 	NCNotification *currentNotification;
 }
 
-@property (retain) NSString *ID;
-@property (retain) NSString *name;
+@property (copy) NSString *ID;
+@property (copy) NSString *name;
 @property (retain) NSMutableArray *newMessages;
 @property (retain) NCNotification *currentNotification;
 
