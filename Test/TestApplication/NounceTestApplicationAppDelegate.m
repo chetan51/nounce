@@ -21,6 +21,8 @@
 												"<input type='submit' name='reply' class='submit' value='Reply'>"
 												"<input type='submit' name='forward' class='submit' value='Forward'>"
 											"</form>"];
+	[notification setCallbackObject:self];
+	[notification setCallbackSelector:@selector(firstNotificationEvent:)];
 	[NCNotificationManager notify:notification];
 	
 	NCNotification *notification2 = [NCNotification
@@ -30,6 +32,14 @@
 	[[notification2 fromApp] setID:@"something"];
 	[[notification2 fromApp] setName:@"Another App"];
 	[NCNotificationManager notify:notification2];
+}
+
+- (void) firstNotificationEvent:(NCEvent *)event
+{
+	if ([event type] == NCEVENT_INPUT_SUBMIT) {
+		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
+		NSLog(@"input submit from first notification: %@", inputData);
+	}
 }
 
 @end
