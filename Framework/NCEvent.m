@@ -13,4 +13,19 @@
 
 @synthesize type;
 
+
+- (void) encodeWithCoder: (NSCoder *) coder
+{
+    [coder encodeObject:[NSNumber numberWithInt:type] forKey:@"type"];
+}
+
+- (id) initWithCoder: (NSCoder *) coder
+{
+    if (self = [super init]) {
+        type = [[coder decodeObjectForKey:@"type"] intValue];
+    }
+	
+    return (self);
+}
+
 @end
