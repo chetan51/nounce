@@ -112,6 +112,16 @@
  2           // and (NSDictionary *)inputData (which is not
  2           // nil if event is INPUT_SUBMIT)
          
+       * NCNotificationType
+         # DONE
+         # IN_PROGRESS
+         # TIME_SENSITIVE
+       
+ 2     * NCEvent
+ 2       # READ
+ 2       # CLEARED
+ 2       # INPUT_SUBMIT
+ 
 .1   * NCApplication
 .1     ~ (NSString *)id
 .1     ~ (NSString *)name
@@ -119,11 +129,6 @@
 .1     
 .1     + applicationWithBundleIdentifier:(NSString *)bundleIdentifier
 
-     * NCNotificationType
-       # DONE
-       # IN_PROGRESS
-       # TIME_SENSITIVE
-       
      * NCIcon
        ~ (NSString *)path
 	 
@@ -133,11 +138,6 @@
 	 
        + iconWithImage:(NSImage *)image
 	 
- 2   * NCEvent
- 2     # READ
- 2     # CLEARED
- 2     # INPUT_SUBMIT
- 
 
    Plugins
      Adium
