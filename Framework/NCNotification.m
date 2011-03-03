@@ -17,6 +17,8 @@
 @synthesize title;
 @synthesize content;
 @synthesize input;
+@synthesize callbackObject;
+@synthesize callbackSelector;
 
 + (NCNotification *) notificationWithTitle:(NSString *)title
 								   content:(NSString *)content
