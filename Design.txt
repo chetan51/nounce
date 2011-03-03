@@ -66,7 +66,7 @@
        
        - expire:(NCNotification *)notification
        
- 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)id
+ 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)submitButtonID
        
 
    Shared Classes
