@@ -21,7 +21,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Object variables
-	notificationCenter = [NCNotificationCenter sharedNotificationCenter];\
+	notificationCenter = [NCNotificationCenter sharedNotificationCenter];
 	
 	// Start listening for notifications
 	[self listen];
