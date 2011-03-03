@@ -200,8 +200,7 @@
 	SBJsonParser *parser = [SBJsonParser new];
 	NSDictionary *inputDataDictionary = [parser objectWithString:inputData error:nil];
 	
-	NSLog(@"%@", buttonName);
-	NSLog(@"%@", inputDataDictionary);
+	[notificationCenter submitFormForNotificationWithID:notificationID inputData:inputDataDictionary submitButtonID:buttonName];
 }
 
 
