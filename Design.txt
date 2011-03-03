@@ -69,7 +69,7 @@
        
        - expire:(NCNotification *)notification
        
- 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonName:(NSString *)submitButtonName
+ 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData formName:(NSString *)formName buttonName:(NSString *)buttonName
        
 
    Shared Classes
