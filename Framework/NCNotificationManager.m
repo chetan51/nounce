@@ -19,6 +19,25 @@
 	[self listen];
 }
 
++ (void) dealloc
+{
+	[notifications release];
+	[super dealloc];
+}
+
+/*
+ * Accessors and setters
+ */
+
++ (NCNotification *) notificationWithID:(NSString *)notificationID
+{
+	return [notifications objectForKey:notificationID];
+}
+
+/*
+ * Event listeners
+ */
+
 + (void) listen
 {
 	[[NSDistributedNotificationCenter defaultCenter]
@@ -28,16 +47,25 @@
 	 object:nil];
 }
 
+/*
+ * Event handlers
+ */
+
 + (void) eventForNotification:(NSNotification *)message
 {
-	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo] objectForKey:@"notification"]];
+	NCNotification *eventedNotification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo] objectForKey:@"notification"]];
 	NCEvent *event = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo] objectForKey:@"event"]];
-	NSDictionary *data = [[message userInfo] objectForKey:@"data"];
 	
-	NSLog(@"%@", event);
-	NSLog(@"%@", data);
-	//[self performSelectorOnMainThread:@selector(notify:) withObject:notification waitUntilDone:NO];	
+	NCNotification *notification = [self notificationWithID:[eventedNotification ID]];
+	
+	if ([notification callbackObject] && [notification callbackSelector]) {
+		[[notification callbackObject] performSelectorOnMainThread:[notification callbackSelector] withObject:event waitUntilDone:NO];
+	}
 }
+
+/*
+ * Functions
+ */
 
 + (void) notify:(NCNotification *)notification
 {
@@ -48,12 +76,6 @@
 	 postNotificationName:@"Nounce_Notification"
 	 object:nil
 	 userInfo:[NSDictionary dictionaryWithObject:archivedNotification forKey:@"notification"]];
-}
-
-+ (void) dealloc
-{
-	[notifications release];
-	[super dealloc];
 }
 
 @end

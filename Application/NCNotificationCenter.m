@@ -46,13 +46,15 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 	
 	NCEvent *event = [[NCEvent alloc] init];
 	[event setType:NCEVENT_INPUT_SUBMIT];
-	NSData *archivedEvent = [NSKeyedArchiver archivedDataWithRootObject:event];
 	
 	NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
 						  inputData, @"InputData",
 						  formName, @"FormName",
 						  buttonName, @"ButtonName",
 						  nil];
+	[event setData:data];
+	
+	NSData *archivedEvent = [NSKeyedArchiver archivedDataWithRootObject:event];
 	
 	[[NSDistributedNotificationCenter defaultCenter]
 	 postNotificationName:@"Nounce_NotificationResponse"
@@ -60,7 +62,6 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 	 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			   archivedNotification, @"notification",
 			   archivedEvent, @"event",
-			   data, @"data",
 			   nil]];	
 }
 
