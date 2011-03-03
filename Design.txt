@@ -158,7 +158,7 @@
  
 .2       - updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
          
- 2       - responseFromNotification:(NSDictionary *)response
+ 2       - eventFromNotification:(NCEvent *)event
          
 .2     * NCAIChat
 .2       ~ (NSString *)ID
