@@ -11,11 +11,13 @@
 
 @implementation NCNotificationManager
 
-+ (void) initialize {
++ (void) initialize
+{
 	notifications = [[NSMutableDictionary alloc] init];
 }
 
-+ (void) notify:(NCNotification *)notification {
++ (void) notify:(NCNotification *)notification
+{
 	[notifications setObject:notification forKey:[notification ID]];
 	
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
@@ -25,7 +27,8 @@
 	 userInfo:[NSDictionary dictionaryWithObject:archivedNotification forKey:@"notification"]];
 }
 
-+ (void) dealloc {
++ (void) dealloc
+{
 	[notifications release];
 	[super dealloc];
 }
