@@ -2,6 +2,8 @@
 .1   * NCNotificationManager
 .1     ~ (NSMutableDictionary *)notifications
 
+.2     + notificationWithID:(NSString *)notificationID
+
 .2     + listen
 .2         // Listens for events about a notification from Notification Center
            
