@@ -20,4 +20,8 @@
 
 - (void) notify:(NCNotification *)notification;
 
+- (NCNotification *) notificationWithID:(NSString *)notificationID;
+
+- (void) submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)submitButtonID;
+
 @end

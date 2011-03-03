@@ -26,7 +26,36 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 	[appNotifications release]; // TODO: Fix this bad line
 }
 
-/* Singleton stuff */
+/*
+ * Accessors and setters
+ */
+
+- (NCNotification *) notificationWithID:(NSString *)notificationID
+{
+	return [notifications objectForKey:notificationID];
+}
+
+/*
+ * Functions
+ */
+
+- (void) submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)submitButtonID
+{
+	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:[self notificationWithID:notificationID]];
+	
+	[[NSDistributedNotificationCenter defaultCenter]
+	 postNotificationName:@"Nounce_NotificationResponse"
+	 object:nil
+	 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+			   archivedNotification, @"notification",
+			   inputData, @"inputData",
+			   submitButtonID, @"submitButtonID",
+			   nil]];	
+}
+
+/*
+ * Singleton stuff
+ */
 
 - (id)init {
 	if (self = [super init]) {
