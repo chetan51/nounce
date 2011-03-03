@@ -91,7 +91,7 @@
 .2     ~ (NSString *)input
        ~ (NSDate *)expires
 .2     ~ (NSObject *)callbackObject
-.2     ~ (selector)callbackSelector
+.2     ~ (SEL)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
@@ -103,8 +103,8 @@
            expires:(NSDate *)date
            
  2     - addObserver:(NSObject *)callbackObject
- 2         selector:(selector)callbackSelector
- 2         name:(selector)callbackSelector
+ 2         selector:(SEL)callbackSelector
+ 2         name:(SEL)callbackSelector
  2           // The selector is called with (NCEvent *)event.
          
        * NCNotificationType
