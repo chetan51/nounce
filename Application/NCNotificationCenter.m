@@ -26,7 +26,7 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 
 - (NCNotification *) notificationWithID:(NSString *)notificationID
 {
-	return [notifications objectForKey:notificationID];
+	return [[[notifications objectForKey:notificationID] retain] autorelease];
 }
 
 /*
@@ -37,7 +37,7 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 {
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:[self notificationWithID:notificationID]];
 	
-	NCEvent *event = [[NCEvent alloc] init];
+	NCEvent *event = [[[NCEvent alloc] init] autorelease];
 	[event setType:NCEVENT_INPUT_SUBMIT];
 	
 	NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
