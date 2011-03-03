@@ -20,7 +20,7 @@
 	
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
 	[[NSDistributedNotificationCenter defaultCenter]
-	 postNotificationName:@"Nounce"
+	 postNotificationName:@"Nounce_Notification"
 	 object:nil
 	 userInfo:[NSDictionary dictionaryWithObject:archivedNotification forKey:@"notification"]];
 }
