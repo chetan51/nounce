@@ -105,10 +105,7 @@
  2     - addObserver:(id)callbackObject
  2         selector:(selector)callbackSelector
  2         name:(selector)callbackSelector
- 2           // The selector is called with (NCEvent *)event,
- 2           // (NSDictionary *)data.
- 2           // If `event` is of type NCEVENT_INPUT_SUBMIT, `data` will contain
- 2           // objects for keys "FormName", "ButtonName" and "InputData".
+ 2           // The selector is called with (NCEvent *)event.
  
  2     - notifyOnEvent:(id)callbackObject
  2         withSelector:(selector)callbackSelector
@@ -123,6 +120,9 @@
        
 .2   * NCEvent
 .2     ~ (NCEventType) type
+.2     ~ (NSDictionary *) data
+ 2           // If type is NCEVENT_INPUT_SUBMIT, `data` will contain
+ 2           // objects for keys "FormName", "ButtonName" and "InputData".
        
 .2     * NCEventType
 .2       # READ
