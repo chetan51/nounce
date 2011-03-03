@@ -10,6 +10,7 @@
 
 #import <Nounce/NCNotification.h>
 #import <Nounce/NCNotificationManager.h>
+#import <Nounce/NCEvent.h>
 
 
 @implementation NounceAdiumPlugin
@@ -57,6 +58,17 @@
 	}
 	
 	return nil;
+}
+
+- (void) eventFromNotification:(NCEvent *)event
+{
+	if ([event type] == NCEVENT_INPUT_SUBMIT &&
+		[[event data] objectForKey:@"FormName"] == @"reply" &&
+		[[event data] objectForKey:@"ButtonName"] == @"reply")
+	{
+		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
+		NSLog(@"%@", [inputData objectForKey:@"reply"]);
+	}
 }
 
 /* 
@@ -138,11 +150,13 @@
 		notification = [NCNotification
 						notificationWithTitle:[chat name]
 						content:notificationContent
-						input:@"<form>"
+						input:@"<form name='reply'>"
 						"<input type='text' name='reply' value='message'>"
 						"<input type='submit' name='reply' class='submit' value='Reply'>"
 						"</form>"];
 	}
+	
+	[notification setObserver:self selector:@selector(eventFromNotification:)];
 	
 	[chat setCurrentNotification:notification];
 	
