@@ -12,17 +12,20 @@
 @implementation NCEvent
 
 @synthesize type;
+@synthesize data;
 
 
 - (void) encodeWithCoder: (NSCoder *) coder
 {
-    [coder encodeObject:[NSNumber numberWithInt:type] forKey:@"type"];
+    [coder encodeObject:[NSNumber numberWithInt:type]	forKey:@"type"];
+    [coder encodeObject:data							forKey:@"data"];
 }
 
 - (id) initWithCoder: (NSCoder *) coder
 {
     if (self = [super init]) {
         type = [[coder decodeObjectForKey:@"type"] intValue];
+		data = [coder decodeObjectForKey:@"data"];
     }
 	
     return (self);

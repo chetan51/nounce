@@ -19,8 +19,10 @@ typedef enum NCEventType
 
 @interface NCEvent : NSObject {
 	NCEventType type;
+	NSDictionary *data;
 }
 
 @property (assign) NCEventType type;
+@property (retain) NSDictionary *data;
 
 @end
