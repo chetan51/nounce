@@ -30,13 +30,12 @@
 
 + (void) eventForNotification:(NSNotification *)message
 {
-	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo]
-																			   objectForKey:@"notification"]];
-	NSDictionary *response = [[message userInfo] objectForKey:@"response"];
-	NCEvent *event = [NSKeyedUnarchiver unarchiveObjectWithData:[response objectForKey:@"Event"]];
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo] objectForKey:@"notification"]];
+	NCEvent *event = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo] objectForKey:@"event"]];
+	NSDictionary *data = [[message userInfo] objectForKey:@"data"];
 	
-	NSLog(@"%@", response);
 	NSLog(@"%@", event);
+	NSLog(@"%@", data);
 	//[self performSelectorOnMainThread:@selector(notify:) withObject:notification waitUntilDone:NO];	
 }
 
