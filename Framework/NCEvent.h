@@ -23,6 +23,6 @@ typedef enum NCEventType
 }
 
 @property (assign) NCEventType type;
-@property (retain) NSDictionary *data;
+@property (copy) NSDictionary *data;
 
 @end

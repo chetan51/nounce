@@ -31,4 +31,10 @@
     return (self);
 }
 
+- (void) dealloc
+{
+	[data release];
+	[super dealloc];
+}
+
 @end

@@ -14,8 +14,8 @@
 	NSString *name;
 }
 
-@property (retain) NSString *ID;
-@property (retain) NSString *name;
+@property (copy) NSString *ID;
+@property (copy) NSString *name;
 
 + applicationWithBundleIdentifier:(NSString *)bundleIdentifier;
 

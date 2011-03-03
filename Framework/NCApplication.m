@@ -43,4 +43,11 @@
     return (self);
 }
 
+- (void) dealloc
+{
+	[ID release];
+	[name release];
+	[super dealloc];
+}
+
 @end

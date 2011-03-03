@@ -20,11 +20,11 @@
 	SEL callbackSelector;
 }
 
-@property (retain) NSString *ID;
+@property (copy) NSString *ID;
 @property (retain) NCApplication *fromApp;
-@property (retain) NSString *title;
-@property (retain) NSString *content;
-@property (retain) NSString *input;
+@property (copy) NSString *title;
+@property (copy) NSString *content;
+@property (copy) NSString *input;
 @property (assign) NSObject *callbackObject;
 @property SEL callbackSelector;
 
