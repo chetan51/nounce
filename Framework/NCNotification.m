@@ -70,11 +70,11 @@
 
 - (void) dealloc
 {
-    [ID release];
-	[fromApp release];
-	[title release];
-	[content release];
-	[input release];
+	[self setID:nil];
+	[self setFromApp:nil];
+	[self setTitle:nil];
+	[self setContent:nil];
+	[self setInput:nil];
     [super dealloc];
 }
 

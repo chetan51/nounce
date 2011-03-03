@@ -45,8 +45,8 @@
 
 - (void) dealloc
 {
-	[ID release];
-	[name release];
+	[self setID:nil];
+	[self setName:nil];
 	[super dealloc];
 }
 

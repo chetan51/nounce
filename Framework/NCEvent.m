@@ -33,7 +33,7 @@
 
 - (void) dealloc
 {
-	[data release];
+	[self setData:nil];
 	[super dealloc];
 }
 
