@@ -90,7 +90,7 @@
        ~ (NCIcon *)notificationIcon
 .2     ~ (NSString *)input
        ~ (NSDate *)expires
-.2     ~ (id)callbackObject
+.2     ~ (NSObject *)callbackObject
 .2     ~ (selector)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
@@ -102,16 +102,10 @@
 .2         input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
- 2     - addObserver:(id)callbackObject
+ 2     - addObserver:(NSObject *)callbackObject
  2         selector:(selector)callbackSelector
  2         name:(selector)callbackSelector
  2           // The selector is called with (NCEvent *)event.
- 
- 2     - notifyOnEvent:(id)callbackObject
- 2         withSelector:(selector)callbackSelector
- 2           // The selector is called with (NCEvent *)event
- 2           // and (NSDictionary *)inputData (which is not
- 2           // nil if event is INPUT_SUBMIT)
          
        * NCNotificationType
          # DONE
