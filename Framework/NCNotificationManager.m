@@ -14,6 +14,25 @@
 + (void) initialize
 {
 	notifications = [[NSMutableDictionary alloc] init];
+	
+	[self listen];
+}
+
++ (void) listen
+{
+	[[NSDistributedNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(notificationResponsePosted:)
+	 name:@"Nounce_NotificationResponse"
+	 object:nil];
+}
+
++ (void) notificationResponsePosted:(NSNotification *)message
+{
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo]
+																			   objectForKey:@"notification"]];
+	NSLog(@"%@", message);
+	//[self performSelectorOnMainThread:@selector(notify:) withObject:notification waitUntilDone:NO];	
 }
 
 + (void) notify:(NCNotification *)notification

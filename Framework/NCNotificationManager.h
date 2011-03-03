@@ -15,6 +15,8 @@
 
 static NSMutableDictionary *notifications;
 
++ (void) listen;
+
 + (void) notify:(NCNotification *)notification;
 
 @end

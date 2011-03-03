@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61318C13131F319A00D2E6C0 /* NCEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 61318C11131F319A00D2E6C0 /* NCEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61318C14131F319A00D2E6C0 /* NCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 61318C12131F319A00D2E6C0 /* NCEvent.m */; };
 		617001AC1307961C000B7763 /* NCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 617001AA1307961C000B7763 /* NCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		617001AD1307961C000B7763 /* NCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 617001AB1307961C000B7763 /* NCNotification.m */; };
 		61E01B351307BD130075442B /* NCApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 61E01B331307BD130075442B /* NCApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +25,8 @@
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* Nounce_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nounce_Prefix.pch; sourceTree = "<group>"; };
+		61318C11131F319A00D2E6C0 /* NCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCEvent.h; sourceTree = "<group>"; };
+		61318C12131F319A00D2E6C0 /* NCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCEvent.m; sourceTree = "<group>"; };
 		617001AA1307961C000B7763 /* NCNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotification.h; sourceTree = "<group>"; };
 		617001AB1307961C000B7763 /* NCNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotification.m; sourceTree = "<group>"; };
 		61E01B331307BD130075442B /* NCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplication.h; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				617001AB1307961C000B7763 /* NCNotification.m */,
 				61E01B331307BD130075442B /* NCApplication.h */,
 				61E01B341307BD130075442B /* NCApplication.m */,
+				61318C11131F319A00D2E6C0 /* NCEvent.h */,
+				61318C12131F319A00D2E6C0 /* NCEvent.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -133,6 +139,7 @@
 				617001AC1307961C000B7763 /* NCNotification.h in Headers */,
 				61E01B351307BD130075442B /* NCApplication.h in Headers */,
 				61E01BCF1307D9860075442B /* NCNotificationManager.h in Headers */,
+				61318C13131F319A00D2E6C0 /* NCEvent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +209,7 @@
 				617001AD1307961C000B7763 /* NCNotification.m in Sources */,
 				61E01B361307BD130075442B /* NCApplication.m in Sources */,
 				61E01BD01307D9860075442B /* NCNotificationManager.m in Sources */,
+				61318C14131F319A00D2E6C0 /* NCEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

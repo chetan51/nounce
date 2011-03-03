@@ -7,6 +7,7 @@
 //
 
 #import "NCNotificationCenter.h"
+#import "Nounce/NCEvent.h"
 
 
 @implementation NCNotificationCenter
@@ -39,17 +40,27 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
  * Functions
  */
 
-- (void) submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)submitButtonID
+- (void) submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData formName:(NSString *)formName buttonName:(NSString *)buttonName
 {
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:[self notificationWithID:notificationID]];
+	
+	NCEvent *event = [[NCEvent alloc] init];
+	[event setType:NCEVENT_INPUT_SUBMIT];
+	NSData *archivedEvent = [NSKeyedArchiver archivedDataWithRootObject:event];
+	
+	NSDictionary *response = [NSDictionary dictionaryWithObjectsAndKeys:
+							  archivedEvent, @"Event",
+							  inputData, @"InputData",
+							  formName, @"FormName",
+							  buttonName, @"ButtonName",
+							  nil];
 	
 	[[NSDistributedNotificationCenter defaultCenter]
 	 postNotificationName:@"Nounce_NotificationResponse"
 	 object:nil
 	 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			   archivedNotification, @"notification",
-			   inputData, @"inputData",
-			   submitButtonID, @"submitButtonID",
+			   response, @"response",
 			   nil]];	
 }
 

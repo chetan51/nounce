@@ -22,6 +22,6 @@
 
 - (NCNotification *) notificationWithID:(NSString *)notificationID;
 
-- (void) submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData submitButtonID:(NSString *)submitButtonID;
+- (void) submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData formName:(NSString *)formName buttonName:(NSString *)buttonName;
 
 @end

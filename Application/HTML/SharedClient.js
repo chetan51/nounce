@@ -126,7 +126,7 @@ function updateNotificationsCounterAll() {
 function submitNotificationInputForm(form, notificationID, buttonName)
 {
 	var inputData = JSON.stringify(form.serializeObject());
-	window.AppController.NCNotificationInputSubmittedWithID_buttonName_inputData_(notificationID, buttonName, inputData);
+	window.AppController.NCNotificationInputSubmittedWithID_formName_buttonName_inputData_(notificationID, form.attr("name"), buttonName, inputData);
 }
 
 /*

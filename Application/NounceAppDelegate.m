@@ -194,13 +194,14 @@
 }
 
 - (void) NCNotificationInputSubmittedWithID:(NSString *)notificationID
+								   formName:(NSString *)formName
 								 buttonName:(NSString *)buttonName
 								  inputData:(NSString *)inputData
 {
 	SBJsonParser *parser = [SBJsonParser new];
 	NSDictionary *inputDataDictionary = [parser objectWithString:inputData error:nil];
 	
-	[notificationCenter submitFormForNotificationWithID:notificationID inputData:inputDataDictionary submitButtonID:buttonName];
+	[notificationCenter submitFormForNotificationWithID:notificationID inputData:inputDataDictionary formName:formName buttonName:buttonName];
 }
 
 
