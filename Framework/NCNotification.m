@@ -58,11 +58,11 @@
 - (id) initWithCoder: (NSCoder *) coder
 {
     if (self = [super init]) {
-        ID			= [coder decodeObjectForKey:@"ID"];
-        fromApp		= [coder decodeObjectForKey:@"fromApp"];
-        title		= [coder decodeObjectForKey:@"title"];
-        content		= [coder decodeObjectForKey:@"content"];
-        input		= [coder decodeObjectForKey:@"input"];
+        self.ID			= [coder decodeObjectForKey:@"ID"];
+        self.fromApp		= [coder decodeObjectForKey:@"fromApp"];
+        self.title		= [coder decodeObjectForKey:@"title"];
+        self.content		= [coder decodeObjectForKey:@"content"];
+        self.input		= [coder decodeObjectForKey:@"input"];
     }
 	
     return (self);

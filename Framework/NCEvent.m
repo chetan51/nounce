@@ -24,8 +24,8 @@
 - (id) initWithCoder: (NSCoder *) coder
 {
     if (self = [super init]) {
-        type = [[coder decodeObjectForKey:@"type"] intValue];
-		data = [coder decodeObjectForKey:@"data"];
+        self.type = [[coder decodeObjectForKey:@"type"] intValue];
+		self.data = [coder decodeObjectForKey:@"data"];
     }
 	
     return (self);

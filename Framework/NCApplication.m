@@ -36,8 +36,8 @@
 - (id) initWithCoder: (NSCoder *) coder
 {
     if (self = [super init]) {
-        ID		= [coder decodeObjectForKey:@"ID"];
-        name	= [coder decodeObjectForKey:@"name"];
+        self.ID		= [coder decodeObjectForKey:@"ID"];
+        self.name	= [coder decodeObjectForKey:@"name"];
     }
 	
     return (self);
