@@ -7,9 +7,9 @@
 .2     + listen
 .2         // Listens for events about a notification from Notification Center
            
- 2     + eventForNotification:(NSNotification *)message
- 2         // Notifies the specified objects for the notification for
- 2         // which the event happened
+.2     + eventForNotification:(NSNotification *)message
+.2         // Notifies the specified objects for the notification for
+.2         // which the event happened
 
 .1     + notify:(NCNotification *)notification
 .1         // Overwrites any existing notification
@@ -115,8 +115,8 @@
 .2   * NCEvent
 .2     ~ (NCEventType) type
 .2     ~ (NSDictionary *) data
- 2           // If type is NCEVENT_INPUT_SUBMIT, `data` will contain
- 2           // objects for keys "FormName", "ButtonName" and "InputData".
+.2           // If type is NCEVENT_INPUT_SUBMIT, `data` will contain
+.2           // objects for keys "FormName", "ButtonName" and "InputData".
        
 .2     * NCEventType
 .2       # READ
