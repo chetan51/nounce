@@ -104,7 +104,6 @@
            
  2     - setObserver:(NSObject *)callbackObject
  2         selector:(SEL)callbackSelector
- 2         name:(SEL)callbackSelector
  2           // The selector is called with (NCEvent *)event.
          
        * NCNotificationType
