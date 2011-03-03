@@ -5,9 +5,9 @@
  2     + listen
  2         // Listens for events about a notification from Notification Center
            
- 2     + notificationResponsePosted:(NSNotification *)message
+ 2     + eventForNotification:(NSNotification *)message
  2         // Notifies the specified objects for the notification for
- 2         // which a response was posted
+ 2         // which the event happened
 
 .1     + notify:(NCNotification *)notification
 .1         // Overwrites any existing notification

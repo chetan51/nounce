@@ -7,6 +7,7 @@
 //
 
 #import "NCNotificationManager.h"
+#import "NCEvent.h"
 
 
 @implementation NCNotificationManager
@@ -22,16 +23,20 @@
 {
 	[[NSDistributedNotificationCenter defaultCenter]
 	 addObserver:self
-	 selector:@selector(notificationResponsePosted:)
+	 selector:@selector(eventForNotification:)
 	 name:@"Nounce_NotificationResponse"
 	 object:nil];
 }
 
-+ (void) notificationResponsePosted:(NSNotification *)message
++ (void) eventForNotification:(NSNotification *)message
 {
 	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo]
 																			   objectForKey:@"notification"]];
-	NSLog(@"%@", message);
+	NSDictionary *response = [[message userInfo] objectForKey:@"response"];
+	NCEvent *event = [NSKeyedUnarchiver unarchiveObjectWithData:[response objectForKey:@"Event"]];
+	
+	NSLog(@"%@", response);
+	NSLog(@"%@", event);
 	//[self performSelectorOnMainThread:@selector(notify:) withObject:notification waitUntilDone:NO];	
 }
 
