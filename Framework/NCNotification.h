@@ -10,6 +10,14 @@
 #import "NCApplication.h"
 
 
+typedef enum NCEvent 
+{
+    READ,
+    CLEARED,
+    INPUT_SUBMIT
+} NCEvent;
+
+
 @interface NCNotification : NSObject {
 	NSString *ID;
 	NCApplication *fromApp;
