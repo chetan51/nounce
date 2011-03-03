@@ -2,8 +2,8 @@
 .1   * NCNotificationManager
 .1     ~ (NSMutableDictionary *)notifications
 
- 2     + listen
- 2         // Listens for events about a notification from Notification Center
+.2     + listen
+.2         // Listens for events about a notification from Notification Center
            
  2     + eventForNotification:(NSNotification *)message
  2         // Notifies the specified objects for the notification for
@@ -44,7 +44,7 @@
        
        - NCNotificationClearClickedWithID:(NSString *)notificationID
        
- 2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
+.2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
              // inputData is JSON string
 
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
@@ -61,7 +61,7 @@
 .1     - notify:(NCNotification *)notification
 .1         // Overwrites any existing notification
        
- 2     - notificationWithID:(NSString *)notificationID
+.2     - notificationWithID:(NSString *)notificationID
 	 
        - clear:(NCNotification *)notification
        
@@ -69,7 +69,7 @@
        
        - expire:(NCNotification *)notification
        
- 2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData formName:(NSString *)formName buttonName:(NSString *)buttonName
+.2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData formName:(NSString *)formName buttonName:(NSString *)buttonName
        
 
    Shared Classes
@@ -86,10 +86,10 @@
            // For notification status area icon
 	     // Note: If more than one notifications of the same group are submitted by the same app, the group icon of the latest one will be used in the notification status area
        ~ (NCIcon *)notificationIcon
- 2     ~ (NSString *)input
+.2     ~ (NSString *)input
        ~ (NSDate *)expires
- 2     ~ (id)callbackObject
- 2     ~ (selector)callbackSelector
+.2     ~ (id)callbackObject
+.2     ~ (selector)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
@@ -97,7 +97,7 @@
            group:(NSString *)group (^)
            groupIcon:(NCIcon *)groupIcon (^)
            notificationIcon:(NCIcon *)notificationIcon (^)
- 2         input:(NSString *)input (^)  // in HTML format
+.2         input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
  2     - addObserver:(id)callbackObject
@@ -119,13 +119,13 @@
          # IN_PROGRESS
          # TIME_SENSITIVE
        
- 2   * NCEvent
- 2     ~ (NCEventType) type
+.2   * NCEvent
+.2     ~ (NCEventType) type
        
- 2     * NCEventType
- 2       # READ
- 2       # CLEARED
- 2       # INPUT_SUBMIT
+.2     * NCEventType
+.2       # READ
+.2       # CLEARED
+.2       # INPUT_SUBMIT
  
 .1   * NCApplication
 .1     ~ (NSString *)id
