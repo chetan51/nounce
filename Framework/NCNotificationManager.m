@@ -31,7 +31,12 @@
 
 + (NCNotification *) notificationWithID:(NSString *)notificationID
 {
-	return [notifications objectForKey:notificationID];
+	return [[[notifications objectForKey:notificationID] retain] autorelease];
+}
+
++ (void) setNotification:(NCNotification *)notification forID:(NSString *)ID
+{
+	[notifications setObject:notification forKey:ID];
 }
 
 /*
@@ -69,7 +74,7 @@
 
 + (void) notify:(NCNotification *)notification
 {
-	[notifications setObject:notification forKey:[notification ID]];
+	[self setNotification:notification forID:[notification ID]];
 	
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
 	[[NSDistributedNotificationCenter defaultCenter]
