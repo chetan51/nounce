@@ -21,8 +21,7 @@
 												"<input type='submit' name='reply' class='submit' value='Reply'>"
 												"<input type='submit' name='forward' class='submit' value='Forward'>"
 											"</form>"];
-	[notification setCallbackObject:self];
-	[notification setCallbackSelector:@selector(firstNotificationEvent:)];
+	[notification setObserver:self selector:@selector(firstNotificationEvent:)];
 	[NCNotificationManager notify:notification];
 	
 	NCNotification *notification2 = [NCNotification

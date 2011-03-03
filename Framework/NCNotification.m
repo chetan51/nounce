@@ -40,6 +40,12 @@
 	return notification;
 }
 
+- (void) setObserver:(NSObject *)object selector:(SEL)selector
+{
+	[self setCallbackObject:object];
+	[self setCallbackSelector:selector];
+}
+
 - (void) encodeWithCoder: (NSCoder *) coder
 {
     [coder encodeObject:ID			forKey:@"ID"];

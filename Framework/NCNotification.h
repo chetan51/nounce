@@ -32,4 +32,6 @@
 								   content:(NSString *)content
 									 input:(NSString *)input;
 
+- (void) setObserver:(NSObject *)object selector:(SEL)selector;
+
 @end
