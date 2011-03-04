@@ -7,12 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Nounce/NCNotification.h>
 #import <Nounce/NCEvent.h>
+#import <Nounce/NCNotificationManager.h>
 
 @interface NounceTestApplicationAppDelegate : NSObject <NSApplicationDelegate> {
 	
 }
 
-- (void) firstNotificationEvent:(NCEvent *)event;
+- (void) firstNotificationEvent:(NCEvent *)event forNotification:(NCNotification *)notification;
 
 @end

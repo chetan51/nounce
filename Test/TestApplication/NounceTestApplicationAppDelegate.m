@@ -7,8 +7,6 @@
 //
 
 #import "NounceTestApplicationAppDelegate.h"
-#import <Nounce/NCNotification.h>
-#import <Nounce/NCNotificationManager.h>
 
 @implementation NounceTestApplicationAppDelegate
 
@@ -21,7 +19,7 @@
 												"<input type='submit' name='reply' class='submit' value='Reply'>"
 												"<input type='submit' name='forward' class='submit' value='Forward'>"
 											"</form>"];
-	[notification setObserver:self selector:@selector(firstNotificationEvent:)];
+	[notification setObserver:self selector:@selector(firstNotificationEvent:forNotification:)];
 	[NCNotificationManager notify:notification];
 	
 	NCNotification *notification2 = [NCNotification
@@ -33,7 +31,7 @@
 	[NCNotificationManager notify:notification2];
 }
 
-- (void) firstNotificationEvent:(NCEvent *)event
+- (void) firstNotificationEvent:(NCEvent *)event forNotification:(NCNotification *)notification
 {
 	if ([event type] == NCEVENT_INPUT_SUBMIT) {
 		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
