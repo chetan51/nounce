@@ -59,8 +59,8 @@
 - (void) eventFromNotification:(NCEvent *)event
 {
 	if ([event type] == NCEVENT_INPUT_SUBMIT &&
-		[[event data] objectForKey:@"FormName"] == @"reply" &&
-		[[event data] objectForKey:@"ButtonName"] == @"reply")
+		[[[event data] objectForKey:@"FormName"] isEqual:@"reply"] &&
+		[[[event data] objectForKey:@"ButtonName"] isEqual:@"reply"])
 	{
 		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
 		NSLog(@"%@", [inputData objectForKey:@"reply"]);
