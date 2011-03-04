@@ -130,7 +130,7 @@
 {
 	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[message userInfo]
 																				objectForKey:@"notification"]];
-	[self performSelectorOnMainThread:@selector(notify:) withObject:notification waitUntilDone:NO];
+	[self notify:notification];
 }
 
 - (void) notify:(NCNotification *)notification

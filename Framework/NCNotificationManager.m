@@ -64,7 +64,7 @@
 	NCNotification *notification = [self notificationWithID:[eventedNotification ID]];
 	
 	if ([notification callbackObject] && [notification callbackSelector]) {
-		[[notification callbackObject] performSelectorOnMainThread:[notification callbackSelector] withObject:event waitUntilDone:NO];
+		[[notification callbackObject] performSelector:[notification callbackSelector] withObject:event];
 	}
 }
 
