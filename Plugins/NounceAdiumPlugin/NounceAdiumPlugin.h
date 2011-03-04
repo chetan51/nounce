@@ -26,6 +26,7 @@
 
 @interface NounceAdiumPlugin : AIPlugin <AIChatObserver> {
 	NSMutableDictionary *chats;
+	NSMutableDictionary *chatForNotificationManifest;
 }
 
 - (void) listen;
@@ -35,6 +36,7 @@
 - (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification;
 
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
+- (NCAIChat *)getChatForNotification:(NCNotification *)notification;
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
 
 - (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;

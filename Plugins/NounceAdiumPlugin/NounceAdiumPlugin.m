@@ -13,7 +13,8 @@
 
 - (void)installPlugin
 {
-	chats = [[NSMutableDictionary alloc] init];
+	chats						= [[NSMutableDictionary alloc] init];
+	chatForNotificationManifest = [[NSMutableDictionary alloc] init];
 	
 	[self listen];
 }
@@ -27,6 +28,7 @@
 - (void)uninstallPlugin
 {
     [chats release];
+	[chatForNotificationManifest release];
 }
 
 /* 
@@ -90,6 +92,11 @@
 	}
 	
 	return chat;
+}
+
+- (NCAIChat *)getChatForNotification:(NCNotification *)notification
+{
+	
 }
 
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
@@ -162,6 +169,7 @@
 	[notification setObserver:self selector:@selector(eventFromNotification:notification:)];
 	
 	[chat setCurrentNotification:notification];
+	[chatForNotificationManifest setObject:[chat ID] forKey:[notification ID]];
 	
 	// Send notification to Nounce
 	[NCNotificationManager notify:notification];
