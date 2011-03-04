@@ -72,8 +72,14 @@
 }
 
 /* 
- * Accessors
+ * Accessors and Setters
  */
+
+- (void) saveChat:(NCAIChat *)chat
+{
+	[chats setObject:chat forKey:[chat ID]];
+	[chatForNotificationManifest setObject:[chat ID] forKey:[[chat currentNotification] ID]];
+}
 
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
 {
@@ -118,7 +124,7 @@
 - (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message
 {
 	[[chat newMessages] addObject:message];
-	[chats setObject:chat forKey:[chat ID]];
+	[self saveChat:chat];
 }
 
 - (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat
@@ -169,7 +175,8 @@
 	[notification setObserver:self selector:@selector(eventFromNotification:notification:)];
 	
 	[chat setCurrentNotification:notification];
-	[chatForNotificationManifest setObject:[chat ID] forKey:[notification ID]];
+	
+	[self saveChat:chat];
 	
 	// Send notification to Nounce
 	[NCNotificationManager notify:notification];

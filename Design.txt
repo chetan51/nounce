@@ -153,6 +153,8 @@
          
  2       - messageSent:(NSNotification *)notification
  
+.2       - (void)saveChat:(NCAIChat *)chat
+
 .2       - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
  
  2       - (NCAIChat *)getChatForNotification:(NCNotification *)notification

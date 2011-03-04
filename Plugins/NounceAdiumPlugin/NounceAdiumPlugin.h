@@ -35,6 +35,7 @@
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent;
 - (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification;
 
+- (void) saveChat:(NCAIChat *)chat;
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
 - (NCAIChat *)getChatForNotification:(NCNotification *)notification;
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
