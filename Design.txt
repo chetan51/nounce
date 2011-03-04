@@ -155,6 +155,8 @@
  
 .2       - (void)saveChat:(NCAIChat *)chat
 
+.2       - (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification
+
 .2       - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
  
  2       - (NCAIChat *)getChatForNotification:(NCNotification *)notification
