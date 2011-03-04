@@ -21,7 +21,8 @@
 
 - (void) listen
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageReceived:) name:CONTENT_MESSAGE_RECEIVED object:nil];	
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageReceived:) name:CONTENT_MESSAGE_RECEIVED object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageSent:) name:CONTENT_MESSAGE_SENT object:nil];
 	[adium.chatController registerChatObserver:self];
 }
 
@@ -40,9 +41,28 @@
 	AIChat *updatedChat = (AIChat *)[[notification userInfo] objectForKey:@"AIChat"];
 	AIContentMessage *contentMessage = (AIContentMessage *)[[notification userInfo] objectForKey:@"AIContentObject"];
 	
-	NCAIMessage *message = [self getMessageForContentMessage:contentMessage];
+	NCAIMessage *message = [self getMessageForContentMessage:contentMessage sentByMe:NO];
 	NCAIChat *chat = [self getChatForAIChat:updatedChat];
+	
+	[chat setAiSender:[contentMessage source]];
+	[chat setAiMe:[contentMessage destination]];
+	
 	[self appendMessageToChat:chat message:message];
+}
+
+- (void) messageSent:(NSNotification *)notification
+{
+	AIChat *updatedChat = (AIChat *)[[notification userInfo] objectForKey:@"AIChat"];
+	AIContentMessage *contentMessage = (AIContentMessage *)[[notification userInfo] objectForKey:@"AIContentObject"];
+	
+	NCAIMessage *message = [self getMessageForContentMessage:contentMessage sentByMe:YES];
+	NCAIChat *chat = [self getChatForAIChat:updatedChat];
+	
+	[chat setAiSender:[contentMessage destination]];
+	[chat setAiMe:[contentMessage source]];
+	
+	[self appendMessageToChat:chat message:message];
+	[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat aiChat] unviewedContentCount]];
 }
 
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent
@@ -100,12 +120,13 @@
 	if (!chat) {
 		chat = [[[NCAIChat alloc] init] autorelease];
 		[chat setID:[givenChat uniqueChatID]];
+		[chat setAiChat:givenChat];
 		[chat setNewMessages:[[[NSMutableArray alloc] init] autorelease]];
 		if ([givenChat name]) {
 			[chat setName:[givenChat name]];
 		}
 		else {
-			[chat setName:[NSString stringWithFormat:@"Chat with %@", [[givenChat listObject] ownDisplayName]]];
+			[chat setName:[NSString stringWithFormat:@"Chat with %@", [[givenChat listObject] displayName]]];
 		}
 	}
 	
@@ -123,14 +144,14 @@
 	}
 }
 
-- (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
+- (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage sentByMe:(BOOL)isSentByMe
 {
 	AIListContact *senderContact = (AIListContact *)[contentMessage source];
 	
 	NCAIMessage *message = [[[NCAIMessage alloc] init] autorelease];
 	[message setMessage:[contentMessage messageString]];
-	[message setIsSenderSelf:NO];
-	[message setSenderName:[senderContact ownDisplayName]];
+	[message setIsSenderSelf:isSentByMe];
+	[message setSenderName:[senderContact displayName]];
 	
 	return message;
 }
@@ -147,7 +168,16 @@
 
 - (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat
 {
-	NSLog(@"%@ - %@", [chat name], message);
+	NSAttributedString *attributedMessage = [[[NSAttributedString alloc] initWithString:message] autorelease];
+	
+	AIContentMessage *contentObject = [AIContentMessage messageInChat:[chat aiChat]
+														   withSource:[chat aiMe]
+														  destination:[chat aiSender]
+																 date:[NSDate dateWithTimeIntervalSinceNow:0]
+															  message:attributedMessage
+															autoreply:[[[chat aiChat] account] supportsAutoReplies]];
+	
+	[adium.contentController sendContentObject:contentObject];
 }
 
 - (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages

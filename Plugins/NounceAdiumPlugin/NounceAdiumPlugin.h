@@ -10,6 +10,7 @@
 
 #import <Adium/AIPlugin.h>
 #import <Adium/AIChatControllerProtocol.h>
+#import <Adium/AIContentControllerProtocol.h>
 
 #import <Adium/AISharedAdium.h>
 #import <Adium/AIChat.h>
@@ -32,15 +33,16 @@
 - (void) listen;
 
 - (void) messageReceived:(NSNotification *)notification;
+- (void) messageSent:(NSNotification *)notification;
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent;
 - (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification;
 
 - (void) saveChat:(NCAIChat *)chat;
-- (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification
+- (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification;
 - (NCAIChat *)getChatWithID:(NSString *)chatID;
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
 - (NCAIChat *)getChatForNotification:(NCNotification *)notification;
-- (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
+- (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage sentByMe:(BOOL)isSentByMe;
 
 - (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;
 - (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat;

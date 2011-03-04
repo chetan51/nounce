@@ -145,13 +145,13 @@
 .2     * NounceAdiumPlugin
 .2       ~ (NSMutableDictionary *)chats
 .2           // Contains NCAIChat's, indexed by chat's UID
- 2       ~ (NSMutableDictionary *)chatForNotificationManifest
- 2           // Contains mapping of notification ID to chat UID
- 2           // Facilitates in selecting the chat for a given notification
+.2       ~ (NSMutableDictionary *)chatForNotificationManifest
+.2           // Contains mapping of notification ID to chat UID
+.2           // Facilitates in selecting the chat for a given notification
          
 .2       - messageReceived:(NSNotification *)notification
          
- 2       - messageSent:(NSNotification *)notification
+.2       - messageSent:(NSNotification *)notification
  
 .2       - (void)saveChat:(NCAIChat *)chat
 
@@ -159,23 +159,23 @@
 
 .2       - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
  
- 2       - (NCAIChat *)getChatForNotification:(NCNotification *)notification
+.2       - (NCAIChat *)getChatForNotification:(NCNotification *)notification
 
-.2       - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
+.2       - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage sentByMe:(BOOL)isSentByMe
 
 .2       - appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message
 
- 2       - sendMessage:(NSString *)message forChat:(NCAIChat *)
+.2       - sendMessage:(NSString *)message forChat:(NCAIChat *)
  
 .2       - updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
          
- 2       - eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification
+.2       - eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification
          
 .2     * NCAIChat
 .2       ~ (NSString *)ID
- 2       ~ (AIChat *)aiChat
- 2       ~ (AIListObject *)aiSender
- 2       ~ (AIListObject *)aiMe
+.2       ~ (AIChat *)aiChat
+.2       ~ (AIListObject *)aiSender
+.2       ~ (AIListObject *)aiMe
 .2       ~ (NSString *)name
 .2       ~ (NSMutableArray *)newMessages
 .2       ~ (NCNotification *)currentNotification
