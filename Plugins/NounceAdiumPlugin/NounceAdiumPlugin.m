@@ -48,7 +48,7 @@
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent
 {	
 	if ([inModifiedKeys containsObject:KEY_UNVIEWED_CONTENT]) {
-		NCAIChat *chat = [self getChatForAIChat:inChat];
+		NCAIChat *chat = [self getChatForAIChat:inChat]; // TODO: Error handling if chat is nil
 		[self updateAndSubmitNotification:chat numUnviewedMessages:[inChat unviewedContentCount]];
 	}
 	else if ([inModifiedKeys containsObject:KEY_TYPING]) {
@@ -65,9 +65,11 @@
 		[[[event data] objectForKey:@"ButtonName"] isEqual:@"reply"])
 	{
 		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
-		NSLog(@"%@", [inputData objectForKey:@"reply"]);
 		
-		
+		NCAIChat *chat;
+		if (chat = [self getChatForNotification:notification]) {
+			[self sendMessage:[inputData objectForKey:@"reply"] forChat:chat];
+		}
 	}
 }
 
@@ -78,7 +80,17 @@
 - (void) saveChat:(NCAIChat *)chat
 {
 	[chats setObject:chat forKey:[chat ID]];
+}
+
+- (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification
+{
+	[chat setCurrentNotification:notification];
 	[chatForNotificationManifest setObject:[chat ID] forKey:[[chat currentNotification] ID]];
+}
+
+- (NCAIChat *)getChatWithID:(NSString *)chatID
+{
+	return [[[chats objectForKey:chatID] retain] autorelease];
 }
 
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat
@@ -102,7 +114,13 @@
 
 - (NCAIChat *)getChatForNotification:(NCNotification *)notification
 {
-	
+	NSString *chatID;
+	if (chatID = [chatForNotificationManifest objectForKey:[notification ID]]) {
+		return [self getChatWithID:chatID];
+	}
+	else {
+		return nil;
+	}
 }
 
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
@@ -129,7 +147,7 @@
 
 - (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat
 {
-	
+	NSLog(@"%@ - %@", [chat name], message);
 }
 
 - (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
@@ -174,9 +192,8 @@
 	
 	[notification setObserver:self selector:@selector(eventFromNotification:notification:)];
 	
-	[chat setCurrentNotification:notification];
-	
 	[self saveChat:chat];
+	[self saveNotificationForChat:chat notification:notification];
 	
 	// Send notification to Nounce
 	[NCNotificationManager notify:notification];

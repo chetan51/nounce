@@ -36,6 +36,8 @@
 - (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification;
 
 - (void) saveChat:(NCAIChat *)chat;
+- (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification
+- (NCAIChat *)getChatWithID:(NSString *)chatID;
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
 - (NCAIChat *)getChatForNotification:(NCNotification *)notification;
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
