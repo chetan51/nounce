@@ -8,10 +8,6 @@
 
 #import "NounceAdiumPlugin.h"
 
-#import <Nounce/NCNotification.h>
-#import <Nounce/NCNotificationManager.h>
-#import <Nounce/NCEvent.h>
-
 
 @implementation NounceAdiumPlugin
 

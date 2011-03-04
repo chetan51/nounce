@@ -16,6 +16,10 @@
 #import <Adium/AIContentMessage.h>
 #import <Adium/AIListContact.h>
 
+#import <Nounce/NCNotification.h>
+#import <Nounce/NCNotificationManager.h>
+#import <Nounce/NCEvent.h>
+
 #import "NCAIChat.h"
 #import "NCAIMessage.h"
 
