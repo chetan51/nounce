@@ -32,12 +32,13 @@
 
 - (void) messageReceived:(NSNotification *)notification;
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent;
-- (void) eventFromNotification:(NCEvent *)event;
+- (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification;
 
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
 
 - (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;
+- (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat;
 - (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages;
 
 @end

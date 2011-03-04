@@ -12,8 +12,22 @@
 @implementation NCAIChat
 
 @synthesize ID;
+@synthesize aiChat;
+@synthesize aiSender;
+@synthesize aiMe;
 @synthesize name;
 @synthesize newMessages;
 @synthesize currentNotification;
+
+- (void) dealloc
+{
+	[self setAiChat:nil];
+	[self setAiSender:nil];
+	[self setAiMe:nil];
+	[self setName:nil];
+	[self setNewMessages:nil];
+	[self setCurrentNotification:nil];
+	[super dealloc];
+}
 
 @end

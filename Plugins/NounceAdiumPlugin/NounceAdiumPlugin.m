@@ -56,7 +56,7 @@
 	return nil;
 }
 
-- (void) eventFromNotification:(NCEvent *)event
+- (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification
 {
 	if ([event type] == NCEVENT_INPUT_SUBMIT &&
 		[[[event data] objectForKey:@"FormName"] isEqual:@"reply"] &&
@@ -64,6 +64,8 @@
 	{
 		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
 		NSLog(@"%@", [inputData objectForKey:@"reply"]);
+		
+		
 	}
 }
 
@@ -112,6 +114,11 @@
 	[chats setObject:chat forKey:[chat ID]];
 }
 
+- (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat
+{
+	
+}
+
 - (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
 {
 	// Create notification content with the new messages from this sender
@@ -152,7 +159,7 @@
 						"</form>"];
 	}
 	
-	[notification setObserver:self selector:@selector(eventFromNotification:)];
+	[notification setObserver:self selector:@selector(eventFromNotification:notification:)];
 	
 	[chat setCurrentNotification:notification];
 	

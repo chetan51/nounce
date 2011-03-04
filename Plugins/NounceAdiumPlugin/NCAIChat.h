@@ -9,15 +9,25 @@
 #import <Cocoa/Cocoa.h>
 #import <Nounce/NCNotification.h>
 
+#import <Adium/AIPlugin.h>
+#import <Adium/AIChat.h>
+#import <Adium/AIListContact.h>
+
 
 @interface NCAIChat : NSObject {
 	NSString *ID;
+	AIChat *aiChat;
+	AIListObject *aiSender;
+	AIListObject *aiMe;
 	NSString *name;
 	NSMutableArray *newMessages;
 	NCNotification *currentNotification;
 }
 
 @property (copy) NSString *ID;
+@property (retain) AIChat *aiChat;
+@property (retain) AIListObject *aiSender;
+@property (retain) AIListObject *aiMe;
 @property (copy) NSString *name;
 @property (retain) NSMutableArray *newMessages;
 @property (retain) NCNotification *currentNotification;

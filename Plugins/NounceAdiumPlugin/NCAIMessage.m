@@ -15,4 +15,11 @@
 @synthesize senderName;
 @synthesize message;
 
+- (void) dealloc
+{
+	[self setSenderName:nil];
+	[self setMessage:nil];
+	[super dealloc];
+}
+
 @end
