@@ -104,7 +104,8 @@
            
 .2     - setObserver:(NSObject *)callbackObject
 .2         selector:(SEL)callbackSelector
-.2           // The selector is called with (NCEvent *)event.
+.2           // The selector is called with (NCEvent *)event, and
+.2           // (NCNotification *)notification
          
        * NCNotificationType
          # DONE
@@ -154,13 +155,18 @@
 .2       - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage
 
 .2       - appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message
+
+ 2       - sendMessage:(NSString *)message forChat:(NCAIChat *)
  
 .2       - updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
          
- 2       - eventFromNotification:(NCEvent *)event
+ 2       - eventFromNotification:(NCEvent *)event fromNotification:(NCNotification *)notification
          
 .2     * NCAIChat
 .2       ~ (NSString *)ID
+ 2       ~ (AIChat *)aiChat
+ 2       ~ (AIListObject *)aiSender
+ 2       ~ (AIListObject *)aiMe
 .2       ~ (NSString *)name
 .2       ~ (NSMutableArray *)newMessages
 .2       ~ (NCNotification *)currentNotification
