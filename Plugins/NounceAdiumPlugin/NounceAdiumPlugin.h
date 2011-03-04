@@ -26,6 +26,10 @@
 
 - (void) listen;
 
+- (void) messageReceived:(NSNotification *)notification;
+- (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent;
+- (void) eventFromNotification:(NCEvent *)event;
+
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage;
 
