@@ -202,6 +202,8 @@
 	NSDictionary *inputDataDictionary = [parser objectWithString:inputData error:nil];
 	
 	[notificationCenter submitFormForNotificationWithID:notificationID inputData:inputDataDictionary formName:formName buttonName:buttonName];
+
+	[parser release];
 }
 
 
