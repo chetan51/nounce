@@ -150,14 +150,14 @@ function clickedNotificationIconsDiv(e)
 	}
 }
 
-function notificationInputHoveredIn(e)
+function notificationHoveredIn(e)
 {
-	$(this).removeClass("default").addClass("visible");
+	$(this).find("input").animate({'opacity': ".95"});
 }
 
-function notificationInputHoveredOut(e)
+function notificationHoveredOut(e)
 {
-	$(this).removeClass("visible").addClass("default");
+	$(this).find("input").animate({'opacity': ".45"});
 }
 
 function notificationInputButtonClicked(e, button, notificationID)
@@ -258,13 +258,10 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 			if (self.input) {
 				self.display.children(".input").html(self.input);
 				self.display.children(".input").show();
-				
-				// Add event listeners
-				self.display.children(".input").hover(notificationInputHoveredIn, notificationInputHoveredOut);
-				self.display.children(".input").find("input[type='submit']").click(function(e) {
-					notificationInputButtonClicked(e, $(this), self.ID);
-				});
 			}
+				
+			// Add event listeners
+			self.display.hover(notificationHoveredIn, notificationHoveredOut);
 		}
 
 		self.display.children(".title").html(self.title);

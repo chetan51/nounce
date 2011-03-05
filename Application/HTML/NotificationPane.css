@@ -74,16 +74,12 @@ body {
 	text-align: right;
 }
 
-#applications > .application > .notifications > .notification > .input.default {
-	opacity: 0.45;
-}
-
-#applications > .application > .notifications > .notification > .input.visible {
-	opacity: 0.95;
-}
-
 #applications > .application > .notifications > .notification > .input input[type="submit"] {
 	
+}
+
+#applications > .application > .notifications > .notification input {
+	opacity: .45;
 }
 
 input[type="submit"] {
