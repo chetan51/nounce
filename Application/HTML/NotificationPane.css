@@ -56,13 +56,14 @@ body {
 	color: #000;
 	font-size: 14px;
 	font-family: Arial;
+	padding-right: 5px;
 }
 
 #applications > .application > .notifications > .notification > .input {
-	width: 100%;
 	display: none;
 	padding: 3px;
 	margin-top: 5px;
+	padding-right: 5px;
 	text-align: right;
 }
 
