@@ -78,3 +78,15 @@ body {
 #applications > .application > .notifications > .notification > .input input[type="submit"] {
 	
 }
+
+input[type="submit"] {
+	background: none;
+	border: 1px solid #fff;
+	color: #000;
+}
+
+input[type="submit"]:hover {
+	background: #fff;
+	color: #000;
+	border: 1px solid #000;
+}
