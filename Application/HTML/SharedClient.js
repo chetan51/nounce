@@ -157,7 +157,9 @@ function notificationHoveredIn(e)
 
 function notificationHoveredOut(e)
 {
-	$(this).find("input").animate({'opacity': ".45"});
+	if (!$(this).find("input").is(":focus")) {
+		$(this).find("input").animate({'opacity': ".45"});
+	}
 }
 
 function notificationInputButtonClicked(e, button, notificationID)
@@ -268,3 +270,13 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 		self.display.children(".content").html(self.content);
 	}
 }
+
+/*
+ * jQuery extensions / plugins
+ */
+
+jQuery.extend(jQuery.expr[':'], {
+    focus: function(element) { 
+        return element == document.activeElement; 
+    }
+});
