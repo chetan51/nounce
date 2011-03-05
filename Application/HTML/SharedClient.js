@@ -127,6 +127,13 @@ function submitNotificationInputForm(form, notificationID, buttonName)
 {
 	var inputData = JSON.stringify(form.serializeObject());
 	window.AppController.NCNotificationInputSubmittedWithID_formName_buttonName_inputData_(notificationID, form.attr("name"), buttonName, inputData);
+	
+	// Reset form
+	$(':input',form)
+	.not(':button, :submit, :reset, :hidden')
+	.val('')
+	.removeAttr('checked')
+	.removeAttr('selected');
 }
 
 /*
