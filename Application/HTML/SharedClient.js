@@ -260,6 +260,11 @@ var NotificationView = function (ID, fromAppID, title, content, input)
 			if (self.input) {
 				self.display.children(".input").html(self.input);
 				self.display.children(".input").show();
+				
+				// Add event listeners
+				self.display.children(".input").find("input[type='submit']").click(function(e) {
+					notificationInputButtonClicked(e, $(this), self.ID);
+				});
 			}
 				
 			// Add event listeners
