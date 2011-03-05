@@ -215,7 +215,7 @@
 						notificationWithTitle:[chat name]
 						content:notificationContent
 						input:@"<form name='reply'>"
-						"<input type='text' name='reply' style='width: 100%; box-sizing: border-box;'>"
+						"<input type='text' name='reply' style='width: 100%; box-sizing: border-box; -webkit-box-sizing: border-box;'>"
 						"<input type='submit' name='reply' class='submit' value='Reply' style='position: absolute; left: -9999px'>"
 						"</form>"];
 	}
