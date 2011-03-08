@@ -81,8 +81,6 @@
        ~ (NCIcon *)notificationIcon
 .2     ~ (NSString *)input
        ~ (NSDate *)expires
-.2     ~ (NSObject *)callbackObject
-.2     ~ (SEL)callbackSelector
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
@@ -93,11 +91,6 @@
 .2         input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
-.2     - setObserver:(NSObject *)callbackObject
-.2         selector:(SEL)callbackSelector
-.2           // The selector is called with (NCEvent *)event, and
-.2           // (NCNotification *)notification
-         
        * NCNotificationType
          # DONE
          # IN_PROGRESS
