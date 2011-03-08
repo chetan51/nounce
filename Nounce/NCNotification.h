@@ -16,8 +16,6 @@
 	NSString *title;
 	NSString *content;
 	NSString *input;
-	NSObject *callbackObject;
-	SEL callbackSelector;
 }
 
 @property (copy) NSString *ID;
@@ -25,13 +23,9 @@
 @property (copy) NSString *title;
 @property (copy) NSString *content;
 @property (copy) NSString *input;
-@property (assign) NSObject *callbackObject;
-@property SEL callbackSelector;
 
 + (NCNotification *) notificationWithTitle:(NSString *)title
 								   content:(NSString *)content
 									 input:(NSString *)input;
-
-- (void) setObserver:(NSObject *)object selector:(SEL)selector;
 
 @end

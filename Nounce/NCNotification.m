@@ -17,8 +17,6 @@
 @synthesize title;
 @synthesize content;
 @synthesize input;
-@synthesize callbackObject;
-@synthesize callbackSelector;
 
 + (NCNotification *) notificationWithTitle:(NSString *)title
 								   content:(NSString *)content
@@ -38,12 +36,6 @@
 	[notification setInput:input];
 	
 	return notification;
-}
-
-- (void) setObserver:(NSObject *)object selector:(SEL)selector
-{
-	[self setCallbackObject:object];
-	[self setCallbackSelector:selector];
 }
 
 - (void) encodeWithCoder: (NSCoder *) coder
