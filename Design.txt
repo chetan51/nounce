@@ -172,13 +172,13 @@ Unsorted:
        
        
 NSNotification Type Reference 
- * notificationPosted
+ * notificationPosted (Nounce_NotificationPosted)
    ~ object: (NCNotification *)notification
    
- * notificationHidden
+ * notificationHidden (Nounce_NotificationHidden)
    ~ object: (NCNotification *)notification
    
- * inputSubmitted
+ * inputSubmitted (Nounce_NotificationInputSubmitted)
    ~ object: (NCNotification *)notification
    ~ userData: @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
  
