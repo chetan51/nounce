@@ -55,6 +55,16 @@ static NCNotificationCenter *sharedNotificationCenter = nil;
 	 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 			   archivedNotification, @"notification",
 			   archivedEvent, @"event",
+			   nil]];
+	
+	
+	[[NSDistributedNotificationCenter defaultCenter]
+	 postNotificationName:@"Nounce_NotificationInputSubmitted"
+	 object:notificationID
+	 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+			   formName, @"FormName",
+			   buttonName, @"ButtonName",
+			   inputData, @"InputData",
 			   nil]];	
 }
 

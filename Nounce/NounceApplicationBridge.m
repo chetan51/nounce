@@ -46,6 +46,16 @@
     return applicationBridge;
 }
 
+- (NCNotification *) notificationWithID:(NSString *)notificationID
+{
+	return [[[notifications objectForKey:notificationID] retain] autorelease];
+}
+
+- (void) setNotification:(NCNotification *)notification forID:(NSString *)ID
+{
+	[notifications setObject:notification forKey:ID];
+}
+
 /*
  * Functions
  */
@@ -67,10 +77,10 @@
 {
 	if (self.delegate) {
 		if ([self.delegate respondsToSelector:@selector(inputWasSubmittedForNotification:formName:buttonName:inputData:)]) {
-			NCNotification *notification = [inputSubmittedMessage object];
-			NSString *formName			= [[inputSubmittedMessage userInfo] objectForKey:@"FormName"];
-			NSString *buttonName		= [[inputSubmittedMessage userInfo] objectForKey:@"ButtonName"];
-			NSDictionary *inputData		= [[inputSubmittedMessage userInfo] objectForKey:@"InputData"];
+			NCNotification *notification	= [self notificationWithID:[inputSubmittedMessage object]];
+			NSString *formName				= [[inputSubmittedMessage userInfo] objectForKey:@"FormName"];
+			NSString *buttonName			= [[inputSubmittedMessage userInfo] objectForKey:@"ButtonName"];
+			NSDictionary *inputData			= [[inputSubmittedMessage userInfo] objectForKey:@"InputData"];
 			
 			[self.delegate inputWasSubmittedForNotification:notification
 												   formName:formName

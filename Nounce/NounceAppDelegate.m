@@ -122,7 +122,7 @@
 	[[NSDistributedNotificationCenter defaultCenter]
 	 addObserver:self
 	 selector:@selector(notificationPosted:)
-	 name:@"Nounce_Notification"
+	 name:@"Nounce_NotificationPosted"
 	 object:nil];
 }
 

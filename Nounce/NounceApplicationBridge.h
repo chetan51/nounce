@@ -13,11 +13,16 @@
 
 @interface NounceApplicationBridge : NSObject {
 	id<NounceDelegate> delegate;
+	
+	NSMutableDictionary *notifications;
 }
 
 @property (assign) id delegate;
 
 + (id)sharedBridge;
+
+- (NCNotification *) notificationWithID:(NSString *)notificationID;
+- (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
 
 - (void) notify:(NCNotification *)notification;
 
