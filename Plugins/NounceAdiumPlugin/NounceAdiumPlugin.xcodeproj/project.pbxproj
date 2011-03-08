@@ -10,9 +10,9 @@
 		61433B56131B245F000437CD /* NounceAdiumPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 61433B55131B245F000437CD /* NounceAdiumPlugin.m */; };
 		61433E14131B340C000437CD /* Adium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433E13131B340C000437CD /* Adium.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		61433FD3131B95AB000437CD /* NCAIChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 61433FD2131B95AB000437CD /* NCAIChat.m */; };
-		614343B8131BB7B1000437CD /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614343B7131BB7B1000437CD /* Nounce.framework */; };
-		614343B9131BB7B6000437CD /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 614343B7131BB7B1000437CD /* Nounce.framework */; };
 		61434695131CB6CC000437CD /* NCAIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 61434694131CB6CC000437CD /* NCAIMessage.m */; };
+		61B03DB913261574009E9EA9 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B03DB813261574009E9EA9 /* Nounce.framework */; };
+		61B03DBA13261579009E9EA9 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61B03DB813261574009E9EA9 /* Nounce.framework */; };
 		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				614343B9131BB7B6000437CD /* Nounce.framework in CopyFiles */,
+				61B03DBA13261579009E9EA9 /* Nounce.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,9 +38,9 @@
 		61433E13131B340C000437CD /* Adium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Adium.framework; sourceTree = "<group>"; };
 		61433FD1131B95AB000437CD /* NCAIChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCAIChat.h; sourceTree = "<group>"; };
 		61433FD2131B95AB000437CD /* NCAIChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCAIChat.m; sourceTree = "<group>"; };
-		614343B7131BB7B1000437CD /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Framework/build/Release/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		61434693131CB6CC000437CD /* NCAIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCAIMessage.h; sourceTree = "<group>"; };
 		61434694131CB6CC000437CD /* NCAIMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCAIMessage.m; sourceTree = "<group>"; };
+		61B03DB813261574009E9EA9 /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Nounce/build/Release/Nounce.framework; sourceTree = SOURCE_ROOT; };
 		8D576316048677EA00EA77CD /* NounceAdiumPlugin.AdiumPlugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NounceAdiumPlugin.AdiumPlugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			files = (
 				8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */,
 				61433E14131B340C000437CD /* Adium.framework in Frameworks */,
-				614343B8131BB7B1000437CD /* Nounce.framework in Frameworks */,
+				61B03DB913261574009E9EA9 /* Nounce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				614343B7131BB7B1000437CD /* Nounce.framework */,
+				61B03DB813261574009E9EA9 /* Nounce.framework */,
 				61433E13131B340C000437CD /* Adium.framework */,
 				0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */,
 			);
@@ -200,7 +200,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../Framework/build/Release\"",
+					"\"$(SRCROOT)/../../Nounce/build/Release\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -228,8 +228,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../Framework/build/Debug\"",
-					"\"$(SRCROOT)/../../Framework/build/Release\"",
+					"\"$(SRCROOT)/../../Nounce/build/Release\"",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
