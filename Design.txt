@@ -1,5 +1,11 @@
    NSNotification Type Reference 
-     * inputSubmit
+     * notificationPosted
+       ~ object: (NCNotification *)notification
+       
+     * notificationCleared
+       ~ object: (NCNotification *)notification
+       
+     * inputSubmitted
        ~ object: (NCNotification *)notification
        ~ userData: @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
      
@@ -19,7 +25,7 @@
        
        - expire:(NCNotification *)notification
 	 
- 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmit
+ 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmitted
 
  1   * NounceDelegateProtocol
        - ^(NSString *)applicationName
@@ -36,6 +42,12 @@
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
 .1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
+ 1   * NCDistributedMessageController
+         // Listens for distributed messages through NCDistributedNotificationCenter and converts them into local messages
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationPosted
+       
+ 2     - (void)notificationWasCleared:(NSNotification *)notificiationCleared
+       
  2   * NCNotificationController
  2     ~ (NSMutableDictionary *)notifications
              // Indexed by notification ID
@@ -49,19 +61,19 @@
 	 
  1     - (void)hideNotificationPane
 	 
- 1     - (void)notificationWasPosted:(NCNotification *)notification
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationPosted
 	 
-       - (void)notificationWasCleared:(NCNotification *)notification
+       - (void)notificationWasCleared:(NSNotification *)notificationCleared
 	 
  2     - submitInputForNotificationWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
              // inputData is JSON string
 
- 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmit
+ 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmitted
  
  1   * NCNotificationStatusController
- 1     - (void)notificationWasPosted:(NCNotification *)notification
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationPosted
        
-       - (void)notificationWasCleared:(NCNotification *)notification
+       - (void)notificationWasCleared:(NSNotification *)notificationCleared
 
 
    Shared Classes
@@ -176,3 +188,8 @@ Unsorted:
        
        - NCNotificationClearClickedWithID:(NSString *)notificationID
        
+       
+Design decisions
+  How the observer pattern is implemented in Nounce
+    * Commands or events that are relevant to only the Nounce application are all in form of local messages (through NSNotificationCenter), and events that are relevant to other applications are in the form of distributed messages (through NSDistributedNotificationCenter).
+    * Commands sent to the Nounce application from other applications (such as clearing a notification) are received as distributed messages, and are converted into local messages before they can control the Nounce application.
