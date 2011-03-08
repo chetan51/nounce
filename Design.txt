@@ -40,13 +40,15 @@
        
        - (void)hideNotification:(NSNotification *)hideNotificationMessage
        
- 2   * NCNotificationController
- 2     ~ (NSMutableDictionary *)notifications
+     * NCNotificationController
+       ~ (NSMutableDictionary *)notifications
              // Indexed by notification ID
        
- 2     - (NCNotification *)notificationWithID:(NSString *)ID
+       - (NCNotification *)notificationWithID:(NSString *)ID
  
        - (NSArray *)notificationsFromApplication:(NCApplication *)application
+ 
+       - (void)postNotification:(NSNotification *)message
  
  1   * NCNotificationPaneController
  1     - (void)showNotificationPane
