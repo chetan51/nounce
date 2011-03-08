@@ -9,12 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import <Nounce/NCNotification.h>
 #import <Nounce/NCEvent.h>
-#import <Nounce/NCNotificationManager.h>
+#import <Nounce/NounceDelegateProtocol.h>
+#import <Nounce/NounceApplicationBridge.h>
 
-@interface NounceTestApplicationAppDelegate : NSObject <NSApplicationDelegate> {
+@interface NounceTestApplicationAppDelegate : NSObject <NSApplicationDelegate, NounceDelegate> {
 	
 }
 
-- (void) firstNotificationEvent:(NCEvent *)event forNotification:(NCNotification *)notification;
+- (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData;
 
 @end

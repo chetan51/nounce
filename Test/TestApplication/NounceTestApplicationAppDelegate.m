@@ -11,6 +11,8 @@
 @implementation NounceTestApplicationAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	[[NounceApplicationBridge sharedBridge] setDelegate:self];
+	
 	NCNotification *notification = [NCNotification
 									notificationWithTitle:@"Test Notification"
 									content:@"testing..."
@@ -19,8 +21,7 @@
 												"<input type='submit' name='reply' class='submit' value='Reply'>"
 												"<input type='submit' name='forward' class='submit' value='Forward'>"
 											"</form>"];
-	[notification setObserver:self selector:@selector(firstNotificationEvent:forNotification:)];
-	[NCNotificationManager notify:notification];
+	[[NounceApplicationBridge sharedBridge] notify:notification];
 	
 	NCNotification *notification2 = [NCNotification
 									 notificationWithTitle:@"Test Notification 2"
@@ -28,15 +29,12 @@
 									 input:nil];
 	[[notification2 fromApp] setID:@"something"];
 	[[notification2 fromApp] setName:@"Another App"];
-	[NCNotificationManager notify:notification2];
+	[[NounceApplicationBridge sharedBridge] notify:notification2];
 }
 
-- (void) firstNotificationEvent:(NCEvent *)event forNotification:(NCNotification *)notification
+- (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
 {
-	if ([event type] == NCEVENT_INPUT_SUBMIT) {
-		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
-		NSLog(@"input submit from first notification: %@", inputData);
-	}
+	NSLog(@"input submit from notification: %@", inputData);
 }
 
 @end
