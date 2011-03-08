@@ -78,7 +78,7 @@
            // For grouping together notifications of the same app
        ~ (NCIcon *)groupIcon
            // For notification status area icon
-	     // Note: If more than one notifications of the same group are submitted by the same app, the group icon of the latest one will be used in the notification status area
+	     // Note: If more than one notifications of the same group are posted by the same app, the group icon of the latest one will be used in the notification status area
 .2     ~ (NSString *)input
        ~ (NSDate *)expires
 
@@ -140,7 +140,7 @@
 
 .2       - sendMessage:(NSString *)message forChat:(NCAIChat *)
  
-.2       - updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
+.2       - updateAndPostNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
          
  2       - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
          
