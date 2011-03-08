@@ -64,7 +64,7 @@
 {
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
 	[[NSDistributedNotificationCenter defaultCenter]
-	 postNotificationName:@"Nounce_NotificationPosted"
+	 postNotificationName:@"Nounce_PostNotification"
 	 object:nil
 	 userInfo:[NSDictionary dictionaryWithObject:archivedNotification forKey:@"notification"]];
 }
@@ -73,14 +73,14 @@
  * Event handlers
  */
 
-- (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmittedMessage
+- (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
 {
 	if (self.delegate) {
 		if ([self.delegate respondsToSelector:@selector(inputWasSubmittedForNotification:formName:buttonName:inputData:)]) {
-			NCNotification *notification	= [self notificationWithID:[inputSubmittedMessage object]];
-			NSString *formName				= [[inputSubmittedMessage userInfo] objectForKey:@"FormName"];
-			NSString *buttonName			= [[inputSubmittedMessage userInfo] objectForKey:@"ButtonName"];
-			NSDictionary *inputData			= [[inputSubmittedMessage userInfo] objectForKey:@"InputData"];
+			NCNotification *notification	= [self notificationWithID:[inputWasSubmittedMessage object]];
+			NSString *formName				= [[inputWasSubmittedMessage userInfo] objectForKey:@"FormName"];
+			NSString *buttonName			= [[inputWasSubmittedMessage userInfo] objectForKey:@"ButtonName"];
+			NSDictionary *inputData			= [[inputWasSubmittedMessage userInfo] objectForKey:@"InputData"];
 			
 			[self.delegate inputWasSubmittedForNotification:notification
 												   formName:formName

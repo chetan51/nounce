@@ -17,7 +17,7 @@
        
        - expire:(NCNotification *)notification
 	 
-.2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmittedMessage
+.2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
 
 .2   * NounceDelegateProtocol
        - ^(NSString *)applicationName
@@ -36,9 +36,9 @@
        
  1   * NCDistributedMessageController
          // Listens for distributed messages through NCDistributedNotificationCenter and converts them into local messages
- 1     - (void)notificationWasPosted:(NSNotification *)notificationPostedMessage
+ 1     - (void)postNotification:(NSNotification *)postNotificationMessage
        
- 2     - (void)notificationWasHidden:(NSNotification *)notificiationHiddenMessage
+       - (void)hideNotification:(NSNotification *)hideNotificationMessage
        
  2   * NCNotificationController
  2     ~ (NSMutableDictionary *)notifications
@@ -53,19 +53,19 @@
 	 
  1     - (void)hideNotificationPane
 	 
- 1     - (void)notificationWasPosted:(NSNotification *)notificationPostedMessage
-	 
-       - (void)notificationWasHidden:(NSNotification *)notificationHiddenMessage
+ 1     - (void)postNotification:(NSNotification *)postNotificationMessage
+       
+       - (void)hideNotification:(NSNotification *)hideNotificationMessage
 	 
  2     - submitInputForNotificationWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
              // inputData is JSON string
 
- 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmittedMessage
+ 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
  
  1   * NCNotificationStatusController
- 1     - (void)notificationWasPosted:(NSNotification *)notificationPostedMessage
+ 1     - (void)postNotification:(NSNotification *)postNotificationMessage
        
-       - (void)notificationWasHidden:(NSNotification *)notificationHiddenMessage
+       - (void)hideNotification:(NSNotification *)hideNotificationMessage
 
 
    Shared Classes
@@ -175,13 +175,13 @@ Unsorted:
        
        
 NSNotification Type Reference 
- * notificationPostedMessage (Nounce_NotificationPosted)
+ * postNotificationMessage (Nounce_PostNotification)
    ~ object: (NSString *)notificationID
    
- * notificationHiddenMessage (Nounce_NotificationHidden)
+ * hideNotificationMessage (Nounce_HideNotification)
    ~ object: (NSString *)notificationID
    
- * inputSubmittedMessage (Nounce_NotificationInputSubmitted)
+ * inputWasSubmittedMessage (Nounce_NotificationInputWasSubmitted)
    ~ object: (NSString *)notificationID
    ~ userData: @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
  
