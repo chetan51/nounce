@@ -1,24 +1,31 @@
    Framework
-.1   * NCNotificationManager
+.1   * NounceApplicationBridge (singleton)
+ 1     ~ (NounceApplicationBridge *)bridge
 .1     ~ (NSMutableDictionary *)notifications
+ 1     ~ (id)nounceDelegate
 
-.2     + notificationWithID:(NSString *)notificationID
+ 1     + (NounceApplicationBridge *)sharedBridge
 
-.2     + listen
-.2         // Listens for events about a notification from Notification Center
+.2     - notificationWithID:(NSString *)notificationID
+
+.2     - listen
+.2         // Listens for events from Notification Center
            
-.2     + eventForNotification:(NSNotification *)message
-.2         // Notifies the specified objects for the notification for
-.2         // which the event happened
+ 1     - (void)notificationDidSubmitInput:(NSNotification *)message
 
-.1     + notify:(NCNotification *)notification
-.1         // Overwrites any existing notification
+.1     - notify:(NCNotification *)notification
+.1         // Sends notification to Nounce
            
-       + clear:(NCNotification *)notification
+       - clear:(NCNotification *)notification
        
-       + clearAll
+       - clearAll
        
-       + expire:(NCNotification *)notification
+       - expire:(NCNotification *)notification
+	 
+ 1   * NounceDelegateProtocol
+       - ^(NSString *)applicationName
+ 
+ 1     - ^(void)notificationDidSubmitInput:(NCNotification *)notification inputData:(NSDictionary *)inputData
        
 
    Application (Notification Center)
