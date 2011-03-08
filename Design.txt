@@ -1,85 +1,68 @@
+   NSNotification Type Reference 
+     * inputSubmit
+       ~ object: (NCNotification *)notification
+       ~ userData: @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
+     
    Framework
-.1   * NounceApplicationBridge (singleton)
- 1     ~ (NounceApplicationBridge *)bridge
-.1     ~ (NSMutableDictionary *)notifications
+ 1   * NounceApplicationBridge (singleton)
+ 1     ~ (NounceApplicationBridge *)applicationBridge
+ 1     ~ (NSMutableDictionary *)notifications
  1     ~ (id)nounceDelegate
 
  1     + (NounceApplicationBridge *)sharedBridge
 
-.2     - notificationWithID:(NSString *)notificationID
-
-.2     - listen
-.2         // Listens for events from Notification Center
-           
- 1     - (void)notificationDidSubmitInput:(NSNotification *)message
-
 .1     - notify:(NCNotification *)notification
-.1         // Sends notification to Nounce
-           
+       
        - clear:(NCNotification *)notification
        
        - clearAll
        
        - expire:(NCNotification *)notification
 	 
+ 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmit
+
  1   * NounceDelegateProtocol
        - ^(NSString *)applicationName
  
- 1     - ^(void)notificationDidSubmitInput:(NCNotification *)notification inputData:(NSDictionary *)inputData
+ 2     - ^(void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
        
 
-   Application (Notification Center)
-.1   * AppController
-.1     - listen
-.1           // Listen to messages from all other applications
-
-.1     - notificationPosted:(NSNotification *)message
+   Application (Nounce Notification Center)
+ 1   * AppController
+ 1     ~ (NCNotificationPaneController *)notificationPaneController
+ 1     ~ (NCNotificationStatusController *)notificationStatusController
+ 2     ~ (NCNotificationController *)notificationController
  
-.1     - notify:(NCNotification *)notification
-       
-       - clearNotification:(NCNotification *)notification
-       
-.1     - UIShowNotificationPane
-
-.1     - UIHideNotificationPane
-       
-       - UISortApplicationToTopOfNotificationPane:(NSApplication *)application
-       
-       - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
-       
-       - NCNotificationHoveredWithID:(NSString *)notificationID
-       
-       - NCNotificationClickedWithID:(NSString *)notificationID
-       
-       - NCNotificationClearClickedWithID:(NSString *)notificationID
-       
-.2     - NCNotificationInputSubmittedWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
-             // inputData is JSON string
-
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
 .1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
-.1   * NCNotificationCenter (singleton)
-.1     ~ (NSMutableDictionary *)applications
-.1           // Indexed by application ID
-.1     ~ (NSMutableDictionary *)notifications
-.1           // Indexed by notification ID
-       ~ (NSMutableArray *)expiredNotifications
-             // Ordered by time expired
-
-.1     - notify:(NCNotification *)notification
-.1         // Overwrites any existing notification
+ 2   * NCNotificationController
+ 2     ~ (NSMutableDictionary *)notifications
+             // Indexed by notification ID
        
-.2     - notificationWithID:(NSString *)notificationID
+ 2     - (NCNotification *)notificationWithID:(NSString *)ID
+ 
+       - (NSArray *)notificationsFromApplication:(NCApplication *)application
+ 
+ 1   * NCNotificationPaneController
+ 1     - (void)showNotificationPane
 	 
-       - clear:(NCNotification *)notification
+ 1     - (void)hideNotificationPane
+	 
+ 1     - (void)notificationWasPosted:(NCNotification *)notification
+	 
+       - (void)notificationWasCleared:(NCNotification *)notification
+	 
+ 2     - submitInputForNotificationWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
+             // inputData is JSON string
+
+ 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmit
+ 
+ 1   * NCNotificationStatusController
+ 1     - (void)notificationWasPosted:(NCNotification *)notification
        
-       - clearAllForApp:(NCApplication *)app
-       
-       - expire:(NCNotification *)notification
-       
-.2     - submitFormForNotificationWithID:(NSString *)notificationID inputData:(NSDictionary *)inputData formName:(NSString *)formName buttonName:(NSString *)buttonName
-       
+       - (void)notificationWasCleared:(NCNotification *)notification
+
 
    Shared Classes
 .1   * NCNotification
@@ -119,17 +102,6 @@
          # IN_PROGRESS
          # TIME_SENSITIVE
        
-.2   * NCEvent
-.2     ~ (NCEventType) type
-.2     ~ (NSDictionary *) data
-.2           // If type is NCEVENT_INPUT_SUBMIT, `data` will contain
-.2           // objects for keys "FormName", "ButtonName" and "InputData".
-       
-.2     * NCEventType
-.2       # READ
-.2       # CLEARED
-.2       # INPUT_SUBMIT
- 
 .1   * NCApplication
 .1     ~ (NSString *)id
 .1     ~ (NSString *)name
@@ -191,3 +163,16 @@
 .2       ~ (bool)isSenderSelf
 .2       ~ (NSString *)senderName
 .2       ~ (NSString *)message
+
+
+Unsorted:
+       - UISortApplicationToTopOfNotificationPane:(NSApplication *)application
+       
+       - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
+       
+       - NCNotificationHoveredWithID:(NSString *)notificationID
+       
+       - NCNotificationClickedWithID:(NSString *)notificationID
+       
+       - NCNotificationClearClickedWithID:(NSString *)notificationID
+       
