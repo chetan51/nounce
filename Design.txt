@@ -73,21 +73,21 @@
 .1     ~ (NSString *)title
 .1     ~ (NSString *)content
        ~ (NCNotificationType)type
+       ~ (NCIcon *)icon
        ~ (NSString *)group
            // For grouping together notifications of the same app
        ~ (NCIcon *)groupIcon
            // For notification status area icon
 	     // Note: If more than one notifications of the same group are submitted by the same app, the group icon of the latest one will be used in the notification status area
-       ~ (NCIcon *)notificationIcon
 .2     ~ (NSString *)input
        ~ (NSDate *)expires
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
            type:(NCNotificationType)type (^)  // defaults to DONE
+           icon:(NCIcon *)icon (^)
            group:(NSString *)group (^)
            groupIcon:(NCIcon *)groupIcon (^)
-           notificationIcon:(NCIcon *)notificationIcon (^)
 .2         input:(NSString *)input (^)  // in HTML format
            expires:(NSDate *)date
            
