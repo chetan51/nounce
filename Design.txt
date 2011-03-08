@@ -6,6 +6,10 @@
 
  1     + (NounceApplicationBridge *)sharedBridge
 
+ 1     - (NCNotification *) notificationWithID:(NSString *)notificationID;
+
+ 1     - (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
+
 .1     - notify:(NCNotification *)notification
        
        - hide:(NCNotification *)notification
