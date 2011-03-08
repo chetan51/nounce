@@ -1,14 +1,13 @@
    Framework
- 1   * NounceApplicationBridge (singleton)
- 1     ~ (NounceApplicationBridge *)applicationBridge
- 1     ~ (NSMutableDictionary *)notifications
- 1     ~ (id)nounceDelegate
+.1   * NounceApplicationBridge (singleton)
+.1     ~ (NSMutableDictionary *)notifications
+.1     ~ (id)nounceDelegate
 
- 1     + (NounceApplicationBridge *)sharedBridge
+.1     + (id)sharedBridge
 
- 1     - (NCNotification *) notificationWithID:(NSString *)notificationID;
+.1     - (NCNotification *) notificationWithID:(NSString *)notificationID;
 
- 1     - (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
+.1     - (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
 
 .1     - notify:(NCNotification *)notification
        
@@ -18,12 +17,12 @@
        
        - expire:(NCNotification *)notification
 	 
- 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmittedMessage
+.2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputSubmittedMessage
 
- 1   * NounceDelegateProtocol
+.2   * NounceDelegateProtocol
        - ^(NSString *)applicationName
  
- 2     - ^(void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
+.2     - ^(void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
        
 
    Application (Nounce Notification Center)
