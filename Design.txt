@@ -5,9 +5,9 @@
 
 .1     + (id)sharedBridge
 
-.1     - (NCNotification *) notificationWithID:(NSString *)notificationID;
+.1     - (NCNotification *)notificationWithID:(NSString *)notificationID;
 
-.1     - (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
+.1     - (void)setNotification:(NCNotification *)notification forID:(NSString *)ID;
 
 .1     - notify:(NCNotification *)notification
        
@@ -29,45 +29,73 @@
  1   * AppController
  1     ~ (NCNotificationPaneController *)notificationPaneController
  1     ~ (NCNotificationStatusController *)notificationStatusController
- 2     ~ (NCNotificationController *)notificationController
+ 1     ~ (NCEventController *)eventController
  
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
-.1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
+.1     - notificationWasPosted(String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
  1   * NCEventController
          // Listens for public events through NCDistributedNotificationCenter and converts them into private events through NCNotificationCenter, and vice-versa.
- 1     - (void)postNotification_public:(NSNotification *)postNotificationEvent
+ 1     - (void)notificationWasPosted_public:(NSNotification *)notificationWasPostedEvent
        
-       - (void)hideNotification_public:(NSNotification *)hideNotificationEvent
+       - (void)notificationWasHidden_public:(NSNotification *)notificationWasHiddenEvent
        
-     * NCNotificationController
-       ~ (NSMutableDictionary *)notifications
-             // Indexed by notification ID
+ 2     - (void)inputWasSubmitted_private:(NSNotification *)inputWasSubmittedEvent
        
-       - (NCNotification *)notificationWithID:(NSString *)ID
+ 1   * NCNotificationController
+ 1     ~ (NSMutableDictionary *)notifications
  
-       - (NSArray *)notificationsFromApplication:(NCApplication *)application
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
  
-       - (void)postNotification:(NSNotification *)postNotificationEvent
+ 1     - (NCNotification *)notificationWithID:(NSString *)ID
+ 
+ 1   * NCApplicationController
+ 1     ~ (NSMutableDictionary *)applications
+ 
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
+ 
+ 1     - (NCApplication *)applicationWithID:(NSString *)ID
  
  1   * NCNotificationPaneController
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
+       
+       - (void)notificationWasHidden:(NSNotification *)notificationWasHiddenEvent
+	 
  1     - (void)showNotificationPane
 	 
  1     - (void)hideNotificationPane
 	 
- 1     - (void)postNotification:(NSNotification *)postNotificationEvent
+       - (void)sortApplicationToTopOfNotificationPane:(NCApplication *)application
        
-       - (void)hideNotification:(NSNotification *)hideNotificationEvent
-	 
- 2     - submitInputForNotificationWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
-             // inputData is JSON string
-
- 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedEvent
+ 1     - (void)notificationPaneWasShown
+       
+ 1     - (void)notificationPaneWasHidden
  
+ 2     - (void)inputWasSubmittedForNotificationWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
+             // inputData is JSON string
+             
+ 1     - (void)notificationStatusWasSelected:(NSNotification *)notificationStatusWasSelectedEvent
+             
+ 1     - (void)notificationStatusWasUnselected:(NSNotification *)notificationStatusWasUnselectedEvent
+
  1   * NCNotificationStatusController
- 1     - (void)postNotification:(NSNotification *)postNotificationEvent
+ 1     - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
        
-       - (void)hideNotification:(NSNotification *)hideNotificationEvent
+       - (void)notificationWasHidden:(NSNotification *)notificationWasHiddenEvent
+	 
+ 1     - (void)selectNotificationStatusForApplicationWithID:(NSString *)applicationID
+             // applicationID can be nil if no application in particular is to be selected
+             
+ 1     - (void)unselectNotificationStatus
+	 
+ 1     - (void)notificationStatusWasSelectedForApplicationWithID:(NSString *)applicationID
+             // applicationID can be nil if no application in particular was selected
+        
+ 1     - (void)notificationStatusWasUnselected
+       
+ 1     - (void)notificationPaneWasShown:(NSNotification *)notificationPaneWasShownEvent
+       
+ 1     - (void)notificationPaneWasHidden:(NSNotification *)notificationPaneWasHiddenEvent
 
 
    Shared Classes
@@ -165,8 +193,6 @@
 
 
 Unsorted:
-       - UISortApplicationToTopOfNotificationPane:(NSApplication *)application
-       
        - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
        
        - NCNotificationHoveredWithID:(NSString *)notificationID
@@ -179,11 +205,11 @@ Unsorted:
 Event Type Reference (NSNotification Types, names defined in NCNounceProtocol)
 
   Public Events
-    * postNotificationEvent (Nounce_PostNotification)
+    * notificationWasPostedEvent (Nounce_NotificationWasPosted)
       ~ object: (NSString *)applicationID
       ~ userData: @"Notification" => (NCNotification *)notification
        
-    * hideNotificationEvent (Nounce_HideNotification)
+    * notificationWasHiddenEvent (Nounce_NotificationWasHidden)
       ~ object: (NSString *)applicationID
       ~ userData: @"Notification" => (NCNotification *)notification
        
@@ -193,7 +219,18 @@ Event Type Reference (NSNotification Types, names defined in NCNounceProtocol)
       ~ userData: @"Notification" => (NCNotification *)notification, @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
 
   Private Events
-    * showNotificationPane (Nounce_ShowNotificationPane)
+    * notificationPaneWasShown (Nounce_NotificationPaneWasShown)
+      ~ object: (NSString *)applicationID
+      
+    * notificationPaneWasHidden (Nounce_NotificationPaneWasHidden)
+      ~ object: (NSString *)applicationID
+      
+    * notificationStatusWasSelected (Nounce_NotificationStatusWasSelected)
+      ~ object: (NSString *)applicationID
+      ~ userData: @"SelectedApplication" => (NCApplication *)application
+        // SelectedApplication can be nil
+ 
+    * notificationStatusWasUnselected (Nounce_NotificationStatusWasUnselected)
       ~ object: (NSString *)applicationID
  
      
