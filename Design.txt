@@ -176,7 +176,7 @@ Unsorted:
        - NCNotificationHideClickedWithID:(NSString *)notificationID
        
        
-Event Type Reference (NSNotification Types)
+Event Type Reference (NSNotification Types, names defined in NCNounceProtocol)
 
   Public Events
     * postNotificationEvent (Nounce_PostNotification)
