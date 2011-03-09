@@ -17,7 +17,7 @@
        
        - expire:(NCNotification *)notification
 	 
-.2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
+.2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedEvent
 
 .2   * NounceDelegateProtocol
        - ^(NSString *)applicationName
@@ -34,11 +34,11 @@
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
 .1     - notify (String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
        
- 1   * NCDistributedMessageController
-         // Listens for distributed messages through NCDistributedNotificationCenter and converts them into local messages
- 1     - (void)postNotification:(NSNotification *)postNotificationMessage
+ 1   * NCEventController
+         // Listens for public events through NCDistributedNotificationCenter and converts them into private events through NCNotificationCenter, and vice-versa.
+ 1     - (void)postNotification:(NSNotification *)postNotificationEvent
        
-       - (void)hideNotification:(NSNotification *)hideNotificationMessage
+       - (void)hideNotification:(NSNotification *)hideNotificationEvent
        
      * NCNotificationController
        ~ (NSMutableDictionary *)notifications
@@ -48,26 +48,26 @@
  
        - (NSArray *)notificationsFromApplication:(NCApplication *)application
  
-       - (void)postNotification:(NSNotification *)message
+       - (void)postNotification:(NSNotification *)postNotificationEvent
  
  1   * NCNotificationPaneController
  1     - (void)showNotificationPane
 	 
  1     - (void)hideNotificationPane
 	 
- 1     - (void)postNotification:(NSNotification *)postNotificationMessage
+ 1     - (void)postNotification:(NSNotification *)postNotificationEvent
        
-       - (void)hideNotification:(NSNotification *)hideNotificationMessage
+       - (void)hideNotification:(NSNotification *)hideNotificationEvent
 	 
  2     - submitInputForNotificationWithID:(NSString *)notificationID formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSString *)inputData
              // inputData is JSON string
 
- 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
+ 2     - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedEvent
  
  1   * NCNotificationStatusController
- 1     - (void)postNotification:(NSNotification *)postNotificationMessage
+ 1     - (void)postNotification:(NSNotification *)postNotificationEvent
        
-       - (void)hideNotification:(NSNotification *)hideNotificationMessage
+       - (void)hideNotification:(NSNotification *)hideNotificationEvent
 
 
    Shared Classes
@@ -127,9 +127,9 @@
 .2           // Contains mapping of notification ID to chat UID
 .2           // Facilitates in selecting the chat for a given notification
          
-.2       - messageReceived:(NSNotification *)messageReceievedMessage
+.2       - messageReceived:(NSNotification *)messageReceievedEvent
          
-.2       - messageSent:(NSNotification *)messageSentMessage
+.2       - messageSent:(NSNotification *)messageSentEvent
  
 .2       - (void)saveChat:(NCAIChat *)chat
 
@@ -176,21 +176,28 @@ Unsorted:
        - NCNotificationHideClickedWithID:(NSString *)notificationID
        
        
-NSNotification Type Reference 
- * postNotificationMessage (Nounce_PostNotification)
-   ~ object: (NSString *)applicationID
-   ~ userData: @"Notification" => (NCNotification *)notification
-   
- * hideNotificationMessage (Nounce_HideNotification)
-   ~ object: (NSString *)applicationID
-   ~ userData: @"Notification" => (NCNotification *)notification
-   
- * inputWasSubmittedMessage (Nounce_NotificationInputWasSubmitted)
-   ~ object: (NSString *)applicationID
-   ~ userData: @"Notification" => (NCNotification *)notification, @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
+Event Type Reference (NSNotification Types)
+
+  Public Events
+    * postNotificationEvent (Nounce_PostNotification)
+      ~ object: (NSString *)applicationID
+      ~ userData: @"Notification" => (NCNotification *)notification
+       
+    * hideNotificationEvent (Nounce_HideNotification)
+      ~ object: (NSString *)applicationID
+      ~ userData: @"Notification" => (NCNotification *)notification
+       
+  Public and Private Events
+    * inputWasSubmittedEvent (Nounce_NotificationInputWasSubmitted)
+      ~ object: (NSString *)applicationID
+      ~ userData: @"Notification" => (NCNotification *)notification, @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
+
+  Private Events
+    * showNotificationPane (Nounce_ShowNotificationPane)
+      ~ object: (NSString *)applicationID
  
      
 Design decisions
   How the observer pattern is implemented in Nounce
-    * Commands or events that are relevant to only the Nounce application are all in form of local messages (through NSNotificationCenter), and events that are relevant to other applications are in the form of distributed messages (through NSDistributedNotificationCenter).
-    * Commands sent to the Nounce application from other applications (such as hiding a notification) are received as distributed messages, and are converted into local messages before they can control the Nounce application.
+    * Commands or events that are relevant to only the Nounce application are all in form of private events (through NSNotificationCenter), and events that are relevant to other applications are in the form of public events (through NSDistributedNotificationCenter).
+    * Commands sent to the Nounce application from other applications (such as hiding a notification) are received as public events, and are converted into private events before they can control the Nounce application.
