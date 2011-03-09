@@ -188,7 +188,7 @@ Event Type Reference (NSNotification Types, names defined in NCNounceProtocol)
       ~ userData: @"Notification" => (NCNotification *)notification
        
   Public and Private Events
-    * inputWasSubmittedEvent (Nounce_NotificationInputWasSubmitted)
+    * inputWasSubmittedEvent (Nounce_InputWasSubmitted)
       ~ object: (NSString *)applicationID
       ~ userData: @"Notification" => (NCNotification *)notification, @"InputData" => (NSDictionary *)inputData, @"FormName" => (NSString *)formName, @"ButtonName" => (NSString *)buttonName
 
