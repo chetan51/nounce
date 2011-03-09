@@ -36,9 +36,9 @@
        
  1   * NCEventController
          // Listens for public events through NCDistributedNotificationCenter and converts them into private events through NCNotificationCenter, and vice-versa.
- 1     - (void)postNotification:(NSNotification *)postNotificationEvent
+ 1     - (void)postNotification_public:(NSNotification *)postNotificationEvent
        
-       - (void)hideNotification:(NSNotification *)hideNotificationEvent
+       - (void)hideNotification_public:(NSNotification *)hideNotificationEvent
        
      * NCNotificationController
        ~ (NSMutableDictionary *)notifications
