@@ -14,9 +14,7 @@
 
 @implementation NCNotificationStatusController
 
-/*
- * Initialization and destruction
- */
+#pragma mark Initialization and destruction
 
 - (id)init {
 	if(self = [super initWithNibName:@"NotificationStatus" bundle:nil]) {
@@ -64,15 +62,10 @@
     [[notificationStatus mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
 }
 
-/*
- * Functions
- */
+#pragma mark Functions
 
 
-
-/*
- * Event handlers
- */
+#pragma mark Event handlers
 
 - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
 {
@@ -103,9 +96,7 @@
 														object:NCNounceAppID];	
 }
 
-/*
- * WebView Delegate
- */
+#pragma mark WebView Delegate
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {

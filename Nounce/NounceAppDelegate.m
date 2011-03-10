@@ -16,7 +16,7 @@
 			notificationPaneController,
 			notificationStatusController;
 
-/* App loading and unloading */
+#pragma mark App loading and unloading
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

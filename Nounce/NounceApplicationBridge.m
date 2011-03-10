@@ -14,9 +14,7 @@
 
 @synthesize delegate;
 
-/*
- * Initialization and descruction
- */
+#pragma mark Initialization and descruction
 
 - (id)init
 {
@@ -32,9 +30,7 @@
 	return self;
 }
 
-/*
- * Accessors and setters
- */
+#pragma mark Accessors and setters
 
 + (id)sharedBridge
 {
@@ -57,9 +53,7 @@
 	[notifications setObject:notification forKey:ID];
 }
 
-/*
- * Functions
- */
+#pragma mark Functions
 
 - (void)notify:(NCNotification *)notification
 {
@@ -70,9 +64,7 @@
 																									  forKey:@"Notification"]];
 }
 
-/*
- * Event handlers
- */
+#pragma mark Event handlers
 
 - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
 {

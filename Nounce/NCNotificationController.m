@@ -14,9 +14,7 @@
 
 @synthesize notifications;
 
-/*
- * Initializers and destructors
- */
+#pragma mark Initializers and destructors
 
 - (id)init
 {
@@ -40,9 +38,7 @@
 	[super dealloc];
 }
 
-/*
- * Accessors and setters
- */
+#pragma mark Accessors and setters
 
 - (NCNotification *)notificationWithID:(NSString *)ID
 {
@@ -54,9 +50,7 @@
 	[notifications setObject:notification forKey:[notification ID]];
 }
 
-/*
- * Event handlers
- */
+#pragma mark Event handlers
 
 - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
 {

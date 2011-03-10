@@ -19,9 +19,7 @@
 
 @synthesize notificationWindow;
 
-/*
- * Initialization and destruction
- */
+#pragma mark Initialization and destruction
 
 - (id)init {
 	if(self = [super initWithWindowNibName:@"NotificationPane"]) {
@@ -93,9 +91,7 @@
     [[notificationPane mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:htmlPath]]];
 }
 
-/*
- * Functions
- */
+#pragma mark Functions
 
 - (void)showNotificationPane
 {
@@ -111,9 +107,7 @@
 	[notificationWindow orderOut:nil];
 }
 
-/*
- * Event handlers
- */
+#pragma mark Event handlers
 
 - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
 {
@@ -168,9 +162,7 @@
 	}
 }
 
-/*
- * WebView Delegate
- */
+#pragma mark WebView Delegate
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {

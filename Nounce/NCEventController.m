@@ -13,9 +13,7 @@
 
 @implementation NCEventController
 
-/*
- * Initialization and destruction
- */
+#pragma mark Initialization and destruction
 
 - (id)init
 {
@@ -38,13 +36,10 @@
 	return self;
 }
 
-/*
- * Event handlers
- */
+#pragma mark Event handlers
+#pragma mark -
 
-/*
- * Public events
- */
+#pragma mark Public events
 
 - (void)notificationWasPosted_public:(NSNotification *)postNotificationEvent
 {
@@ -55,9 +50,7 @@
 													  userInfo:[postNotificationEvent userInfo]];
 }
 
-/*
- * Private events
- */
+#pragma mark Private events
 
 - (void)inputWasSubmitted_private:(NSNotification *)inputWasSubmittedEvent
 {
@@ -67,5 +60,7 @@
 																   object:[[notification fromApp] ID]
 																 userInfo:[inputWasSubmittedEvent userInfo]];
 }
+
+#pragma mark -
 
 @end
