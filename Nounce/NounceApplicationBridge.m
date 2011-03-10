@@ -7,6 +7,7 @@
 //
 
 #import "NounceApplicationBridge.h"
+#import "NCNounceProtocol.h"
 
 
 @implementation NounceApplicationBridge
@@ -24,8 +25,8 @@
 		[[NSDistributedNotificationCenter defaultCenter]
 		 addObserver:self
 		 selector:@selector(inputWasSubmittedForNotification:)
-		 name:@"Nounce_NotificationInputSubmitted"
-		 object:nil];
+		 name:NCInputWasSubmittedEvent
+		 object:[[NSBundle mainBundle] bundleIdentifier]];
 	}
 	
 	return self;
@@ -63,10 +64,10 @@
 - (void)notify:(NCNotification *)notification
 {
 	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
-	[[NSDistributedNotificationCenter defaultCenter]
-	 postNotificationName:@"Nounce_PostNotification"
-	 object:nil
-	 userInfo:[NSDictionary dictionaryWithObject:archivedNotification forKey:@"notification"]];
+	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:NCNotificationWasPostedEvent
+																   object:NCNounceAppID
+																 userInfo:[NSDictionary dictionaryWithObject:archivedNotification
+																									  forKey:@"Notification"]];
 }
 
 /*

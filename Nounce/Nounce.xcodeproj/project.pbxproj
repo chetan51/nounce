@@ -18,23 +18,29 @@
 		61433085131373C5000437CD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433084131373C5000437CD /* WebKit.framework */; };
 		6143309C13137483000437CD /* NotificationPane.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143309B13137483000437CD /* NotificationPane.html */; };
 		614330C2131375DB000437CD /* NotificationPane.css in Resources */ = {isa = PBXBuildFile; fileRef = 614330C1131375DB000437CD /* NotificationPane.css */; };
-		6143320413148008000437CD /* SharedClient.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E513147F5D000437CD /* SharedClient.js */; };
 		6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E613147F5D000437CD /* jquery-1.4.2.min.js */; };
 		6143345D1317843B000437CD /* NotificationStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143345C1317843A000437CD /* NotificationStatus.html */; };
 		6143349313178812000437CD /* NotificationStatus.css in Resources */ = {isa = PBXBuildFile; fileRef = 6143349213178812000437CD /* NotificationStatus.css */; };
+		614CDC251328981800F1CB8A /* NotificationStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 614CDC241328981800F1CB8A /* NotificationStatus.xib */; };
+		614CDD2113289A5E00F1CB8A /* NCEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B0415613275DAF009E9EA9 /* NCEventController.m */; };
+		614CDD2313289A6500F1CB8A /* NCNotificationPaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B03F971326C3D4009E9EA9 /* NCNotificationPaneController.m */; };
+		614CDD2413289A6500F1CB8A /* NCNotificationStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CDC0F1328946C00F1CB8A /* NCNotificationStatusController.m */; };
+		614CDECE1328AD2300F1CB8A /* NotificationPane.js in Resources */ = {isa = PBXBuildFile; fileRef = 614CDECB1328AD2300F1CB8A /* NotificationPane.js */; };
+		614CDECF1328AD2300F1CB8A /* NotificationStatus.js in Resources */ = {isa = PBXBuildFile; fileRef = 614CDECC1328AD2300F1CB8A /* NotificationStatus.js */; };
+		614CDFB21328C1C900F1CB8A /* NCNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CDFB11328C1C900F1CB8A /* NCNotificationController.m */; };
 		61B03CB4132614FB009E9EA9 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03CBB132614FE009E9EA9 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03DF9132616FA009E9EA9 /* NounceApplicationBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61B03DFA132616FA009E9EA9 /* NounceApplicationBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B03DF8132616FA009E9EA9 /* NounceApplicationBridge.m */; };
 		61B03E1A13262196009E9EA9 /* NounceDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B03E1813262196009E9EA9 /* NounceDelegateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61B040491326C5BC009E9EA9 /* NotificationPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B040481326C5BC009E9EA9 /* NotificationPane.xib */; };
+		61B04143132759D2009E9EA9 /* NCNounceProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B04141132759D2009E9EA9 /* NCNounceProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61B04144132759D2009E9EA9 /* NCNounceProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B04142132759D2009E9EA9 /* NCNounceProtocol.m */; };
 		61CCDC89132605C700F41824 /* NCNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 61CCDC81132605C700F41824 /* NCNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61CCDC8A132605C700F41824 /* NCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CCDC82132605C700F41824 /* NCNotification.m */; };
 		61CCDC8B132605C700F41824 /* NCApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 61CCDC83132605C700F41824 /* NCApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61CCDC8C132605C700F41824 /* NCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CCDC84132605C700F41824 /* NCApplication.m */; };
-		61CCDC8D132605C700F41824 /* NCEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 61CCDC85132605C700F41824 /* NCEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61CCDC8E132605C700F41824 /* NCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CCDC86132605C700F41824 /* NCEvent.m */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
-		61E01FA3130A00E60075442B /* NCNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01FA2130A00E60075442B /* NCNotificationCenter.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -79,25 +85,34 @@
 		61433084131373C5000437CD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6143309B13137483000437CD /* NotificationPane.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationPane.html; path = HTML/NotificationPane.html; sourceTree = "<group>"; };
 		614330C1131375DB000437CD /* NotificationPane.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationPane.css; path = HTML/NotificationPane.css; sourceTree = "<group>"; };
-		614331E513147F5D000437CD /* SharedClient.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = SharedClient.js; path = HTML/SharedClient.js; sourceTree = "<group>"; };
 		614331E613147F5D000437CD /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.4.2.min.js"; path = "HTML/jquery-1.4.2.min.js"; sourceTree = "<group>"; };
 		6143345C1317843A000437CD /* NotificationStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationStatus.html; path = HTML/NotificationStatus.html; sourceTree = "<group>"; };
 		6143349213178812000437CD /* NotificationStatus.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationStatus.css; path = HTML/NotificationStatus.css; sourceTree = "<group>"; };
+		614CDC0E1328946C00F1CB8A /* NCNotificationStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationStatusController.h; sourceTree = "<group>"; };
+		614CDC0F1328946C00F1CB8A /* NCNotificationStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationStatusController.m; sourceTree = "<group>"; };
+		614CDC241328981800F1CB8A /* NotificationStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationStatus.xib; sourceTree = "<group>"; };
+		614CDECB1328AD2300F1CB8A /* NotificationPane.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationPane.js; path = HTML/NotificationPane.js; sourceTree = "<group>"; };
+		614CDECC1328AD2300F1CB8A /* NotificationStatus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationStatus.js; path = HTML/NotificationStatus.js; sourceTree = "<group>"; };
+		614CDFB01328C1C900F1CB8A /* NCNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationController.h; sourceTree = "<group>"; };
+		614CDFB11328C1C900F1CB8A /* NCNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationController.m; sourceTree = "<group>"; };
 		61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceApplicationBridge.h; sourceTree = "<group>"; };
 		61B03DF8132616FA009E9EA9 /* NounceApplicationBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NounceApplicationBridge.m; sourceTree = "<group>"; };
 		61B03E1813262196009E9EA9 /* NounceDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceDelegateProtocol.h; sourceTree = "<group>"; };
+		61B03F961326C3D4009E9EA9 /* NCNotificationPaneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationPaneController.h; sourceTree = "<group>"; };
+		61B03F971326C3D4009E9EA9 /* NCNotificationPaneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationPaneController.m; sourceTree = "<group>"; };
+		61B040481326C5BC009E9EA9 /* NotificationPane.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationPane.xib; sourceTree = "<group>"; };
+		61B04141132759D2009E9EA9 /* NCNounceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNounceProtocol.h; sourceTree = "<group>"; };
+		61B04142132759D2009E9EA9 /* NCNounceProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNounceProtocol.m; sourceTree = "<group>"; };
+		61B0415513275DAF009E9EA9 /* NCEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCEventController.h; sourceTree = "<group>"; };
+		61B0415613275DAF009E9EA9 /* NCEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCEventController.m; sourceTree = "<group>"; };
 		61CCDC271326038C00F41824 /* Nounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CCDC5F1326052D00F41824 /* Nounce.Framework-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nounce.Framework-Info.plist"; sourceTree = "<group>"; };
 		61CCDC81132605C700F41824 /* NCNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotification.h; sourceTree = "<group>"; };
 		61CCDC82132605C700F41824 /* NCNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotification.m; sourceTree = "<group>"; };
 		61CCDC83132605C700F41824 /* NCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplication.h; sourceTree = "<group>"; };
 		61CCDC84132605C700F41824 /* NCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplication.m; sourceTree = "<group>"; };
-		61CCDC85132605C700F41824 /* NCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCEvent.h; sourceTree = "<group>"; };
-		61CCDC86132605C700F41824 /* NCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCEvent.m; sourceTree = "<group>"; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
-		61E01FA1130A00E60075442B /* NCNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationCenter.h; sourceTree = "<group>"; };
-		61E01FA2130A00E60075442B /* NCNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationCenter.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Nounce-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nounce-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Nounce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nounce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,8 +144,11 @@
 				61318B28131F06B500D2E6C0 /* JSON */,
 				256AC3D80F4B6AC300CF3369 /* NounceAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* NounceAppDelegate.m */,
-				61E01FA1130A00E60075442B /* NCNotificationCenter.h */,
-				61E01FA2130A00E60075442B /* NCNotificationCenter.m */,
+				61B0415513275DAF009E9EA9 /* NCEventController.h */,
+				61B0415613275DAF009E9EA9 /* NCEventController.m */,
+				614CDFB01328C1C900F1CB8A /* NCNotificationController.h */,
+				614CDFB11328C1C900F1CB8A /* NCNotificationController.m */,
+				61B0404C1326C610009E9EA9 /* Interface */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -230,13 +248,27 @@
 			children = (
 				6143309B13137483000437CD /* NotificationPane.html */,
 				614330C1131375DB000437CD /* NotificationPane.css */,
-				614331E513147F5D000437CD /* SharedClient.js */,
+				614CDECB1328AD2300F1CB8A /* NotificationPane.js */,
 				6143345C1317843A000437CD /* NotificationStatus.html */,
 				6143349213178812000437CD /* NotificationStatus.css */,
+				614CDECC1328AD2300F1CB8A /* NotificationStatus.js */,
 				614331E613147F5D000437CD /* jquery-1.4.2.min.js */,
 				61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */,
 			);
 			name = HTML;
+			sourceTree = "<group>";
+		};
+		61B0404C1326C610009E9EA9 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				61B03F961326C3D4009E9EA9 /* NCNotificationPaneController.h */,
+				61B03F971326C3D4009E9EA9 /* NCNotificationPaneController.m */,
+				61B040481326C5BC009E9EA9 /* NotificationPane.xib */,
+				614CDC0E1328946C00F1CB8A /* NCNotificationStatusController.h */,
+				614CDC0F1328946C00F1CB8A /* NCNotificationStatusController.m */,
+				614CDC241328981800F1CB8A /* NotificationStatus.xib */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 		61CCDB66132602DD00F41824 /* Nounce.framework */ = {
@@ -253,12 +285,12 @@
 				61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */,
 				61B03DF8132616FA009E9EA9 /* NounceApplicationBridge.m */,
 				61B03E1813262196009E9EA9 /* NounceDelegateProtocol.h */,
+				61B04141132759D2009E9EA9 /* NCNounceProtocol.h */,
+				61B04142132759D2009E9EA9 /* NCNounceProtocol.m */,
 				61CCDC81132605C700F41824 /* NCNotification.h */,
 				61CCDC82132605C700F41824 /* NCNotification.m */,
 				61CCDC83132605C700F41824 /* NCApplication.h */,
 				61CCDC84132605C700F41824 /* NCApplication.m */,
-				61CCDC85132605C700F41824 /* NCEvent.h */,
-				61CCDC86132605C700F41824 /* NCEvent.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -281,9 +313,9 @@
 			files = (
 				61CCDC89132605C700F41824 /* NCNotification.h in Headers */,
 				61CCDC8B132605C700F41824 /* NCApplication.h in Headers */,
-				61CCDC8D132605C700F41824 /* NCEvent.h in Headers */,
 				61B03DF9132616FA009E9EA9 /* NounceApplicationBridge.h in Headers */,
 				61B03E1A13262196009E9EA9 /* NounceDelegateProtocol.h in Headers */,
+				61B04143132759D2009E9EA9 /* NCNounceProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,15 +396,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				614CDECE1328AD2300F1CB8A /* NotificationPane.js in Resources */,
+				614CDECF1328AD2300F1CB8A /* NotificationStatus.js in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				6143309C13137483000437CD /* NotificationPane.html in Resources */,
 				614330C2131375DB000437CD /* NotificationPane.css in Resources */,
-				6143320413148008000437CD /* SharedClient.js in Resources */,
 				6143345D1317843B000437CD /* NotificationStatus.html in Resources */,
 				6143349313178812000437CD /* NotificationStatus.css in Resources */,
 				6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */,
 				61318B11131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js in Resources */,
+				61B040491326C5BC009E9EA9 /* NotificationPane.xib in Resources */,
+				614CDC251328981800F1CB8A /* NotificationStatus.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,8 +420,8 @@
 			files = (
 				61CCDC8A132605C700F41824 /* NCNotification.m in Sources */,
 				61CCDC8C132605C700F41824 /* NCApplication.m in Sources */,
-				61CCDC8E132605C700F41824 /* NCEvent.m in Sources */,
 				61B03DFA132616FA009E9EA9 /* NounceApplicationBridge.m in Sources */,
+				61B04144132759D2009E9EA9 /* NCNounceProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,12 +432,15 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* NounceAppDelegate.m in Sources */,
 				61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */,
-				61E01FA3130A00E60075442B /* NCNotificationCenter.m in Sources */,
 				61318B35131F06C100D2E6C0 /* NSObject+SBJSON.m in Sources */,
 				61318B36131F06C100D2E6C0 /* NSString+SBJSON.m in Sources */,
 				61318B37131F06C100D2E6C0 /* SBJsonBase.m in Sources */,
 				61318B38131F06C100D2E6C0 /* SBJsonParser.m in Sources */,
 				61318B39131F06C100D2E6C0 /* SBJsonWriter.m in Sources */,
+				614CDD2113289A5E00F1CB8A /* NCEventController.m in Sources */,
+				614CDD2313289A6500F1CB8A /* NCNotificationPaneController.m in Sources */,
+				614CDD2413289A6500F1CB8A /* NCNotificationStatusController.m in Sources */,
+				614CDFB21328C1C900F1CB8A /* NCNotificationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

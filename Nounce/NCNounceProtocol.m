@@ -1,0 +1,14 @@
+//
+//  NCNounceProtocol.m
+//  Nounce
+//
+//  Created by Chetan Surpur on 3/8/11.
+//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import "NCNounceProtocol.h"
+
+
+@implementation NCNounceProtocol
+
+@end

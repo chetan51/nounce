@@ -238,4 +238,4 @@ Design decisions
   How the observer pattern is implemented in Nounce
     * Commands or events that are relevant to only the Nounce application are all in form of private events (through NSNotificationCenter), and events that are relevant to other applications are in the form of public events (through NSDistributedNotificationCenter).
     * Commands sent to the Nounce application from other applications (such as hiding a notification) are received as public events, and are converted into private events before they can control the Nounce application.
-    * Public events are distributed with the 'object' set to the relevant receiver's ID, so that a receiver can listen for only the public events that are relevant to them.
+    * Public events are distributed with the 'object' set to the relevant receiver's ID, so that a receiver can listen for only the public events that are relevant to them. Private events are distributed with the 'object' set to the relevant sender's ID.
