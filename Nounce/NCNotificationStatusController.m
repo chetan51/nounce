@@ -36,6 +36,12 @@
 	 selector:@selector(notificationWasPosted:)
 	 name:NCNotificationWasPostedEvent
 	 object:nil];
+	
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(notificationPaneWasHidden:)
+	 name:NCNotificationPaneWasHiddenEvent
+	 object:nil];
 }
 
 - (void)setupNotificationStatus
@@ -64,6 +70,10 @@
 
 #pragma mark Functions
 
+- (void)unselectNotificationStatus
+{
+	[[notificationStatus windowScriptObject] callWebScriptMethod:@"unselectNotificationStatus" withArguments:nil];
+}
 
 #pragma mark Event handlers
 
@@ -94,6 +104,13 @@
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationStatusWasUnselectedEvent
 														object:NCNounceAppID];	
+}
+
+- (void)notificationPaneWasHidden:(NSNotification *)notificationPaneWasHiddenEvent
+{
+	if ([[notificationStatus windowScriptObject] callWebScriptMethod:@"isNotificationStatusSelected" withArguments:nil]) {
+		[self unselectNotificationStatus];
+	}
 }
 
 #pragma mark WebView Delegate

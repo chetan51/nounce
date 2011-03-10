@@ -5,6 +5,11 @@
 notificationStatusIsSelected = false;
 notifications = [];
 
+function isNotificationStatusSelected()
+{
+	return notificationStatusIsSelected;
+}
+
 /*
  * DOM accessors
  */
@@ -54,14 +59,16 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 	updateNotificationsCounterAll();
 }
 
-function selectNotificationIconsDiv()
+function selectNotificationStatus()
 {
-	notificationIconsDiv().removeClass("default").addClass("selected");	
+	notificationIconsDiv().removeClass("default").addClass("selected");
+	notificationStatusIsSelected = true;
 }
 
-function unselectNotificationIconsDiv()
+function unselectNotificationStatus()
 {
-	notificationIconsDiv().removeClass("selected").addClass("default");	
+	notificationIconsDiv().removeClass("selected").addClass("default");
+	notificationStatusIsSelected = false;
 }
 
 function updateNotificationsCounterAll() {
@@ -79,17 +86,11 @@ function updateNotificationsCounterAll() {
 function notificationIconsDivWasClicked(e)
 {
 	if (!notificationStatusIsSelected) {
-		selectNotificationIconsDiv();
+		selectNotificationStatus();
 		window.NotificationStatusController.notificationStatusWasSelectedForApplicationWithID_(null);
 	}
 	else {
-		unselectNotificationIconsDiv();
+		unselectNotificationStatus();
 		window.NotificationStatusController.notificationStatusWasUnselected();
 	}
-	
-	notificationStatusIsSelected = !notificationStatusIsSelected;
 }
-
-/*
- * AppController event listeners
- */

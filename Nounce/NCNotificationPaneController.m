@@ -51,6 +51,13 @@
 	 selector:@selector(notificationStatusWasUnselected:)
 	 name:NCNotificationStatusWasUnselectedEvent
 	 object:nil];
+	
+	// (TODO: make this user-configurable)
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(notificationPaneDidLoseFocus:)
+	 name:NSWindowDidResignKeyNotification
+	 object:notificationWindow];
 }
 
 - (void)setupNotificationWindow
@@ -65,13 +72,6 @@
 	windowRect.origin.y = 0;
 	
 	[notificationWindow setFrame:windowRect display:YES];
-	
-	// Listen for focus gained / lost events (TODO: make this user-configurable)
-	[[NSNotificationCenter defaultCenter]
-	 addObserver:self
-	 selector:@selector(notificationPaneDidLoseFocus:)
-	 name:NSWindowDidResignKeyNotification
-	 object:notificationWindow];
 }
 
 - (void)setupNotificationPane
@@ -105,6 +105,9 @@
 {
 	[NSApp hide:nil]; // give focus back to previous app
 	[notificationWindow orderOut:nil];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationPaneWasHiddenEvent
+														object:NCNounceAppID];
 }
 
 #pragma mark Event handlers
@@ -156,6 +159,13 @@
 }
 
 - (void)notificationStatusWasUnselected:(NSNotification *)notificationStatusWasUnselectedEvent
+{
+	if ([[self notificationWindow] isVisible]) {
+		[self hideNotificationPane];
+	}
+}
+
+- (void)notificationPaneDidLoseFocus:(NSNotification *)notificationPaneDidLoseFocusEvent
 {
 	if ([[self notificationWindow] isVisible]) {
 		[self hideNotificationPane];

@@ -22,3 +22,5 @@
 
 #define NCNotificationStatusWasSelectedEvent	@"Nounce_NotificationStatusWasSelected"
 #define NCNotificationStatusWasUnselectedEvent	@"Nounce_NotificationStatusWasUnselectedEvent"
+
+#define NCNotificationPaneWasHiddenEvent		@"Nounce_NotificationPaneWasHidden"
