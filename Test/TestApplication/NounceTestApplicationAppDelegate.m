@@ -27,7 +27,8 @@
 									 notificationWithTitle:@"Test Notification 2"
 									 content:@"<i>testing custom content...</i>"
 									 input:nil];
-	[[notification2 fromApp] setID:@"something"];
+	[notification2 setID:@"something-9384"];
+	[[notification2 fromApp] setID:@"com.anotherapp.notherapp"];
 	[[notification2 fromApp] setName:@"Another App"];
 	[[NounceApplicationBridge sharedBridge] notify:notification2];
 }
