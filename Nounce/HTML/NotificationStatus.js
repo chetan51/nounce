@@ -57,6 +57,8 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 {
 	notifications[notificationID] = "new";
 	updateNotificationsCounters();
+	notificationCounterNewDiv().show();
+	notificationCounterAllDiv().hide();
 }
 
 function hideNotification (notificationID)
@@ -68,6 +70,9 @@ function hideNotification (notificationID)
 function selectNotificationStatus()
 {
 	notificationIconsDiv().removeClass("default").addClass("selected");
+	markAllNotificationsAsViewed();
+	notificationCounterNewDiv().hide();
+	notificationCounterAllDiv().show();
 	notificationStatusIsSelected = true;
 }
 
@@ -75,6 +80,15 @@ function unselectNotificationStatus()
 {
 	notificationIconsDiv().removeClass("selected").addClass("default");
 	notificationStatusIsSelected = false;
+}
+
+function markAllNotificationsAsViewed()
+{
+	for (key in notifications) {
+		if (notifications[key] == "new") {
+			notifications[key] = "viewed";
+		}
+	}
 }
 
 function updateNotificationsCounters() {
@@ -88,6 +102,7 @@ function updateNotificationsCounters() {
 			allCounter++;
 		}
 	}
+	notificationCounterNewDiv().html(newCounter);
 	notificationCounterAllDiv().html(allCounter);
 }
 
