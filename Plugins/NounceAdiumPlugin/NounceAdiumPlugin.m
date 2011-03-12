@@ -7,6 +7,7 @@
 //
 
 #import "NounceAdiumPlugin.h"
+#import <Nounce/NounceApplicationBridge.h>
 
 
 @implementation NounceAdiumPlugin
@@ -15,6 +16,8 @@
 {
 	chats						= [[NSMutableDictionary alloc] init];
 	chatForNotificationManifest = [[NSMutableDictionary alloc] init];
+	
+	[[NounceApplicationBridge sharedBridge] setDelegate:self];
 	
 	[self listen];
 }
@@ -78,19 +81,13 @@
 	return nil;
 }
 
-- (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification
+- (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
 {
-	if ([event type] == NCEVENT_INPUT_SUBMIT &&
-		[[[event data] objectForKey:@"FormName"] isEqual:@"reply"] &&
-		[[[event data] objectForKey:@"ButtonName"] isEqual:@"reply"])
-	{
-		NSDictionary *inputData = [[event data] objectForKey:@"InputData"];
-		
-		NCAIChat *chat;
-		if (chat = [self getChatForNotification:notification]) {
-			[self sendMessage:[inputData objectForKey:@"reply"] forChat:chat];
-		}
-	}
+	NSLog(@"%@", [notification ID]);
+	NCAIChat *chat;
+	if (chat = [self getChatForNotification:notification]) {
+		[self sendMessage:[inputData objectForKey:@"reply"] forChat:chat];
+	}	
 }
 
 /* 
@@ -220,13 +217,11 @@
 						"</form>"];
 	}
 	
-	[notification setObserver:self selector:@selector(eventFromNotification:notification:)];
-	
 	[self saveChat:chat];
 	[self saveNotificationForChat:chat notification:notification];
 	
 	// Send notification to Nounce
-	[NCNotificationManager notify:notification];
+	[[NounceApplicationBridge sharedBridge] notify:notification];
 }
 
 @end

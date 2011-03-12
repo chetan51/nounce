@@ -18,14 +18,13 @@
 #import <Adium/AIListContact.h>
 
 #import <Nounce/NCNotification.h>
-#import <Nounce/NCNotificationManager.h>
-#import <Nounce/NCEvent.h>
+#import <Nounce/NounceDelegateProtocol.h>
 
 #import "NCAIChat.h"
 #import "NCAIMessage.h"
 
 
-@interface NounceAdiumPlugin : AIPlugin <AIChatObserver> {
+@interface NounceAdiumPlugin : AIPlugin <AIChatObserver, NounceDelegate> {
 	NSMutableDictionary *chats;
 	NSMutableDictionary *chatForNotificationManifest;
 }
@@ -35,7 +34,7 @@
 - (void) messageReceived:(NSNotification *)notification;
 - (void) messageSent:(NSNotification *)notification;
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent;
-- (void) eventFromNotification:(NCEvent *)event notification:(NCNotification *)notification;
+- (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData;
 
 - (void) saveChat:(NCAIChat *)chat;
 - (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification;
