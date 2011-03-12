@@ -24,12 +24,12 @@ function notificationDivMold()
 
 function applicationDivWithID (appID)
 {
-	return $("#"+appID, applicationsDiv());
+	return $("#"+jqID(appID), applicationsDiv());
 }
 
 function notificationDivWithID (notificationID, applicationDiv)
 {
-	return $("#"+notificationID);
+	return $("#"+jqID(notificationID));
 }
 
 /*
@@ -53,6 +53,7 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 	var applicationDiv = applicationDivWithID(fromAppID);
 	if (!applicationDiv.length) {
 		applicationDiv = applicationDivMold().clone();
+		applicationDiv.attr("id", fromAppID);
 		applicationsDiv().append(applicationDiv);
 	}
 	
@@ -61,6 +62,7 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 	var notificationDiv = notificationDivWithID(notificationID, applicationDiv);
 	if (!notificationDiv.length) {
 		notificationDiv = notificationDivMold().clone();
+		notificationDiv.attr("id", notificationID);
 		applicationDiv.children(".notifications").append(notificationDiv);
 		
 		if (notificationInput) {
@@ -76,7 +78,6 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 		// Add event listeners
 		notificationDiv.hover(notificationWasHoveredIn, notificationWasHoveredOut);
 	}
-	
 	notificationDiv.children(".title").html(notificationTitle);
 	notificationDiv.children(".content").html(notificationContent);
 	
@@ -144,3 +145,7 @@ jQuery.extend(jQuery.expr[':'], {
         return element == document.activeElement; 
     }
 });
+
+function jqID(myID) { 
+	return myID.replace(/(:|\.)/g,'\\$1');
+}
