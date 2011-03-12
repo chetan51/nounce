@@ -25,5 +25,6 @@
 - (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
 
 - (void) notify:(NCNotification *)notification;
+- (void)hideNotification:(NCNotification *)notification;
 
 @end

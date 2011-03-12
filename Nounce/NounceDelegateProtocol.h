@@ -14,6 +14,7 @@
 @optional
 
 - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData;
+- (void)notificationWasHidden:(NCNotification *)notification;
 
 - (void)notificationPaneWasHidden;
 

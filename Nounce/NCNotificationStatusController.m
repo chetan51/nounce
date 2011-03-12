@@ -80,7 +80,23 @@
 	[[notificationStatus windowScriptObject] callWebScriptMethod:@"unselectNotificationStatus" withArguments:nil];
 }
 
-#pragma mark Event handlers
+#pragma mark UI event handlers
+
+- (void)UINotificationStatusWasSelectedForApplicationWithID:(NSString *)applicationID
+{
+	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationStatusWasSelectedEvent
+														object:NCNounceAppID
+													  userInfo:[NSDictionary dictionaryWithObject:applicationID ? applicationID : (NSString *)[NSNull null]
+																						   forKey:@"SelectedApplication"]];
+}
+
+- (void)UINotificationStatusWasUnselected
+{
+	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationStatusWasUnselectedEvent
+														object:NCNounceAppID];	
+}
+
+#pragma mark General event handlers
 
 - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
 {
@@ -105,20 +121,6 @@
 					 [notification ID],
 					 nil];
 	[[notificationStatus windowScriptObject] callWebScriptMethod:@"hideNotification" withArguments:args];	
-}
-
-- (void)notificationStatusWasSelectedForApplicationWithID:(NSString *)applicationID
-{
-	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationStatusWasSelectedEvent
-														object:NCNounceAppID
-													  userInfo:[NSDictionary dictionaryWithObject:applicationID ? applicationID : (NSString *)[NSNull null]
-																						   forKey:@"SelectedApplication"]];
-}
-	 
-- (void)notificationStatusWasUnselected
-{
-	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationStatusWasUnselectedEvent
-														object:NCNounceAppID];	
 }
 
 - (void)notificationPaneWasHidden:(NSNotification *)notificationPaneWasHiddenEvent

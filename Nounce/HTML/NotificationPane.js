@@ -114,10 +114,29 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 	applicationsDiv().show();
 }
 
+function hideNotification (notificationID)
+{
+	var notificationDiv = notificationDivWithID(notificationID);
+	var applicationDiv = applicationDivForNotificationDiv(notificationDiv);
+	
+	notificationDiv.remove();
+	
+	if (!applicationDiv.children(".notifications").children().length) {
+		applicationDiv.remove();
+	}
+	
+	if (!applicationsDiv().children().length) {
+		applicationsDiv().hide();
+		placeholderDiv().show();
+	}
+	
+	window.NotificationPaneController.UINotificationWasHidden_(notificationID);
+}
+
 function submitNotificationInputForm(form, notificationID, buttonName)
 {
 	var inputData = JSON.stringify(form.serializeObject());
-	window.NotificationPaneController.inputWasSubmittedForNotificationWithID_formName_buttonName_inputData_(notificationID, form.attr("name"), buttonName, inputData);
+	window.NotificationPaneController.UIInputWasSubmittedForNotificationWithID_formName_buttonName_inputData_(notificationID, form.attr("name"), buttonName, inputData);
 	
 	// Reset form
 	$(':input',form)
@@ -164,20 +183,7 @@ function notificationInputButtonWasClicked(e)
 function notificationHideWasClicked(e)
 {
 	var notificationDiv = notificationDivForHideButton($(this));
-	var applicationDiv = applicationDivForNotificationDiv(notificationDiv);
-	
-	notificationDiv.remove();
-	
-	if (!applicationDiv.children(".notifications").children().length) {
-		applicationDiv.remove();
-	}
-	
-	if (!applicationsDiv().children().length) {
-		applicationsDiv().hide();
-		placeholderDiv().show();
-	}
-	
-	window.NotificationPaneController.notificationWasHidden_(notificationDivForHideButton($(this)).attr('id'));
+	hideNotification(notificationDiv.attr("id"));
 }
 
 /*

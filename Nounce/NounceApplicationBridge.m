@@ -25,6 +25,11 @@
 		 selector:@selector(inputWasSubmittedForNotification:)
 		 name:NCInputWasSubmittedEvent
 		 object:[[NSBundle mainBundle] bundleIdentifier]];
+		[[NSDistributedNotificationCenter defaultCenter]
+		 addObserver:self
+		 selector:@selector(notificationWasHidden:)
+		 name:NCNotificationWasHiddenEvent
+		 object:[[NSBundle mainBundle] bundleIdentifier]];
 		
 		[[NSDistributedNotificationCenter defaultCenter]
 		 addObserver:self
@@ -70,6 +75,15 @@
 																									  forKey:@"Notification"]];
 }
 
+- (void)hideNotification:(NCNotification *)notification
+{
+	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
+	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:NCNotificationWasHiddenEvent
+																   object:NCNounceAppID
+																 userInfo:[NSDictionary dictionaryWithObject:archivedNotification
+																									  forKey:@"Notification"]];	
+}
+
 #pragma mark Event handlers
 
 - (void)inputWasSubmittedForNotification:(NSNotification *)inputWasSubmittedMessage
@@ -85,6 +99,17 @@
 												   formName:formName
 												 buttonName:buttonName
 												  inputData:inputData];
+		}
+	}
+}
+
+- (void)notificationWasHidden:(NSNotification *)notificationWasHiddenEvent
+{
+	if (self.delegate) {
+		if ([self.delegate respondsToSelector:@selector(notificationWasHidden:)]) {
+			NCNotification *notification	= [NSKeyedUnarchiver unarchiveObjectWithData:[[notificationWasHiddenEvent userInfo] objectForKey:@"Notification"]];
+			
+			[self.delegate notificationWasHidden:notification];
 		}
 	}
 }

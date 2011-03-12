@@ -40,6 +40,11 @@
 	 selector:@selector(notificationWasPosted:)
 	 name:NCNotificationWasPostedEvent
 	 object:nil];
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(notificationWasHidden:)
+	 name:NCNotificationWasHiddenEvent
+	 object:nil];
 	
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
@@ -110,27 +115,12 @@
 														object:NCNounceAppID];
 }
 
-#pragma mark Event handlers
+#pragma mark UI event handlers
 
-- (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
-{
-	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[notificationWasPostedEvent userInfo] objectForKey:@"Notification"]];
-	
-	NSArray *args = [NSArray arrayWithObjects:
-					 [notification ID],
-					 [notification title] ? [notification title] : (NSString *)[NSNull null],
-					 [notification content] ? [notification content] : (NSString *)[NSNull null],
-					 [notification input] ? [notification input] : (NSString *)[NSNull null],
-					 [[notification fromApp] ID],
-					 [[notification fromApp] name] ? [[notification fromApp] name] : (NSString *)[NSNull null],
-					 nil];
-	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
-}
-
-- (void)inputWasSubmittedForNotificationWithID:(NSString *)notificationID
-									  formName:(NSString *)formName
-									buttonName:(NSString *)buttonName
-									 inputData:(NSString *)inputData
+- (void)UIInputWasSubmittedForNotificationWithID:(NSString *)notificationID
+										formName:(NSString *)formName
+									  buttonName:(NSString *)buttonName
+									   inputData:(NSString *)inputData
 {
 	// Parse input data JSON
 	SBJsonParser *parser = [SBJsonParser new];
@@ -151,7 +141,7 @@
 																nil]];
 }
 
-- (void)notificationWasHidden:(NSString *)notificationID
+- (void)UINotificationWasHidden:(NSString *)notificationID
 {
 	NounceAppDelegate *appDelegate = (NounceAppDelegate *)[[NSApplication sharedApplication] delegate];
 	NCNotification *notification = [appDelegate.notificationController notificationWithID:notificationID];
@@ -161,6 +151,35 @@
 													  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 																archivedNotification, @"Notification",
 																nil]];
+}
+
+#pragma mark General event handlers
+
+- (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
+{
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[notificationWasPostedEvent userInfo] objectForKey:@"Notification"]];
+	
+	NSArray *args = [NSArray arrayWithObjects:
+					 [notification ID],
+					 [notification title] ? [notification title] : (NSString *)[NSNull null],
+					 [notification content] ? [notification content] : (NSString *)[NSNull null],
+					 [notification input] ? [notification input] : (NSString *)[NSNull null],
+					 [[notification fromApp] ID],
+					 [[notification fromApp] name] ? [[notification fromApp] name] : (NSString *)[NSNull null],
+					 nil];
+	[[notificationPane windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];
+}
+
+- (void)notificationWasHidden:(NSNotification *)notificationWasHiddenEvent
+{
+	if (![[notificationWasHiddenEvent object] isEqual:NCNounceAppID]) {
+		NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[notificationWasHiddenEvent userInfo] objectForKey:@"Notification"]];
+		
+		NSArray *args = [NSArray arrayWithObjects:
+						 [notification ID],
+						 nil];
+		[[notificationPane windowScriptObject] callWebScriptMethod:@"hideNotification" withArguments:args];
+	}
 }
 
 - (void)notificationStatusWasSelected:(NSNotification *)notificationStatusWasSelectedEvent

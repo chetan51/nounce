@@ -24,12 +24,22 @@
 		 selector:@selector(notificationWasPosted_public:)
 		 name:NCNotificationWasPostedEvent
 		 object:NCNounceAppID];
+		[[NSDistributedNotificationCenter defaultCenter]
+		 addObserver:self
+		 selector:@selector(notificationWasHidden_public:)
+		 name:NCNotificationWasHiddenEvent
+		 object:NCNounceAppID];
 		
 		// Listen for private events
 		[[NSNotificationCenter defaultCenter]
 		 addObserver:self
 		 selector:@selector(inputWasSubmitted_private:)
 		 name:NCInputWasSubmittedEvent
+		 object:NCNounceAppID];
+		[[NSNotificationCenter defaultCenter]
+		 addObserver:self
+		 selector:@selector(notificationWasHidden_private:)
+		 name:NCNotificationWasHiddenEvent
 		 object:NCNounceAppID];
 		
 		[[NSNotificationCenter defaultCenter]
@@ -56,6 +66,15 @@
 													  userInfo:[postNotificationEvent userInfo]];
 }
 
+- (void)notificationWasHidden_public:(NSNotification *)hideNotificationEvent
+{
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[hideNotificationEvent userInfo] objectForKey:@"Notification"]];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:[hideNotificationEvent name]
+														object:[[notification fromApp] ID]
+													  userInfo:[hideNotificationEvent userInfo]];
+}
+
 #pragma mark Private events
 
 - (void)inputWasSubmitted_private:(NSNotification *)inputWasSubmittedEvent
@@ -67,10 +86,19 @@
 																 userInfo:[inputWasSubmittedEvent userInfo]];
 }
 
+- (void)notificationWasHidden_private:(NSNotification *)notificationWasHiddenEvent
+{
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[notificationWasHiddenEvent userInfo] objectForKey:@"Notification"]];
+	
+	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:[notificationWasHiddenEvent name]
+																   object:[[notification fromApp] ID]
+																 userInfo:[notificationWasHiddenEvent userInfo]];	
+}
+
 - (void)notificationPaneWasHidden_private:(NSNotification *)notificationPaneWasHiddenEvent
 {
 	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:[notificationPaneWasHiddenEvent name]
-																   object:[notificationPaneWasHiddenEvent object]
+																   object:NCNounceAppID
 																 userInfo:[notificationPaneWasHiddenEvent userInfo]];	
 }
 

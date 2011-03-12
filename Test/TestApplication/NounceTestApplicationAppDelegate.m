@@ -31,6 +31,7 @@
 	[[notification2 fromApp] setID:@"com.anotherapp.notherapp"];
 	[[notification2 fromApp] setName:@"Another App"];
 	[[NounceApplicationBridge sharedBridge] notify:notification2];
+	//[[NounceApplicationBridge sharedBridge] hideNotification:notification2];
 }
 
 - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData

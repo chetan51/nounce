@@ -99,10 +99,10 @@ function notificationIconsDivWasClicked(e)
 {
 	if (!notificationStatusIsSelected) {
 		selectNotificationStatus();
-		window.NotificationStatusController.notificationStatusWasSelectedForApplicationWithID_(null);
+		window.NotificationStatusController.UINotificationStatusWasSelectedForApplicationWithID_(null);
 	}
 	else {
 		unselectNotificationStatus();
-		window.NotificationStatusController.notificationStatusWasUnselected();
+		window.NotificationStatusController.UINotificationStatusWasUnselected();
 	}
 }

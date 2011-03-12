@@ -29,25 +29,26 @@
 	NSMutableDictionary *chatForNotificationManifest;
 }
 
-- (void) listen;
+- (void)listen;
 
-- (void) messageReceived:(NSNotification *)notification;
-- (void) messageSent:(NSNotification *)notification;
+- (void)messageReceived:(NSNotification *)notification;
+- (void)messageSent:(NSNotification *)notification;
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent;
 - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData;
 - (void)notificationPaneWasHidden;
 
-- (void) saveChat:(NCAIChat *)chat;
-- (void) saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification;
+- (void)saveChat:(NCAIChat *)chat;
+- (void)saveNotificationForChat:(NCAIChat *)chat notification:(NCNotification *)notification;
 - (NCAIChat *)getChatWithID:(NSString *)chatID;
 - (NCAIChat *)getChatForAIChat:(AIChat *)givenChat;
 - (NCAIChat *)getChatForNotification:(NCNotification *)notification;
 - (NCAIMessage *)getMessageForContentMessage:(AIContentMessage *)contentMessage sentByMe:(BOOL)isSentByMe;
 
-- (void) appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;
-- (void) sendMessage:(NSString *)message forChat:(NCAIChat *)chat;
-- (void) updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages;
+- (void)appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;
+- (void)sendMessage:(NSString *)message forChat:(NCAIChat *)chat;
+- (void)updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages;
 - (void)hideNotificationsForAllMarkedChats;
 - (void)updateAndSubmitNotificationsForAllChats;
+- (void)updateAdiumAboutStatusForChat:(NCAIChat *)chat;
 
 @end
