@@ -25,6 +25,12 @@
 		 selector:@selector(inputWasSubmittedForNotification:)
 		 name:NCInputWasSubmittedEvent
 		 object:[[NSBundle mainBundle] bundleIdentifier]];
+		
+		[[NSDistributedNotificationCenter defaultCenter]
+		 addObserver:self
+		 selector:@selector(notificationPaneWasHidden:)
+		 name:NCNotificationPaneWasHiddenEvent
+		 object:nil];
 	}
 	
 	return self;
@@ -79,6 +85,15 @@
 												   formName:formName
 												 buttonName:buttonName
 												  inputData:inputData];
+		}
+	}
+}
+
+- (void)notificationPaneWasHidden:(NSNotification *)notificationPaneWasHiddenEvent
+{
+	if (self.delegate) {
+		if ([self.delegate respondsToSelector:@selector(notificationPaneWasHidden)]) {
+			[self.delegate notificationPaneWasHidden];
 		}
 	}
 }

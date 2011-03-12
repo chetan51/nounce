@@ -31,6 +31,12 @@
 		 selector:@selector(inputWasSubmitted_private:)
 		 name:NCInputWasSubmittedEvent
 		 object:NCNounceAppID];
+		
+		[[NSNotificationCenter defaultCenter]
+		 addObserver:self
+		 selector:@selector(notificationPaneWasHidden_private:)
+		 name:NCNotificationPaneWasHiddenEvent
+		 object:NCNounceAppID];
 	}
 	
 	return self;
@@ -59,6 +65,13 @@
 	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:[inputWasSubmittedEvent name]
 																   object:[[notification fromApp] ID]
 																 userInfo:[inputWasSubmittedEvent userInfo]];
+}
+
+- (void)notificationPaneWasHidden_private:(NSNotification *)notificationPaneWasHiddenEvent
+{
+	[[NSDistributedNotificationCenter defaultCenter] postNotificationName:[notificationPaneWasHiddenEvent name]
+																   object:[notificationPaneWasHiddenEvent object]
+																 userInfo:[notificationPaneWasHiddenEvent userInfo]];	
 }
 
 #pragma mark -
