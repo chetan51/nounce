@@ -36,6 +36,11 @@
 	 selector:@selector(notificationWasPosted:)
 	 name:NCNotificationWasPostedEvent
 	 object:nil];
+	[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(notificationWasHidden:)
+	 name:NCNotificationWasHiddenEvent
+	 object:nil];
 	
 	[[NSNotificationCenter defaultCenter]
 	 addObserver:self
@@ -90,6 +95,16 @@
 					 [[notification fromApp] name] ? [[notification fromApp] name] : (NSString *)[NSNull null],
 					 nil];
 	[[notificationStatus windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];	
+}
+
+- (void)notificationWasHidden:(NSNotification *)notificationWasHiddenEvent
+{
+	NCNotification *notification = [NSKeyedUnarchiver unarchiveObjectWithData:[[notificationWasHiddenEvent userInfo] objectForKey:@"Notification"]];
+	
+	NSArray *args = [NSArray arrayWithObjects:
+					 [notification ID],
+					 nil];
+	[[notificationStatus windowScriptObject] callWebScriptMethod:@"hideNotification" withArguments:args];	
 }
 
 - (void)notificationStatusWasSelectedForApplicationWithID:(NSString *)applicationID

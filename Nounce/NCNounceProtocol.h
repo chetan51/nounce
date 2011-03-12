@@ -18,6 +18,7 @@
 #define NCNounceAppID							@"Nounce"
 
 #define NCNotificationWasPostedEvent			@"Nounce_NotificationWasPosted"
+#define NCNotificationWasHiddenEvent			@"Nounce_NotificationWasHidden"
 #define NCInputWasSubmittedEvent				@"Nounce_InputWasSubmitted"
 
 #define NCNotificationStatusWasSelectedEvent	@"Nounce_NotificationStatusWasSelected"

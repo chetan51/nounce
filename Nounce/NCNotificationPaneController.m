@@ -151,6 +151,18 @@
 																nil]];
 }
 
+- (void)notificationWasHidden:(NSString *)notificationID
+{
+	NounceAppDelegate *appDelegate = (NounceAppDelegate *)[[NSApplication sharedApplication] delegate];
+	NCNotification *notification = [appDelegate.notificationController notificationWithID:notificationID];
+	NSData *archivedNotification = [NSKeyedArchiver archivedDataWithRootObject:notification];
+	[[NSNotificationCenter defaultCenter] postNotificationName:NCNotificationWasHiddenEvent
+														object:NCNounceAppID
+													  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+																archivedNotification, @"Notification",
+																nil]];
+}
+
 - (void)notificationStatusWasSelected:(NSNotification *)notificationStatusWasSelectedEvent
 {
 	if (![[self notificationWindow] isVisible]) {

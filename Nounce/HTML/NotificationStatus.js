@@ -56,7 +56,13 @@ $(document).ready(function() {
 function notify (notificationID, notificationTitle, notificationContent, notificationInput, fromAppID, fromAppName)
 {
 	notifications[notificationID] = "new";
-	updateNotificationsCounterAll();
+	updateNotificationsCounters();
+}
+
+function hideNotification (notificationID)
+{
+	notifications[notificationID] = null;
+	updateNotificationsCounters();
 }
 
 function selectNotificationStatus()
@@ -71,12 +77,18 @@ function unselectNotificationStatus()
 	notificationStatusIsSelected = false;
 }
 
-function updateNotificationsCounterAll() {
-	var counter = 0;
+function updateNotificationsCounters() {
+	var allCounter = 0, newCounter = 0;
 	for (key in notifications) {
-		counter++;
+		if (notifications[key] == "new") {
+			allCounter++;
+			newCounter++;
+		}
+		else if (notifications[key] == "viewed") {
+			allCounter++;
+		}
 	}
-	notificationCounterAllDiv().html(counter);
+	notificationCounterAllDiv().html(allCounter);
 }
 
 /*
