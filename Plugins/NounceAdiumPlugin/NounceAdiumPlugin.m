@@ -14,8 +14,8 @@
 
 - (void)installPlugin
 {
-	chats						= [[NSMutableDictionary alloc] init];
-	chatForNotificationManifest = [[NSMutableDictionary alloc] init];
+	chats									= [[NSMutableDictionary alloc] init];
+	chatForNotificationManifest				= [[NSMutableDictionary alloc] init];
 	
 	[[NounceApplicationBridge sharedBridge] setDelegate:self];
 	
@@ -26,6 +26,7 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageReceived:) name:CONTENT_MESSAGE_RECEIVED object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageSent:) name:CONTENT_MESSAGE_SENT object:nil];
+	
 	[adium.chatController registerChatObserver:self];
 }
 
@@ -50,6 +51,7 @@
 	[chat setAiSender:[contentMessage source]];
 	[chat setAiMe:[contentMessage destination]];
 	
+	[chat incrementNotificationDisplayCount];
 	[self appendMessageToChat:chat message:message];
 }
 
@@ -65,14 +67,14 @@
 	[chat setAiMe:[contentMessage source]];
 	
 	[self appendMessageToChat:chat message:message];
-	[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat aiChat] unviewedContentCount]];
+	[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
 }
 
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent
-{	
+{
 	if ([inModifiedKeys containsObject:KEY_UNVIEWED_CONTENT]) {
 		NCAIChat *chat = [self getChatForAIChat:inChat]; // TODO: Error handling if chat is nil
-		[self updateAndSubmitNotification:chat numUnviewedMessages:[inChat unviewedContentCount]];
+		[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
 	}
 	else if ([inModifiedKeys containsObject:KEY_TYPING]) {
 		
@@ -83,11 +85,21 @@
 
 - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
 {
-	NSLog(@"%@", [notification ID]);
 	NCAIChat *chat;
 	if (chat = [self getChatForNotification:notification]) {
 		[self sendMessage:[inputData objectForKey:@"reply"] forChat:chat];
-	}	
+		[chat setNotificationMarkedForHiding:TRUE];
+	}
+	
+	// Tell Adium that we saw and responded to the chat
+	[adium.interfaceController chatDidBecomeActive:[chat aiChat]];
+	[adium.interfaceController chatDidBecomeActive:nil];
+}
+
+- (void)notificationPaneWasHidden
+{
+	[self hideNotificationsForAllMarkedChats];
+	[self updateAndSubmitNotificationsForAllChats];
 }
 
 /* 
@@ -222,6 +234,29 @@
 	
 	// Send notification to Nounce
 	[[NounceApplicationBridge sharedBridge] notify:notification];
+}
+
+- (void)hideNotificationsForAllMarkedChats
+{
+	NSEnumerator *chatsEnumerator = [chats objectEnumerator];
+	NCAIChat *chat;
+	
+	while (chat = [chatsEnumerator nextObject]) {
+		if ([chat notificationMarkedForHiding]) {
+			[chat resetNotificationDisplayCount];
+			[chat setNotificationMarkedForHiding:FALSE];
+		}
+	}
+}
+
+- (void)updateAndSubmitNotificationsForAllChats
+{
+	NSEnumerator *chatsEnumerator = [chats objectEnumerator];
+	NCAIChat *chat;
+	
+	while (chat = [chatsEnumerator nextObject]) {
+		[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
+	}
 }
 
 @end

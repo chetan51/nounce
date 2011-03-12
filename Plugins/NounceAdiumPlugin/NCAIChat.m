@@ -18,16 +18,32 @@
 @synthesize name;
 @synthesize newMessages;
 @synthesize currentNotification;
+@synthesize notificationDisplayCount;
+@synthesize notificationMarkedForHiding;
 
-- (void) dealloc
+#pragma mark Initializers and destructors
+
+- (id)init
 {
-	[self setAiChat:nil];
-	[self setAiSender:nil];
-	[self setAiMe:nil];
-	[self setName:nil];
-	[self setNewMessages:nil];
-	[self setCurrentNotification:nil];
-	[super dealloc];
+	if (self = [super init]) {
+		[self resetNotificationDisplayCount];
+		[self setNotificationMarkedForHiding:FALSE];
+	}
+	
+	return self;
+}
+
+#pragma mark Accessors and setters
+
+- (void)incrementNotificationDisplayCount
+{
+	NSNumber *previousCount = [self notificationDisplayCount];
+	[self setNotificationDisplayCount:[NSNumber numberWithInt:([previousCount intValue]+1)]];
+}
+
+- (void)resetNotificationDisplayCount
+{
+	[self setNotificationDisplayCount:[NSNumber numberWithInt:0]];
 }
 
 @end

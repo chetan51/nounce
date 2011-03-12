@@ -22,6 +22,8 @@
 	NSString *name;
 	NSMutableArray *newMessages;
 	NCNotification *currentNotification;
+	NSNumber *notificationDisplayCount;
+	BOOL notificationMarkedForHiding;
 }
 
 @property (copy) NSString *ID;
@@ -31,5 +33,10 @@
 @property (copy) NSString *name;
 @property (retain) NSMutableArray *newMessages;
 @property (retain) NCNotification *currentNotification;
+@property (retain) NSNumber *notificationDisplayCount;
+@property (assign) BOOL notificationMarkedForHiding;
+
+- (void)incrementNotificationDisplayCount;
+- (void)resetNotificationDisplayCount;
 
 @end
