@@ -70,7 +70,7 @@
 {
 	if (self.delegate) {
 		if ([self.delegate respondsToSelector:@selector(inputWasSubmittedForNotification:formName:buttonName:inputData:)]) {
-			NCNotification *notification	= [self notificationWithID:[inputWasSubmittedMessage object]];
+			NCNotification *notification	= [NSKeyedUnarchiver unarchiveObjectWithData:[[inputWasSubmittedMessage userInfo] objectForKey:@"Notification"]];
 			NSString *formName				= [[inputWasSubmittedMessage userInfo] objectForKey:@"FormName"];
 			NSString *buttonName			= [[inputWasSubmittedMessage userInfo] objectForKey:@"ButtonName"];
 			NSDictionary *inputData			= [[inputWasSubmittedMessage userInfo] objectForKey:@"InputData"];
