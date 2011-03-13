@@ -109,6 +109,7 @@
 					 [notification input] ? [notification input] : (NSString *)[NSNull null],
 					 [[notification fromApp] ID],
 					 [[notification fromApp] name] ? [[notification fromApp] name] : (NSString *)[NSNull null],
+					 [notification isUpdate] ? [NSNumber numberWithBool:[notification isUpdate]] : (NSNumber *)[NSNull null],
 					 nil];
 	[[notificationStatus windowScriptObject] callWebScriptMethod:@"notify" withArguments:args];	
 }

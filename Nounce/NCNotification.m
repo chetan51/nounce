@@ -17,8 +17,9 @@
 @synthesize title;
 @synthesize content;
 @synthesize input;
+@synthesize isUpdate;
 
-+ (NCNotification *) notificationWithTitle:(NSString *)title
++ (NCNotification *)notificationWithTitle:(NSString *)title
 								   content:(NSString *)content
 									 input:(NSString *)input
 {
@@ -38,36 +39,37 @@
 	return notification;
 }
 
-- (void) encodeWithCoder: (NSCoder *) coder
+- (id)init
 {
-    [coder encodeObject:ID			forKey:@"ID"];
-    [coder encodeObject:fromApp		forKey:@"fromApp"];
-    [coder encodeObject:title		forKey:@"title"];
-    [coder encodeObject:content		forKey:@"content"];
-    [coder encodeObject:input		forKey:@"input"];
+	if (self = [super init]) {
+		[self setIsUpdate:NO];
+	}
+	
+	return self;
 }
 
-- (id) initWithCoder: (NSCoder *) coder
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:ID									forKey:@"ID"];
+    [coder encodeObject:fromApp								forKey:@"fromApp"];
+    [coder encodeObject:title								forKey:@"title"];
+    [coder encodeObject:content								forKey:@"content"];
+    [coder encodeObject:input								forKey:@"input"];
+    [coder encodeObject:[NSNumber numberWithBool:isUpdate]	forKey:@"isUpdate"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
 {
     if (self = [super init]) {
         self.ID			= [coder decodeObjectForKey:@"ID"];
-        self.fromApp		= [coder decodeObjectForKey:@"fromApp"];
+        self.fromApp	= [coder decodeObjectForKey:@"fromApp"];
         self.title		= [coder decodeObjectForKey:@"title"];
-        self.content		= [coder decodeObjectForKey:@"content"];
+        self.content	= [coder decodeObjectForKey:@"content"];
         self.input		= [coder decodeObjectForKey:@"input"];
+        self.isUpdate	= [(NSNumber *)[coder decodeObjectForKey:@"isUpdate"] boolValue];
     }
 	
     return (self);
-}
-
-- (void) dealloc
-{
-	[self setID:nil];
-	[self setFromApp:nil];
-	[self setTitle:nil];
-	[self setContent:nil];
-	[self setInput:nil];
-    [super dealloc];
 }
 
 @end

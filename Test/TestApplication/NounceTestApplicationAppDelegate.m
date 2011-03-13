@@ -30,6 +30,7 @@
 	[notification2 setID:@"something-9384"];
 	[[notification2 fromApp] setID:@"com.anotherapp.notherapp"];
 	[[notification2 fromApp] setName:@"Another App"];
+	[notification2 setIsUpdate:YES];
 	[[NounceApplicationBridge sharedBridge] notify:notification2];
 	//[[NounceApplicationBridge sharedBridge] hideNotification:notification2];
 }

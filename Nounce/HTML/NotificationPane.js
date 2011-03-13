@@ -78,7 +78,7 @@ $(document).ready(function() {
  * Functions
  */
 
-function notify (notificationID, notificationTitle, notificationContent, notificationInput, fromAppID, fromAppName)
+function notify (notificationID, notificationTitle, notificationContent, notificationInput, fromAppID, fromAppName, isUpdate)
 {
 	var applicationDiv = applicationDivWithID(fromAppID);
 	if (!applicationDiv.length) {

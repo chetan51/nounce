@@ -16,6 +16,7 @@
 	NSString *title;
 	NSString *content;
 	NSString *input;
+	BOOL isUpdate;
 }
 
 @property (copy) NSString *ID;
@@ -23,9 +24,10 @@
 @property (copy) NSString *title;
 @property (copy) NSString *content;
 @property (copy) NSString *input;
+@property (assign) BOOL isUpdate;
 
-+ (NCNotification *) notificationWithTitle:(NSString *)title
-								   content:(NSString *)content
-									 input:(NSString *)input;
++ (NCNotification *)notificationWithTitle:(NSString *)title
+								  content:(NSString *)content
+									input:(NSString *)input;
 
 @end
