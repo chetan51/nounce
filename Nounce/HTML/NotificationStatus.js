@@ -55,15 +55,14 @@ $(document).ready(function() {
 
 function notify (notificationID, notificationTitle, notificationContent, notificationInput, fromAppID, fromAppName, isUpdate)
 {
-	if (!isUpdate) {
+	if (!isUpdate || 
+		isUpdate && !notifications[notificationID]) {
 		notifications[notificationID] = "new";
+		
+		updateNotificationsCounters();
+		notificationCounterNewDiv().show();
+		notificationCounterAllDiv().hide();
 	}
-	else {
-		notifications[notificationID] = "viewed";
-	}
-	updateNotificationsCounters();
-	notificationCounterNewDiv().show();
-	notificationCounterAllDiv().hide();
 }
 
 function hideNotification (notificationID)
