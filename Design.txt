@@ -31,7 +31,10 @@
  1     ~ (NCNotificationStatusController *)notificationStatusController
  1     ~ (NCEventController *)eventController
  
-.1   * NotificationPane, NotificationStatus (shared Javascript client)
+.1   * NotificationPane (shared Javascript client)
+.1     - notify(String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName, bool isUpdate)
+
+.1   * NotificationStatus (shared Javascript client)
 .1     - notify(String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName, bool isUpdate)
        
  1   * NCEventController
