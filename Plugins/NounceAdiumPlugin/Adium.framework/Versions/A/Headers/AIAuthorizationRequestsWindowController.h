@@ -3,7 +3,7 @@
 //  Adium
 //
 //  Created by Zachary West on 2009-03-23.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Chetan Surpur. All rights reserved.
 //
 
 #import <Adium/AIWindowController.h>
