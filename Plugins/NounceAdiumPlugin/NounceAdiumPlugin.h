@@ -46,9 +46,8 @@
 
 - (void)appendMessageToChat:(NCAIChat *)chat message:(NCAIMessage *)message;
 - (void)sendMessage:(NSString *)message forChat:(NCAIChat *)chat;
-- (void)updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages;
+- (void)updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages isUpdate:(BOOL)isUpdate;
 - (void)hideNotificationsForAllMarkedChats;
-- (void)updateAndSubmitNotificationsForAllChats;
 - (void)updateAdiumAboutStatusForChat:(NCAIChat *)chat;
 
 @end

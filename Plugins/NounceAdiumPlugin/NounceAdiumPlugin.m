@@ -51,7 +51,6 @@
 	[chat setAiSender:[contentMessage source]];
 	[chat setAiMe:[contentMessage destination]];
 	
-	[chat incrementNotificationDisplayCount];
 	[self appendMessageToChat:chat message:message];
 }
 
@@ -67,14 +66,22 @@
 	[chat setAiMe:[contentMessage source]];
 	
 	[self appendMessageToChat:chat message:message];
-	[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
+	[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue] isUpdate:YES];
 }
 
 - (NSSet *)updateChat:(AIChat *)inChat keys:(NSSet *)inModifiedKeys silent:(BOOL)silent
 {
 	if ([inModifiedKeys containsObject:KEY_UNVIEWED_CONTENT]) {
+		
 		NCAIChat *chat = [self getChatForAIChat:inChat]; // TODO: Error handling if chat is nil
-		[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
+		
+		if ([inChat unviewedContentCount] > 0) {		// message was received in background
+			[chat incrementNotificationDisplayCount];
+			[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue] isUpdate:NO];
+		}
+		else if ([inChat unviewedContentCount] == 0) {	// chat was viewed or message was sent
+			[chat setNotificationMarkedForHiding:YES];
+		}
 	}
 	else if ([inModifiedKeys containsObject:KEY_TYPING]) {
 		
@@ -88,7 +95,6 @@
 	NCAIChat *chat;
 	if (chat = [self getChatForNotification:notification]) {
 		[self sendMessage:[inputData objectForKey:@"reply"] forChat:chat];
-		[chat setNotificationMarkedForHiding:TRUE];
 	}
 	
 	[self updateAdiumAboutStatusForChat:chat];
@@ -194,7 +200,7 @@
 	[adium.contentController sendContentObject:contentObject];
 }
 
-- (void)updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
+- (void)updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages isUpdate:(BOOL)isUpdate
 {
 	// Create notification content with the new messages from this sender
 	NSString *notificationContent = @"";
@@ -233,6 +239,7 @@
 						"<input type='submit' name='reply' class='submit' value='Reply' style='position: absolute; left: -9999px'>"
 						"</form>"];
 	}
+	[notification setIsUpdate:isUpdate];
 	
 	[self saveChat:chat];
 	[self saveNotificationForChat:chat notification:notification];
@@ -256,18 +263,8 @@
 		if ([chat notificationMarkedForHiding]) {
 			[chat resetNotificationDisplayCount];
 			[chat setNotificationMarkedForHiding:FALSE];
-			[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
+			[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue] isUpdate:YES];
 		}
-	}
-}
-
-- (void)updateAndSubmitNotificationsForAllChats
-{
-	NSEnumerator *chatsEnumerator = [chats objectEnumerator];
-	NCAIChat *chat;
-	
-	while (chat = [chatsEnumerator nextObject]) {
-		[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
 	}
 }
 

@@ -178,7 +178,7 @@
 
 .2       - sendMessage:(NSString *)message forChat:(NCAIChat *)
  
-.2       - updateAndPostNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages
+.2       - (void)updateAndSubmitNotification:(NCAIChat *)chat numUnviewedMessages:(int)numUnviewedMessages isUpdate:(BOOL)isUpdate
          
  2       - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
          
