@@ -94,10 +94,9 @@
 {
 	NCAIChat *chat;
 	if (chat = [self getChatForNotification:notification]) {
+		[self updateAdiumAboutStatusForChat:chat];
 		[self sendMessage:[inputData objectForKey:@"reply"] forChat:chat];
 	}
-	
-	[self updateAdiumAboutStatusForChat:chat];
 }
 
 - (void)notificationWasHidden:(NCNotification *)notification
