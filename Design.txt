@@ -32,7 +32,7 @@
  1     ~ (NCEventController *)eventController
  
 .1   * NotificationPane, NotificationStatus (shared Javascript client)
-.1     - notificationWasPosted(String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName)
+.1     - notify(String notificationID, String notificationTitle, HTML notificationContent, String fromAppID, String fromAppName, bool isUpdate)
        
  1   * NCEventController
          // Listens for public events through NCDistributedNotificationCenter and converts them into private events through NCNotificationCenter, and vice-versa.
@@ -114,6 +114,8 @@
 	     // Note: If more than one notifications of the same group are posted by the same app, the group icon of the latest one will be used in the notification status area
 .2     ~ (NSString *)input
        ~ (NSDate *)expires
+       ~ (BOOL)isUpdate
+           // Indicates whether this notification is an update to an existing one and shouldn't be considered a "new" notification
 
 .1     + notificationWithTitle:(NSString *)title
 .1         content:(NSString *)content
