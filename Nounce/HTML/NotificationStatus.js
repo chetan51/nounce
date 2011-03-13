@@ -79,6 +79,9 @@ function selectNotificationStatus()
 function unselectNotificationStatus()
 {
 	notificationIconsDiv().removeClass("selected").addClass("default");
+	markAllNotificationsAsViewed();
+	notificationCounterNewDiv().hide();
+	notificationCounterAllDiv().show();
 	notificationStatusIsSelected = false;
 }
 
