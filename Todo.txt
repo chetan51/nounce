@@ -1,0 +1,7 @@
+Bugfixes:
+
+3/13/11 12:41:21 AM	Adium[35668]	*** Collection <NSCFDictionary: 0x26bff70> was mutated while being enumerated.<CFBasicHash 0x26bff70 [0xa0b54ec0]>{type = mutable dict, count = 2,
+entries =>
+	0 : <CFString 0x19184810 [0xa0b54ec0]>{contents = "GTalk.vinimani@gmail.com"} = <NCAIChat: 0x19946b60>
+	2 : <CFString 0x1975b110 [0xa0b54ec0]>{contents = "GTalk.special.fx13@gmail.com"} = <NCAIChat: 0x190ebd60>
+}
