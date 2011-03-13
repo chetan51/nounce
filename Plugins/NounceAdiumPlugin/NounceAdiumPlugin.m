@@ -105,7 +105,6 @@
 - (void)notificationPaneWasHidden
 {
 	[self hideNotificationsForAllMarkedChats];
-	[self updateAndSubmitNotificationsForAllChats];
 }
 
 /* 
@@ -257,6 +256,7 @@
 		if ([chat notificationMarkedForHiding]) {
 			[chat resetNotificationDisplayCount];
 			[chat setNotificationMarkedForHiding:FALSE];
+			[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue]];
 		}
 	}
 }
