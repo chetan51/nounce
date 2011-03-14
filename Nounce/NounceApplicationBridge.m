@@ -10,6 +10,15 @@
 #import "NCNounceProtocol.h"
 
 
+@interface NounceApplicationBridge()
+
+#pragma mark Private methods
+
+- (void)setNotification:(NCNotification *)notification forID:(NSString *)ID;
+
+@end
+
+
 @implementation NounceApplicationBridge
 
 @synthesize delegate;
@@ -54,12 +63,12 @@
     return applicationBridge;
 }
 
-- (NCNotification *) notificationWithID:(NSString *)notificationID
+- (NCNotification *)notificationWithID:(NSString *)notificationID
 {
 	return [[[notifications objectForKey:notificationID] retain] autorelease];
 }
 
-- (void) setNotification:(NCNotification *)notification forID:(NSString *)ID
+- (void)setNotification:(NCNotification *)notification forID:(NSString *)ID
 {
 	[notifications setObject:notification forKey:ID];
 }

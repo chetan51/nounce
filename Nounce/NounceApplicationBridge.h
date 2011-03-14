@@ -21,8 +21,7 @@
 
 + (id)sharedBridge;
 
-- (NCNotification *) notificationWithID:(NSString *)notificationID;
-- (void) setNotification:(NCNotification *)notification forID:(NSString *)ID;
+- (NCNotification *)notificationWithID:(NSString *)notificationID;
 
 - (void) notify:(NCNotification *)notification;
 - (void)hideNotification:(NCNotification *)notification;
