@@ -28,6 +28,9 @@
 		614CDECE1328AD2300F1CB8A /* NotificationPane.js in Resources */ = {isa = PBXBuildFile; fileRef = 614CDECB1328AD2300F1CB8A /* NotificationPane.js */; };
 		614CDECF1328AD2300F1CB8A /* NotificationStatus.js in Resources */ = {isa = PBXBuildFile; fileRef = 614CDECC1328AD2300F1CB8A /* NotificationStatus.js */; };
 		614CDFB21328C1C900F1CB8A /* NCNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CDFB11328C1C900F1CB8A /* NCNotificationController.m */; };
+		614CE71E132DB8A400F1CB8A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614CE71D132DB8A400F1CB8A /* Sparkle.framework */; };
+		614CE72F132DB8B200F1CB8A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 614CE71D132DB8A400F1CB8A /* Sparkle.framework */; };
+		614CE738132DBA6900F1CB8A /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 614CE737132DBA6900F1CB8A /* dsa_pub.pem */; };
 		61B03CB4132614FB009E9EA9 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03CBB132614FE009E9EA9 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03DF9132616FA009E9EA9 /* NounceApplicationBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				614CE72F132DB8B200F1CB8A /* Sparkle.framework in CopyFiles */,
 				61B03CBB132614FE009E9EA9 /* Nounce.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +99,8 @@
 		614CDECC1328AD2300F1CB8A /* NotificationStatus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationStatus.js; path = HTML/NotificationStatus.js; sourceTree = "<group>"; };
 		614CDFB01328C1C900F1CB8A /* NCNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationController.h; sourceTree = "<group>"; };
 		614CDFB11328C1C900F1CB8A /* NCNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationController.m; sourceTree = "<group>"; };
+		614CE71D132DB8A400F1CB8A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		614CE737132DBA6900F1CB8A /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceApplicationBridge.h; sourceTree = "<group>"; };
 		61B03DF8132616FA009E9EA9 /* NounceApplicationBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NounceApplicationBridge.m; sourceTree = "<group>"; };
 		61B03E1813262196009E9EA9 /* NounceDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceDelegateProtocol.h; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 				61B03CB4132614FB009E9EA9 /* Nounce.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				61433085131373C5000437CD /* WebKit.framework in Frameworks */,
+				614CE71E132DB8A400F1CB8A /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +163,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				614CE71D132DB8A400F1CB8A /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -212,6 +220,7 @@
 				61CCDC5F1326052D00F41824 /* Nounce.Framework-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				614CE737132DBA6900F1CB8A /* dsa_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -408,6 +417,7 @@
 				61318B11131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js in Resources */,
 				61B040491326C5BC009E9EA9 /* NotificationPane.xib in Resources */,
 				614CDC251328981800F1CB8A /* NotificationStatus.xib in Resources */,
+				614CE738132DBA6900F1CB8A /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +539,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = supported;
@@ -549,7 +562,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
