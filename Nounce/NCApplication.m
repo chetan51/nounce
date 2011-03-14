@@ -43,11 +43,4 @@
     return (self);
 }
 
-- (void) dealloc
-{
-	[self setID:nil];
-	[self setName:nil];
-	[super dealloc];
-}
-
 @end
