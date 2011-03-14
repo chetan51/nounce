@@ -41,6 +41,16 @@
 	[notification2 setIsUpdate:YES];
 	[[NounceApplicationBridge sharedBridge] notify:notification2];
 	//[[NounceApplicationBridge sharedBridge] hideNotification:notification2];
+	
+	
+	NCNotification *notification3 = [NCNotification
+									 notificationWithTitle:@"Test Notification with really reallyyyyy really really long title"
+									 content:@"really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really long content"
+									 input:@"really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really long input"];
+	[notification3 setID:@"something-9386"];
+	[[notification3 fromApp] setID:@"com.anotherapp.notherapp"];
+	[[notification3 fromApp] setName:@"Another App"];
+	[[NounceApplicationBridge sharedBridge] notify:notification3];
 }
 
 - (void)inputWasSubmittedForNotification:(NCNotification *)notification formName:(NSString *)formName buttonName:(NSString *)buttonName inputData:(NSDictionary *)inputData
