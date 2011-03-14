@@ -128,6 +128,7 @@ function hideNotification (notificationID)
 	if (!applicationsDiv().children().length) {
 		applicationsDiv().hide();
 		placeholderDiv().show();
+		window.NotificationPaneController.UINotificationPaneWasHidden();
 	}
 	
 	window.NotificationPaneController.UINotificationWasHidden_(notificationID);

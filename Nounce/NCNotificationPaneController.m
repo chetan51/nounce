@@ -153,6 +153,13 @@
 																nil]];
 }
 
+- (void)UINotificationPaneWasHidden
+{
+	if ([[self notificationWindow] isVisible]) {
+		[self hideNotificationPane];
+	}
+}
+
 #pragma mark General event handlers
 
 - (void)notificationWasPosted:(NSNotification *)notificationWasPostedEvent
