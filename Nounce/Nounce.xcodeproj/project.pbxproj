@@ -31,6 +31,8 @@
 		614CE71E132DB8A400F1CB8A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614CE71D132DB8A400F1CB8A /* Sparkle.framework */; };
 		614CE72F132DB8B200F1CB8A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 614CE71D132DB8A400F1CB8A /* Sparkle.framework */; };
 		614CE738132DBA6900F1CB8A /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 614CE737132DBA6900F1CB8A /* dsa_pub.pem */; };
+		614CE825132EC14700F1CB8A /* NCIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 614CE823132EC14700F1CB8A /* NCIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		614CE826132EC14700F1CB8A /* NCIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CE824132EC14700F1CB8A /* NCIcon.m */; };
 		61B03CB4132614FB009E9EA9 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03CBB132614FE009E9EA9 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03DF9132616FA009E9EA9 /* NounceApplicationBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,6 +103,8 @@
 		614CDFB11328C1C900F1CB8A /* NCNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationController.m; sourceTree = "<group>"; };
 		614CE71D132DB8A400F1CB8A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		614CE737132DBA6900F1CB8A /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		614CE823132EC14700F1CB8A /* NCIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCIcon.h; sourceTree = "<group>"; };
+		614CE824132EC14700F1CB8A /* NCIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCIcon.m; sourceTree = "<group>"; };
 		61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceApplicationBridge.h; sourceTree = "<group>"; };
 		61B03DF8132616FA009E9EA9 /* NounceApplicationBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NounceApplicationBridge.m; sourceTree = "<group>"; };
 		61B03E1813262196009E9EA9 /* NounceDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceDelegateProtocol.h; sourceTree = "<group>"; };
@@ -300,6 +304,8 @@
 				61CCDC82132605C700F41824 /* NCNotification.m */,
 				61CCDC83132605C700F41824 /* NCApplication.h */,
 				61CCDC84132605C700F41824 /* NCApplication.m */,
+				614CE823132EC14700F1CB8A /* NCIcon.h */,
+				614CE824132EC14700F1CB8A /* NCIcon.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 				61B03DF9132616FA009E9EA9 /* NounceApplicationBridge.h in Headers */,
 				61B03E1A13262196009E9EA9 /* NounceDelegateProtocol.h in Headers */,
 				61B04143132759D2009E9EA9 /* NCNounceProtocol.h in Headers */,
+				614CE825132EC14700F1CB8A /* NCIcon.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +439,7 @@
 				61CCDC8C132605C700F41824 /* NCApplication.m in Sources */,
 				61B03DFA132616FA009E9EA9 /* NounceApplicationBridge.m in Sources */,
 				61B04144132759D2009E9EA9 /* NCNounceProtocol.m in Sources */,
+				614CE826132EC14700F1CB8A /* NCIcon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

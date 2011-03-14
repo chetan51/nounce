@@ -17,6 +17,7 @@
 @synthesize title;
 @synthesize content;
 @synthesize input;
+@synthesize icon;
 @synthesize isUpdate;
 
 + (NCNotification *)notificationWithTitle:(NSString *)title
@@ -55,6 +56,7 @@
     [coder encodeObject:title								forKey:@"title"];
     [coder encodeObject:content								forKey:@"content"];
     [coder encodeObject:input								forKey:@"input"];
+    [coder encodeObject:icon								forKey:@"icon"];
     [coder encodeObject:[NSNumber numberWithBool:isUpdate]	forKey:@"isUpdate"];
 }
 
@@ -66,6 +68,7 @@
         self.title		= [coder decodeObjectForKey:@"title"];
         self.content	= [coder decodeObjectForKey:@"content"];
         self.input		= [coder decodeObjectForKey:@"input"];
+        self.icon		= [coder decodeObjectForKey:@"icon"];
         self.isUpdate	= [(NSNumber *)[coder decodeObjectForKey:@"isUpdate"] boolValue];
     }
 	

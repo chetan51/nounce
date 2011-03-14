@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NCApplication.h"
+#import "NCIcon.h"
 
 
 @interface NCNotification : NSObject {
@@ -16,6 +17,7 @@
 	NSString *title;
 	NSString *content;
 	NSString *input;
+	NCIcon *icon;
 	BOOL isUpdate;
 }
 
@@ -24,6 +26,7 @@
 @property (copy) NSString *title;
 @property (copy) NSString *content;
 @property (copy) NSString *input;
+@property (retain) NCIcon *icon;
 @property (assign) BOOL isUpdate;
 
 + (NCNotification *)notificationWithTitle:(NSString *)title

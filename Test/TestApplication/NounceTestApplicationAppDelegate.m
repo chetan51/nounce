@@ -7,6 +7,8 @@
 //
 
 #import "NounceTestApplicationAppDelegate.h"
+#import <Nounce/NounceApplicationBridge.h>
+#import <Nounce/NCIcon.h>
 
 @implementation NounceTestApplicationAppDelegate
 
@@ -21,7 +23,13 @@
 												"<input type='submit' name='reply' class='submit' value='Reply'>"
 												"<input type='submit' name='forward' class='submit' value='Forward'>"
 											"</form>"];
+	
+	NCIcon *icon = [[NCIcon alloc] init];
+	[icon setPath:[[NSBundle mainBundle] pathForResource:@"happy-icon" ofType:@"png"]];
+	[notification setIcon:icon];
+	
 	[[NounceApplicationBridge sharedBridge] notify:notification];
+	
 	
 	NCNotification *notification2 = [NCNotification
 									 notificationWithTitle:@"Test Notification 2"

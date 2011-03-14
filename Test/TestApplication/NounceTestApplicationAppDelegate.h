@@ -8,9 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Nounce/NCNotification.h>
-#import <Nounce/NCEvent.h>
 #import <Nounce/NounceDelegateProtocol.h>
-#import <Nounce/NounceApplicationBridge.h>
 
 @interface NounceTestApplicationAppDelegate : NSObject <NSApplicationDelegate, NounceDelegate> {
 	
