@@ -7,6 +7,7 @@
 //
 
 #import "NounceAppDelegate.h"
+#import <Sparkle/Sparkle.h>
 
 
 @implementation NounceAppDelegate
@@ -25,6 +26,11 @@
 	notificationController = [[NCNotificationController alloc] init];
 	notificationPaneController = [[NCNotificationPaneController alloc] init];
 	notificationStatusController = [[NCNotificationStatusController alloc] init];
+	
+	// Check for updates
+	if ([[SUUpdater sharedUpdater] automaticallyChecksForUpdates]) {
+		[[SUUpdater sharedUpdater] checkForUpdatesInBackground];
+	}
 }
 
 - (void) dealloc
