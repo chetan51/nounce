@@ -45,8 +45,17 @@ body {
 	opacity: 0.95;
 }
 
+#applications > .application > .notifications > .notification > .icon {
+	display: none;
+	height: 30px;
+	width: auto;
+	padding-right: 5px;
+}
+
 #applications > .application > .notifications > .notification > .title {
+	display: inline;
 	margin-bottom: 5px;
+	vertical-align: top;
 	color: #111;
 	text-shadow: 0px 2px 3px #bbb;
 	font-size: 24px;

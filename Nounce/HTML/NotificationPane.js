@@ -67,10 +67,10 @@ function notificationDivForHideButton (button)
  */
 
 $(document).ready(function() {
-	/* Testing
-	notify("TestApp-0", "test notification", "testing ...", "<form name='test'><input type='text' name='reply' style='width: 100%; box-sizing: border-box; -webkit-box-sizing: border-box;'><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", "com.yourcompany.TestApp", "Test Application");
-	notify("TestApp-1", "test notification 2", "testing again ...", null, "com.yourcompany.TestApp", "Test Application");
-	notify("TestApp2-0", "test notification 3", "testing again 2 ...", "<form><input type='submit' name='reply' class='submit' value='Reply'><input type='text' name='reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", "TestApp2", "Test Application 2");
+	/*
+	notify("TestApp-0", "test notification", "testing ...", "<form name='test'><input type='text' name='reply' style='width: 100%; box-sizing: border-box; -webkit-box-sizing: border-box;'><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", null, "com.yourcompany.TestApp", "Test Application");
+	notify("TestApp-1", "test notification 2", "testing again ...", null, "/Users/Chetan/Development/nounce/Test/TestApplication/build/Debug/NounceTestApplication.app/Contents/Resources/happy-icon.png", "com.yourcompany.TestApp", "Test Application");
+	notify("TestApp2-0", "test notification 3", "testing again 2 ...", "<form><input type='submit' name='reply' class='submit' value='Reply'><input type='text' name='reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", null, "TestApp2", "Test Application 2");
 	*/
 });
 
@@ -78,7 +78,7 @@ $(document).ready(function() {
  * Functions
  */
 
-function notify (notificationID, notificationTitle, notificationContent, notificationInput, fromAppID, fromAppName, isUpdate)
+function notify (notificationID, notificationTitle, notificationContent, notificationInput, notificationIconPath, fromAppID, fromAppName, isUpdate)
 {
 	var applicationDiv = applicationDivWithID(fromAppID);
 	if (!applicationDiv.length) {
@@ -106,6 +106,13 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 		// Add event listeners
 		notificationDiv.hover(notificationWasHoveredIn, notificationWasHoveredOut);
 		hideButtonForNotificationDiv(notificationDiv).click(notificationHideWasClicked);
+	}
+	if (notificationIconPath) {
+		notificationDiv.children(".icon").attr("src", "file://" + notificationIconPath);
+		notificationDiv.children(".icon").show();
+	}
+	else {
+		notificationDiv.children(".icon").hide();
 	}
 	notificationDiv.children(".title").html(notificationTitle);
 	notificationDiv.children(".content").html(notificationContent);
