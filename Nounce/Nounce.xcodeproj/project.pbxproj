@@ -33,6 +33,7 @@
 		614CE738132DBA6900F1CB8A /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 614CE737132DBA6900F1CB8A /* dsa_pub.pem */; };
 		614CE825132EC14700F1CB8A /* NCIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 614CE823132EC14700F1CB8A /* NCIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		614CE826132EC14700F1CB8A /* NCIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CE824132EC14700F1CB8A /* NCIcon.m */; };
+		614CE92D132F2FC200F1CB8A /* Nounce-Logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 614CE92C132F2FC200F1CB8A /* Nounce-Logo.icns */; };
 		61B03CB4132614FB009E9EA9 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03CBB132614FE009E9EA9 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61CCDC271326038C00F41824 /* Nounce.framework */; };
 		61B03DF9132616FA009E9EA9 /* NounceApplicationBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -105,6 +106,7 @@
 		614CE737132DBA6900F1CB8A /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		614CE823132EC14700F1CB8A /* NCIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCIcon.h; sourceTree = "<group>"; };
 		614CE824132EC14700F1CB8A /* NCIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCIcon.m; sourceTree = "<group>"; };
+		614CE92C132F2FC200F1CB8A /* Nounce-Logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "Nounce-Logo.icns"; sourceTree = "<group>"; };
 		61B03DF7132616FA009E9EA9 /* NounceApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceApplicationBridge.h; sourceTree = "<group>"; };
 		61B03DF8132616FA009E9EA9 /* NounceApplicationBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NounceApplicationBridge.m; sourceTree = "<group>"; };
 		61B03E1813262196009E9EA9 /* NounceDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NounceDelegateProtocol.h; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				614CE737132DBA6900F1CB8A /* dsa_pub.pem */,
+				614CE92C132F2FC200F1CB8A /* Nounce-Logo.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				61B040491326C5BC009E9EA9 /* NotificationPane.xib in Resources */,
 				614CDC251328981800F1CB8A /* NotificationStatus.xib in Resources */,
 				614CE738132DBA6900F1CB8A /* dsa_pub.pem in Resources */,
+				614CE92D132F2FC200F1CB8A /* Nounce-Logo.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
