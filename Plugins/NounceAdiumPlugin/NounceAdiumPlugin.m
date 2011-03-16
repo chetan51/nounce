@@ -139,7 +139,6 @@
 	if (!chat) {
 		chat = [[[NCAIChat alloc] init] autorelease];
 		[chat setID:[givenChat uniqueChatID]];
-		[chat setAiChat:givenChat];
 		[chat setNewMessages:[[[NSMutableArray alloc] init] autorelease]];
 		if ([givenChat name]) {
 			[chat setName:[givenChat name]];
@@ -148,6 +147,9 @@
 			[chat setName:[NSString stringWithFormat:@"Chat with %@", [[givenChat listObject] displayName]]];
 		}
 	}
+	
+	// In case givenChat is a new AIChat with the same identifier as the stored one, overwrite the old one
+	[chat setAiChat:givenChat];
 	
 	return chat;
 }
@@ -188,7 +190,7 @@
 - (void)sendMessage:(NSString *)message forChat:(NCAIChat *)chat
 {
 	NSAttributedString *attributedMessage = [[[NSAttributedString alloc] initWithString:message] autorelease];
-	
+
 	AIContentMessage *contentObject = [AIContentMessage messageInChat:[chat aiChat]
 														   withSource:[chat aiMe]
 														  destination:[chat aiSender]
