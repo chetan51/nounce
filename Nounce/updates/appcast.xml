@@ -6,6 +6,16 @@
 		<description>Most recent changes to Nounce with links to updates.</description> 
 		<language>en</language>      
 		<item>
+			<title>Version 1.0.2 (Pre-Alpha)</title>
+			<pubDate>Wed, 16 Mar 2011 00:00:00 +0000</pubDate>
+			<enclosure url="https://github.com/downloads/chetan51/nounce/Nounce v1.0.2.zip"
+				sparkle:version="3"
+				sparkle:shortVersionString="1.0.2"
+				sparkle:dsaSignature="MCwCFFo/m3/Whcl0wt5dOLa+QhAK9YlQAhRmLRzNuKRSsh0loR/GasGOj9CPmg=="
+				length="937905"
+				type="application/octet-stream" />
+		</item>
+		<item>
 			<title>Version 1.0.1 (Pre-Alpha)</title>
 			<pubDate>Mon, 14 Mar 2011 00:00:00 +0000</pubDate>
 			<enclosure url="https://github.com/downloads/chetan51/nounce/Nounce v1.0.1.zip"
