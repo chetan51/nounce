@@ -76,6 +76,7 @@
 		NCAIChat *chat = [self getChatForAIChat:inChat]; // TODO: Error handling if chat is nil
 		
 		if ([inChat unviewedContentCount] > 0) {		// message was received in background
+			[chat setNotificationMarkedForHiding:NO];
 			[chat incrementNotificationDisplayCount];
 			[self updateAndSubmitNotification:chat numUnviewedMessages:[[chat notificationDisplayCount] intValue] isUpdate:NO];
 		}
