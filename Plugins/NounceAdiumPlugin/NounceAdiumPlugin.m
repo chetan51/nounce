@@ -258,10 +258,13 @@
 
 - (void)hideNotificationsForAllMarkedChats
 {
-	NSEnumerator *chatsEnumerator = [chats objectEnumerator];
+	NSEnumerator *chatIDsEnumerator = [[chats allKeys] objectEnumerator];
+	NSString *chatID;
 	NCAIChat *chat;
 	
-	while (chat = [chatsEnumerator nextObject]) {
+	while (chatID = [chatIDsEnumerator nextObject]) {
+		chat = [chats objectForKey:chatID];
+		
 		if ([chat notificationMarkedForHiding]) {
 			[chat resetNotificationDisplayCount];
 			[chat setNotificationMarkedForHiding:FALSE];
