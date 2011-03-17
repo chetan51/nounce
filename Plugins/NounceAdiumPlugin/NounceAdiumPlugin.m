@@ -14,8 +14,8 @@
 
 - (void)installPlugin
 {
-	chats									= [[NSMutableDictionary alloc] init];
-	chatForNotificationManifest				= [[NSMutableDictionary alloc] init];
+	chats						= [[NSMutableDictionary alloc] init];
+	chatForNotificationManifest	= [[NSMutableDictionary alloc] init];
 	
 	[[NounceApplicationBridge sharedBridge] setDelegate:self];
 	
