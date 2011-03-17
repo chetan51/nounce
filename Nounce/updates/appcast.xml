@@ -7,9 +7,6 @@
 		<language>en</language>      
 		<item>
 			<title>Version 1.0.2 (Pre-Alpha)</title>
-			<sparkle:releaseNotesLink>
-				https://github.com/chetan51/nounce/raw/master/Nounce/updates/1.0.2.html
-			</sparkle:releaseNotesLink>
 			<pubDate>Wed, 16 Mar 2011 00:00:00 +0000</pubDate>
 			<enclosure url="https://github.com/downloads/chetan51/nounce/Nounce v1.0.2.zip"
 				sparkle:version="3"
