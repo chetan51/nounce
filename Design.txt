@@ -196,6 +196,9 @@
 .2       ~ (NSString *)senderName
 .2       ~ (NSString *)message
 
+     Scenarios:
+       Send message through one instance of Nounce with another fresh instance open
+
 
 Unsorted:
        - UIShowNotificationBubbleWithNotifications:(NSArray *)notifications
