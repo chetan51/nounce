@@ -19,6 +19,11 @@ function notificationIconsDiv()
 	return $("#notification-icons");
 }
 
+function notificationIconsBackgroundDiv()
+{
+	return $("#notification-icons-background");
+}
+
 function notificationCounterDiv()
 {
 	return notificationIconsDiv().children("#counter");
@@ -60,8 +65,6 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 		notifications[notificationID] = "new";
 		
 		updateNotificationsCounters();
-		notificationCounterNewDiv().show();
-		notificationCounterAllDiv().hide();
 	}
 }
 
@@ -73,19 +76,17 @@ function hideNotification (notificationID)
 
 function selectNotificationStatus()
 {
-	notificationIconsDiv().removeClass("default").addClass("selected");
+	notificationIconsBackgroundDiv().removeClass("default").addClass("selected");
 	markAllNotificationsAsViewed();
-	notificationCounterNewDiv().hide();
-	notificationCounterAllDiv().show();
+	updateNotificationsCounters();
 	notificationStatusIsSelected = true;
 }
 
 function unselectNotificationStatus()
 {
-	notificationIconsDiv().removeClass("selected").addClass("default");
+	notificationIconsBackgroundDiv().removeClass("selected").addClass("default");
 	markAllNotificationsAsViewed();
-	notificationCounterNewDiv().hide();
-	notificationCounterAllDiv().show();
+	updateNotificationsCounters();
 	notificationStatusIsSelected = false;
 }
 
@@ -109,8 +110,23 @@ function updateNotificationsCounters() {
 			allCounter++;
 		}
 	}
-	notificationCounterNewDiv().html(newCounter);
-	notificationCounterAllDiv().html(allCounter);
+	
+	if (newCounter > 0) {
+		notificationCounterNewDiv().html(newCounter);
+		notificationCounterAllDiv().hide();
+		notificationCounterNewDiv().show();
+	}
+	else {
+		notificationCounterNewDiv().hide();
+		
+		if (allCounter > 0) {
+			notificationCounterAllDiv().html(allCounter);
+			notificationCounterAllDiv().show();
+		}
+		else {
+			notificationCounterAllDiv().hide();
+		}
+	}	
 }
 
 /*
