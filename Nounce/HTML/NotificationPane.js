@@ -67,9 +67,9 @@ function notificationDivForHideButton (button)
  */
 
 $(document).ready(function() {
-	/*
+	/* Testing
 	notify("TestApp-0", "test notification", "testing ...", "<form name='test'><input type='text' name='reply' style='width: 100%; box-sizing: border-box; -webkit-box-sizing: border-box;'><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", null, "com.yourcompany.TestApp", "Test Application");
-	notify("TestApp-1", "test notification 2", "testing again ...", null, "/Users/Chetan/Development/nounce/Test/TestApplication/build/Debug/NounceTestApplication.app/Contents/Resources/happy-icon.png", "com.yourcompany.TestApp", "Test Application");
+	notify("TestApp-1", "test notification 2", "testing again ...", null, null, "com.yourcompany.TestApp", "Test Application");
 	notify("TestApp2-0", "test notification 3", "testing again 2 ...", "<form><input type='submit' name='reply' class='submit' value='Reply'><input type='text' name='reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", null, "TestApp2", "Test Application 2");
 	*/
 });
