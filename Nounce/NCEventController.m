@@ -17,7 +17,7 @@
 
 - (id)init
 {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		// Listen for public events
 		[[NSDistributedNotificationCenter defaultCenter]
 		 addObserver:self

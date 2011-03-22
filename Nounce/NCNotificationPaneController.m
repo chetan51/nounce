@@ -22,7 +22,7 @@
 #pragma mark Initialization and destruction
 
 - (id)init {
-	if(self = [super initWithWindowNibName:@"NotificationPane"]) {
+	if((self = [super initWithWindowNibName:@"NotificationPane"])) {
 		[self window]; // causing window to load
 	}
 	

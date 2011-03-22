@@ -17,7 +17,7 @@
 #pragma mark Initialization and destruction
 
 - (id)init {
-	if(self = [super initWithNibName:@"NotificationStatus" bundle:nil]) {
+	if((self = [super initWithNibName:@"NotificationStatus" bundle:nil])) {
 		[self view]; // cause view to load
 	}
 	
