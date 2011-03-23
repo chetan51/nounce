@@ -14,19 +14,19 @@ function isNotificationStatusSelected()
  * DOM accessors
  */
 
-function notificationIconsDiv()
+function statusAreaDiv()
 {
-	return $("#notification-icons");
+	return $("#status-area");
 }
 
-function notificationIconsBackgroundDiv()
+function statusAreaBackgroundDiv()
 {
-	return $("#notification-icons-background");
+	return $("#status-area-background");
 }
 
 function notificationCounterDiv()
 {
-	return notificationIconsDiv().children("#counter");
+	return statusAreaDiv().children("#counter");
 }
 
 function notificationCounterAllDiv()
@@ -45,7 +45,7 @@ function notificationCounterNewDiv()
 
 $(document).ready(function() {
 	// Add event listeners
-	notificationIconsDiv().click(notificationIconsDivWasClicked);
+	statusAreaDiv().click(statusAreaDivWasClicked);
 	
 	/* Testing
 	notify("TestApp-0", "test notification", "testing ...", "<form><input type='text' name='reply' style='width: 100%; box-sizing: border-box; -webkit-box-sizing: border-box;'><input type='submit' name='reply' class='submit' value='Reply'><input type='submit' name='forward' class='submit' value='Forward'></form>", null, "TestApp", "Test Application");
@@ -76,7 +76,7 @@ function hideNotification (notificationID)
 
 function selectNotificationStatus()
 {
-	notificationIconsBackgroundDiv().removeClass("default").addClass("selected");
+	statusAreaBackgroundDiv().removeClass("default").addClass("selected");
 	markAllNotificationsAsViewed();
 	updateNotificationsCounters();
 	notificationStatusIsSelected = true;
@@ -84,7 +84,7 @@ function selectNotificationStatus()
 
 function unselectNotificationStatus()
 {
-	notificationIconsBackgroundDiv().removeClass("selected").addClass("default");
+	statusAreaBackgroundDiv().removeClass("selected").addClass("default");
 	markAllNotificationsAsViewed();
 	updateNotificationsCounters();
 	notificationStatusIsSelected = false;
@@ -133,7 +133,7 @@ function updateNotificationsCounters() {
  * Event listeners
  */
 
-function notificationIconsDivWasClicked(e)
+function statusAreaDivWasClicked(e)
 {
 	if (!notificationStatusIsSelected) {
 		selectNotificationStatus();
