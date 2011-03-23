@@ -37,14 +37,14 @@ function applicationDivForNotificationDiv (notificationDiv)
 	return notificationDiv.parents(".application");
 }
 
-function formForInputButton (button)
+function formForInput (input)
 {
-	return button.parents("form");
+	return input.parents("form");
 }
 
-function notificationDivForInputButton (button)
+function notificationDivForInput (input)
 {
-	return button.parents(".notification");
+	return input.parents(".notification");
 }
 
 function controlsForNotificationDiv (notificationDiv)
@@ -101,6 +101,7 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 			
 			// Add event listeners
 			notificationDiv.children(".input").find("input[type='submit']").click(notificationInputButtonWasClicked);
+			notificationDiv.children(".input").find("input").focus(notificationInputWasFocused).blur(notificationInputWasBlurred);
 		}
 		
 		// Add event listeners
@@ -160,20 +161,30 @@ function submitNotificationInputForm(form, notificationID, buttonName)
 
 function notificationWasHoveredIn(e)
 {
-	$(this).find("input").animate({'opacity': ".95"});
+	focusNotificationDiv($(this));
 }
 
 function notificationWasHoveredOut(e)
 {
-	if (!$(this).find("input").is(":focus")) {
-		$(this).find("input").animate({'opacity': ".45"});
+	blurNotificationDiv($(this));
+}
+
+function focusNotificationDiv(notificationDiv)
+{
+	notificationDiv.find("input").animate({'opacity': ".95"});
+}
+
+function blurNotificationDiv(notificationDiv)
+{
+	if (!notificationDiv.find("input").is(":focus")) {
+		notificationDiv.find("input").animate({'opacity': ".45"});
 	}
 }
 
 function notificationInputButtonWasClicked(e)
 {	
 	if ($(this).hasClass("submit")) {
-		submitNotificationInputForm(formForInputButton($(this)), notificationDivForInputButton($(this)).attr("id"), $(this).attr("name"));
+		submitNotificationInputForm(formForInput($(this)), notificationDivForInput($(this)).attr("id"), $(this).attr("name"));
 	}
 	/*
 	else if (button.hasClass("show-form")) {
@@ -186,6 +197,16 @@ function notificationInputButtonWasClicked(e)
 	
 	e.stopPropagation();               
 	e.preventDefault();
+}
+
+function notificationInputWasFocused(e)
+{
+	focusNotificationDiv(notificationDivForInput($(this)));
+}
+
+function notificationInputWasBlurred(e)
+{
+	blurNotificationDiv(notificationDivForInput($(this)));
 }
 
 function notificationHideWasClicked(e)
