@@ -18,6 +18,8 @@
 	NSString *content;
 	NSString *input;
 	NCIcon *icon;
+    NSString *group;
+    NCIcon *groupIcon;
 	BOOL isUpdate;
 }
 
@@ -27,6 +29,8 @@
 @property (copy) NSString *content;
 @property (copy) NSString *input;
 @property (retain) NCIcon *icon;
+@property (retain) NSString *group;
+@property (retain) NCIcon *groupIcon;
 @property (assign) BOOL isUpdate;
 
 + (NCNotification *)notificationWithTitle:(NSString *)title

@@ -27,6 +27,11 @@
 	NCIcon *icon = [[NCIcon alloc] init];
 	[icon setPath:[[NSBundle mainBundle] pathForResource:@"happy-icon" ofType:@"png"]];
 	[notification setIcon:icon];
+    
+    [notification setGroup:@"First Group"];
+	NCIcon *groupIcon = [[NCIcon alloc] init];
+	[groupIcon setPath:[[NSBundle mainBundle] pathForResource:@"first-group-icon" ofType:@"png"]];
+	[notification setGroupIcon:groupIcon];
 	
 	[[NounceApplicationBridge sharedBridge] notify:notification];
 	

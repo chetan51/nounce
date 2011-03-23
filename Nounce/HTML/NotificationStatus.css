@@ -12,6 +12,7 @@ html, body {
 
 #status-area {
 	position: absolute;
+	overflow: hidden;
 	top: 0;
 	right: 0;
 	height: 100%;
@@ -33,10 +34,18 @@ html, body {
 }
 
 #status-area > #icons {
-	overflow: none;
 	padding: 1px;
 	margin-right: 2px;
 	float: right;
+}
+
+#status-area > #icons > .icon {
+	display: inline-block;
+	overflow: hidden;
+	width: 20px;
+	min-width: 20px;
+	height: 20px;
+	min-height: 20px;
 }
 
 #status-area > #counter {

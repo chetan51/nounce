@@ -12,6 +12,7 @@
 		614CE84B132EC8E100F1CB8A /* happy-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 614CE84A132EC8E100F1CB8A /* happy-icon.png */; };
 		61B03CDC1326154A009E9EA9 /* Nounce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B03CDB1326154A009E9EA9 /* Nounce.framework */; };
 		61B03D9513261553009E9EA9 /* Nounce.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61B03CDB1326154A009E9EA9 /* Nounce.framework */; };
+		61DEE2521339F2FF00B90BAB /* first-group-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2511339F2FF00B90BAB /* first-group-icon.png */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -43,6 +44,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		614CE84A132EC8E100F1CB8A /* happy-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy-icon.png"; sourceTree = "<group>"; };
 		61B03CDB1326154A009E9EA9 /* Nounce.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nounce.framework; path = ../../Nounce/build/Release/Nounce.framework; sourceTree = SOURCE_ROOT; };
+		61DEE2511339F2FF00B90BAB /* first-group-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first-group-icon.png"; sourceTree = "<group>"; };
 		61E01B0C1307BA920075442B /* Nounce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nounce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1107310486CEB800E47090 /* NounceTestApplication-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NounceTestApplication-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* NounceTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NounceTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				614CE84A132EC8E100F1CB8A /* happy-icon.png */,
+				61DEE2511339F2FF00B90BAB /* first-group-icon.png */,
 				8D1107310486CEB800E47090 /* NounceTestApplication-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -193,6 +196,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				614CE84B132EC8E100F1CB8A /* happy-icon.png in Resources */,
+				61DEE2521339F2FF00B90BAB /* first-group-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

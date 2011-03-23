@@ -18,6 +18,8 @@
 @synthesize content;
 @synthesize input;
 @synthesize icon;
+@synthesize group;
+@synthesize groupIcon;
 @synthesize isUpdate;
 
 + (NCNotification *)notificationWithTitle:(NSString *)title
@@ -42,7 +44,7 @@
 
 - (id)init
 {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		[self setIsUpdate:NO];
 	}
 	
@@ -57,18 +59,22 @@
     [coder encodeObject:content								forKey:@"content"];
     [coder encodeObject:input								forKey:@"input"];
     [coder encodeObject:icon								forKey:@"icon"];
+    [coder encodeObject:group								forKey:@"group"];
+    [coder encodeObject:groupIcon							forKey:@"groupIcon"];
     [coder encodeObject:[NSNumber numberWithBool:isUpdate]	forKey:@"isUpdate"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder
 {
-    if (self = [super init]) {
+    if ((self = [super init])) {
         self.ID			= [coder decodeObjectForKey:@"ID"];
         self.fromApp	= [coder decodeObjectForKey:@"fromApp"];
         self.title		= [coder decodeObjectForKey:@"title"];
         self.content	= [coder decodeObjectForKey:@"content"];
         self.input		= [coder decodeObjectForKey:@"input"];
         self.icon		= [coder decodeObjectForKey:@"icon"];
+        self.group		= [coder decodeObjectForKey:@"group"];
+        self.groupIcon	= [coder decodeObjectForKey:@"groupIcon"];
         self.isUpdate	= [(NSNumber *)[coder decodeObjectForKey:@"isUpdate"] boolValue];
     }
 	
