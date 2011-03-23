@@ -4,12 +4,6 @@ html, body {
 	height: 100%;
 }
 
-#status-area-background {
-	height: 100%;
-	min-height: 100%;
-	padding: 1px;
-}
-
 #status-area {
 	position: absolute;
 	top: 0;
@@ -21,7 +15,11 @@ html, body {
 }
 
 #status-area-background {
-	background: -webkit-gradient(linear, left top, left bottom, from(#37585E), to(#5F8086));
+	height: 100%;
+	min-height: 100%;
+	padding: 1px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#888));
+	-webkit-box-shadow: inset 0 0 6px 2px #333;
 }
 
 #status-area-background.default {
