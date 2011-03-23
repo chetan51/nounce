@@ -7,11 +7,6 @@ function applicationsDiv()
 	return $("#applications");
 }
 
-function placeholderDiv()
-{
-	return $("#placeholder");
-}
-
 function applicationDivMold()
 {
 	return $("#molds > .application");
@@ -118,7 +113,6 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 	notificationDiv.children(".title").html(notificationTitle);
 	notificationDiv.children(".content").html(notificationContent);
 	
-	placeholderDiv().hide();
 	applicationsDiv().show();
 }
 
@@ -135,7 +129,6 @@ function hideNotification (notificationID)
 	
 	if (!applicationsDiv().children().length) {
 		applicationsDiv().hide();
-		placeholderDiv().show();
 		window.NotificationPaneController.UINotificationPaneWasHidden();
 	}
 	
