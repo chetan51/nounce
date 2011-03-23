@@ -46,11 +46,10 @@ body {
 
 #applications > .application > .notifications > .notification > .title {
 	display: inline;
-	margin-bottom: 10px;
 	vertical-align: top;
 	color: #111;
 	text-shadow: 0px 1px 1px #bbb;
-	font-size: 20px;
+	font-size: 18px;
 	font-family: Helvetica;
 }
 
@@ -61,8 +60,9 @@ body {
 }
 
 #applications > .application > .notifications > .notification > .content {
+	margin-top: 3px;
 	color: #333;
-	font-size: 14px;
+	font-size: 12px;
 	font-family: Arial;
 	padding-right: 5px;
 }
@@ -86,6 +86,7 @@ body {
 input[type="submit"] {
 	background: none;
 	border: 1px solid rgba(128, 128, 128, 0);
+	color: #333;
 }
 
 input[type="submit"]:hover {
