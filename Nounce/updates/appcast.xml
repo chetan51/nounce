@@ -2,9 +2,22 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/"> 
 	<channel> 
 		<title>Nounce Changelog</title> 
-		<link>https://github.com/chetan51/nounce/raw/master/Nounce/updates/appcast.xml</link> 
+		<link>http://chetan51.github.com/nounce/updates/appcast.xml</link> 
 		<description>Most recent changes to Nounce with links to updates.</description> 
 		<language>en</language>      
+		<item>
+			<title>Version 1.0.3 (Pre-Alpha)</title>
+			<sparkle:releaseNotesLink>
+				http://chetan51.github.com/nounce/updates/1.0.3.html
+			</sparkle:releaseNotesLink>
+			<pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
+			<enclosure url="https://github.com/downloads/chetan51/nounce/Nounce v1.0.3.zip"
+				sparkle:version="4"
+				sparkle:shortVersionString="1.0.3"
+				sparkle:dsaSignature="MC0CFQCP+puRqF7W+K9RyuYZOhG+pZmNQwIUCNWDNNALGtiVaBrkfBVk62FbC7A="
+				length="911488"
+				type="application/octet-stream" />
+		</item>
 		<item>
 			<title>Version 1.0.2 (Pre-Alpha)</title>
 			<sparkle:releaseNotesLink>
