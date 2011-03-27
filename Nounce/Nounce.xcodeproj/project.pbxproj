@@ -9,24 +9,16 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NounceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NounceAppDelegate.m */; };
-		61318B11131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */; };
 		61318B35131F06C100D2E6C0 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 61318B2C131F06C100D2E6C0 /* NSObject+SBJSON.m */; };
 		61318B36131F06C100D2E6C0 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 61318B2E131F06C100D2E6C0 /* NSString+SBJSON.m */; };
 		61318B37131F06C100D2E6C0 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 61318B30131F06C100D2E6C0 /* SBJsonBase.m */; };
 		61318B38131F06C100D2E6C0 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 61318B32131F06C100D2E6C0 /* SBJsonParser.m */; };
 		61318B39131F06C100D2E6C0 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 61318B34131F06C100D2E6C0 /* SBJsonWriter.m */; };
 		61433085131373C5000437CD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61433084131373C5000437CD /* WebKit.framework */; };
-		6143309C13137483000437CD /* NotificationPane.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143309B13137483000437CD /* NotificationPane.html */; };
-		614330C2131375DB000437CD /* NotificationPane.css in Resources */ = {isa = PBXBuildFile; fileRef = 614330C1131375DB000437CD /* NotificationPane.css */; };
-		6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 614331E613147F5D000437CD /* jquery-1.4.2.min.js */; };
-		6143345D1317843B000437CD /* NotificationStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 6143345C1317843A000437CD /* NotificationStatus.html */; };
-		6143349313178812000437CD /* NotificationStatus.css in Resources */ = {isa = PBXBuildFile; fileRef = 6143349213178812000437CD /* NotificationStatus.css */; };
 		614CDC251328981800F1CB8A /* NotificationStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 614CDC241328981800F1CB8A /* NotificationStatus.xib */; };
 		614CDD2113289A5E00F1CB8A /* NCEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B0415613275DAF009E9EA9 /* NCEventController.m */; };
 		614CDD2313289A6500F1CB8A /* NCNotificationPaneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61B03F971326C3D4009E9EA9 /* NCNotificationPaneController.m */; };
 		614CDD2413289A6500F1CB8A /* NCNotificationStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CDC0F1328946C00F1CB8A /* NCNotificationStatusController.m */; };
-		614CDECE1328AD2300F1CB8A /* NotificationPane.js in Resources */ = {isa = PBXBuildFile; fileRef = 614CDECB1328AD2300F1CB8A /* NotificationPane.js */; };
-		614CDECF1328AD2300F1CB8A /* NotificationStatus.js in Resources */ = {isa = PBXBuildFile; fileRef = 614CDECC1328AD2300F1CB8A /* NotificationStatus.js */; };
 		614CDFB21328C1C900F1CB8A /* NCNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614CDFB11328C1C900F1CB8A /* NCNotificationController.m */; };
 		614CE71E132DB8A400F1CB8A /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614CE71D132DB8A400F1CB8A /* Sparkle.framework */; };
 		614CE72F132DB8B200F1CB8A /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 614CE71D132DB8A400F1CB8A /* Sparkle.framework */; };
@@ -46,6 +38,14 @@
 		61CCDC8A132605C700F41824 /* NCNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CCDC82132605C700F41824 /* NCNotification.m */; };
 		61CCDC8B132605C700F41824 /* NCApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 61CCDC83132605C700F41824 /* NCApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		61CCDC8C132605C700F41824 /* NCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CCDC84132605C700F41824 /* NCApplication.m */; };
+		61DEE2B1133FFE8500B90BAB /* NotificationPane.css in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2A1133FFE8500B90BAB /* NotificationPane.css */; };
+		61DEE2B2133FFE8500B90BAB /* NotificationStatus.css in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2A3133FFE8500B90BAB /* NotificationStatus.css */; };
+		61DEE2B3133FFE8500B90BAB /* NotificationPane.html in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2A6133FFE8500B90BAB /* NotificationPane.html */; };
+		61DEE2B4133FFE8500B90BAB /* NotificationStatus.html in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2A8133FFE8500B90BAB /* NotificationStatus.html */; };
+		61DEE2B5133FFE8500B90BAB /* jquery-1.4.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2AB133FFE8500B90BAB /* jquery-1.4.2.min.js */; };
+		61DEE2B6133FFE8500B90BAB /* jquery.ba-serializeobject.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2AC133FFE8500B90BAB /* jquery.ba-serializeobject.min.js */; };
+		61DEE2B7133FFE8500B90BAB /* NotificationPane.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2AE133FFE8500B90BAB /* NotificationPane.js */; };
+		61DEE2B8133FFE8500B90BAB /* NotificationStatus.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2B0133FFE8500B90BAB /* NotificationStatus.js */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -77,7 +77,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery.ba-serializeobject.min.js"; path = "HTML/jquery.ba-serializeobject.min.js"; sourceTree = "<group>"; };
 		61318B2A131F06C100D2E6C0 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		61318B2B131F06C100D2E6C0 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		61318B2C131F06C100D2E6C0 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -90,16 +89,9 @@
 		61318B33131F06C100D2E6C0 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		61318B34131F06C100D2E6C0 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		61433084131373C5000437CD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		6143309B13137483000437CD /* NotificationPane.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationPane.html; path = HTML/NotificationPane.html; sourceTree = "<group>"; };
-		614330C1131375DB000437CD /* NotificationPane.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationPane.css; path = HTML/NotificationPane.css; sourceTree = "<group>"; };
-		614331E613147F5D000437CD /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-1.4.2.min.js"; path = "HTML/jquery-1.4.2.min.js"; sourceTree = "<group>"; };
-		6143345C1317843A000437CD /* NotificationStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = NotificationStatus.html; path = HTML/NotificationStatus.html; sourceTree = "<group>"; };
-		6143349213178812000437CD /* NotificationStatus.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = NotificationStatus.css; path = HTML/NotificationStatus.css; sourceTree = "<group>"; };
 		614CDC0E1328946C00F1CB8A /* NCNotificationStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationStatusController.h; sourceTree = "<group>"; };
 		614CDC0F1328946C00F1CB8A /* NCNotificationStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationStatusController.m; sourceTree = "<group>"; };
 		614CDC241328981800F1CB8A /* NotificationStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationStatus.xib; sourceTree = "<group>"; };
-		614CDECB1328AD2300F1CB8A /* NotificationPane.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationPane.js; path = HTML/NotificationPane.js; sourceTree = "<group>"; };
-		614CDECC1328AD2300F1CB8A /* NotificationStatus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = NotificationStatus.js; path = HTML/NotificationStatus.js; sourceTree = "<group>"; };
 		614CDFB01328C1C900F1CB8A /* NCNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCNotificationController.h; sourceTree = "<group>"; };
 		614CDFB11328C1C900F1CB8A /* NCNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotificationController.m; sourceTree = "<group>"; };
 		614CE71D132DB8A400F1CB8A /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
@@ -123,6 +115,14 @@
 		61CCDC82132605C700F41824 /* NCNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCNotification.m; sourceTree = "<group>"; };
 		61CCDC83132605C700F41824 /* NCApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCApplication.h; sourceTree = "<group>"; };
 		61CCDC84132605C700F41824 /* NCApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCApplication.m; sourceTree = "<group>"; };
+		61DEE2A1133FFE8500B90BAB /* NotificationPane.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = NotificationPane.css; sourceTree = "<group>"; };
+		61DEE2A3133FFE8500B90BAB /* NotificationStatus.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = NotificationStatus.css; sourceTree = "<group>"; };
+		61DEE2A6133FFE8500B90BAB /* NotificationPane.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = NotificationPane.html; sourceTree = "<group>"; };
+		61DEE2A8133FFE8500B90BAB /* NotificationStatus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = NotificationStatus.html; sourceTree = "<group>"; };
+		61DEE2AB133FFE8500B90BAB /* jquery-1.4.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.4.2.min.js"; sourceTree = "<group>"; };
+		61DEE2AC133FFE8500B90BAB /* jquery.ba-serializeobject.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.ba-serializeobject.min.js"; sourceTree = "<group>"; };
+		61DEE2AE133FFE8500B90BAB /* NotificationPane.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NotificationPane.js; sourceTree = "<group>"; };
+		61DEE2B0133FFE8500B90BAB /* NotificationStatus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NotificationStatus.js; sourceTree = "<group>"; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Nounce-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nounce-Info.plist"; sourceTree = "<group>"; };
@@ -199,9 +199,9 @@
 			isa = PBXGroup;
 			children = (
 				61CCDB66132602DD00F41824 /* Nounce.framework */,
-				614330971313745E000437CD /* HTML */,
 				61E01D4513088A9C0075442B /* Custom Views */,
 				080E96DDFE201D6D7F000001 /* Classes */,
+				61DEE29E133FFE8500B90BAB /* Client */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -259,21 +259,6 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
-		614330971313745E000437CD /* HTML */ = {
-			isa = PBXGroup;
-			children = (
-				6143309B13137483000437CD /* NotificationPane.html */,
-				614330C1131375DB000437CD /* NotificationPane.css */,
-				614CDECB1328AD2300F1CB8A /* NotificationPane.js */,
-				6143345C1317843A000437CD /* NotificationStatus.html */,
-				6143349213178812000437CD /* NotificationStatus.css */,
-				614CDECC1328AD2300F1CB8A /* NotificationStatus.js */,
-				614331E613147F5D000437CD /* jquery-1.4.2.min.js */,
-				61318B10131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js */,
-			);
-			name = HTML;
-			sourceTree = "<group>";
-		};
 		61B0404C1326C610009E9EA9 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +296,102 @@
 				614CE824132EC14700F1CB8A /* NCIcon.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		61DEE29E133FFE8500B90BAB /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE29F133FFE8500B90BAB /* css */,
+				61DEE2A4133FFE8500B90BAB /* html */,
+				61DEE2A9133FFE8500B90BAB /* js */,
+			);
+			name = Client;
+			path = client;
+			sourceTree = "<group>";
+		};
+		61DEE29F133FFE8500B90BAB /* css */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2A0133FFE8500B90BAB /* pane */,
+				61DEE2A2133FFE8500B90BAB /* status */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		61DEE2A0133FFE8500B90BAB /* pane */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2A1133FFE8500B90BAB /* NotificationPane.css */,
+			);
+			path = pane;
+			sourceTree = "<group>";
+		};
+		61DEE2A2133FFE8500B90BAB /* status */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2A3133FFE8500B90BAB /* NotificationStatus.css */,
+			);
+			path = status;
+			sourceTree = "<group>";
+		};
+		61DEE2A4133FFE8500B90BAB /* html */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2A5133FFE8500B90BAB /* pane */,
+				61DEE2A7133FFE8500B90BAB /* status */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		61DEE2A5133FFE8500B90BAB /* pane */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2A6133FFE8500B90BAB /* NotificationPane.html */,
+			);
+			path = pane;
+			sourceTree = "<group>";
+		};
+		61DEE2A7133FFE8500B90BAB /* status */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2A8133FFE8500B90BAB /* NotificationStatus.html */,
+			);
+			path = status;
+			sourceTree = "<group>";
+		};
+		61DEE2A9133FFE8500B90BAB /* js */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2AA133FFE8500B90BAB /* lib */,
+				61DEE2AD133FFE8500B90BAB /* pane */,
+				61DEE2AF133FFE8500B90BAB /* status */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		61DEE2AA133FFE8500B90BAB /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2AB133FFE8500B90BAB /* jquery-1.4.2.min.js */,
+				61DEE2AC133FFE8500B90BAB /* jquery.ba-serializeobject.min.js */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		61DEE2AD133FFE8500B90BAB /* pane */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2AE133FFE8500B90BAB /* NotificationPane.js */,
+			);
+			path = pane;
+			sourceTree = "<group>";
+		};
+		61DEE2AF133FFE8500B90BAB /* status */ = {
+			isa = PBXGroup;
+			children = (
+				61DEE2B0133FFE8500B90BAB /* NotificationStatus.js */,
+			);
+			path = status;
 			sourceTree = "<group>";
 		};
 		61E01D4513088A9C0075442B /* Custom Views */ = {
@@ -415,20 +496,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				614CDECE1328AD2300F1CB8A /* NotificationPane.js in Resources */,
-				614CDECF1328AD2300F1CB8A /* NotificationStatus.js in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				6143309C13137483000437CD /* NotificationPane.html in Resources */,
-				614330C2131375DB000437CD /* NotificationPane.css in Resources */,
-				6143345D1317843B000437CD /* NotificationStatus.html in Resources */,
-				6143349313178812000437CD /* NotificationStatus.css in Resources */,
-				6143320513148008000437CD /* jquery-1.4.2.min.js in Resources */,
-				61318B11131F05A300D2E6C0 /* jquery.ba-serializeobject.min.js in Resources */,
 				61B040491326C5BC009E9EA9 /* NotificationPane.xib in Resources */,
 				614CDC251328981800F1CB8A /* NotificationStatus.xib in Resources */,
 				614CE738132DBA6900F1CB8A /* dsa_pub.pem in Resources */,
 				614CE92D132F2FC200F1CB8A /* Nounce-Logo.icns in Resources */,
+				61DEE2B1133FFE8500B90BAB /* NotificationPane.css in Resources */,
+				61DEE2B2133FFE8500B90BAB /* NotificationStatus.css in Resources */,
+				61DEE2B3133FFE8500B90BAB /* NotificationPane.html in Resources */,
+				61DEE2B4133FFE8500B90BAB /* NotificationStatus.html in Resources */,
+				61DEE2B5133FFE8500B90BAB /* jquery-1.4.2.min.js in Resources */,
+				61DEE2B6133FFE8500B90BAB /* jquery.ba-serializeobject.min.js in Resources */,
+				61DEE2B7133FFE8500B90BAB /* NotificationPane.js in Resources */,
+				61DEE2B8133FFE8500B90BAB /* NotificationStatus.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
