@@ -102,7 +102,7 @@ function notify (notificationID, notificationTitle, notificationContent, notific
 		
 		application.setNotification(notification);
 	}
-	else if (notification && isUpdate) {
+	else if (notification) {
 		notification.setTitle(notificationTitle);
 		notification.setContent(notificationContent);
 		notification.setIconPath(notificationIconPath);
