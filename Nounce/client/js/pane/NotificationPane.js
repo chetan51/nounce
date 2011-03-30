@@ -1,4 +1,10 @@
 /*
+ * Global variables
+ */
+
+applications = {};
+
+/*
  * DOM accessors
  */
 
@@ -17,44 +23,32 @@ function notificationDivMold()
 	return $("#molds > .notification");
 }
 
-function applicationDivWithID (appID)
+function saveApplication(application)
 {
-	return $("#"+jqID(appID), applicationsDiv());
+	applications[application.ID()] = application;
 }
 
-function notificationDivWithID (notificationID, applicationDiv)
+function clearApplication(application)
 {
-	return $("#"+jqID(notificationID));
+	applications[application.ID()] = null;
 }
 
-function applicationDivForNotificationDiv (notificationDiv)
+function applicationWithID(appID)
 {
-	return notificationDiv.parents(".application");
+	return applications[appID];
 }
 
-function formForInput (input)
+function notificationWithID(notificationID)
 {
-	return input.parents("form");
-}
-
-function notificationDivForInput (input)
-{
-	return input.parents(".notification");
-}
-
-function controlsForNotificationDiv (notificationDiv)
-{
-	return $("> .controls", notificationDiv);
-}
-
-function hideButtonForNotificationDiv (notificationDiv)
-{
-	return $("> .hide", controlsForNotificationDiv(notificationDiv));
-}
-
-function notificationDivForHideButton (button)
-{
-	return button.parents(".notification");
+	for (var a in applications) {
+		var application = applications[a];
+		for (var n in application.notifications()) {
+			var notification = application.notifications()[n];
+			if (notification.ID() == notificationID) {
+				return notification;
+			}
+		}
+	}
 }
 
 /*
@@ -75,70 +69,75 @@ $(document).ready(function() {
 
 function notify (notificationID, notificationTitle, notificationContent, notificationInput, notificationIconPath, fromAppID, fromAppName, isUpdate)
 {
-	var applicationDiv = applicationDivWithID(fromAppID);
-	if (!applicationDiv.length) {
-		applicationDiv = applicationDivMold().clone();
-		applicationDiv.attr("id", fromAppID);
+	var application = applicationWithID(fromAppID);
+	
+	if (!application) {
+		var applicationDiv = applicationDivMold().clone();
 		applicationsDiv().append(applicationDiv);
-	}
-	
-	applicationDiv.children(".name").html(fromAppName);
-	
-	var notificationDiv = notificationDivWithID(notificationID, applicationDiv);
-	if (!notificationDiv.length) {
-		notificationDiv = notificationDivMold().clone();
-		notificationDiv.attr("id", notificationID);
-		applicationDiv.children(".notifications").append(notificationDiv);
 		
-		if (notificationInput) {
-			notificationDiv.children(".input").html(notificationInput);
-			notificationDiv.children(".input").show();
-			
-			// Add event listeners
-			notificationDiv.children(".input").find("input[type='submit']").click(notificationInputButtonWasClicked);
-			notificationDiv.children(".input").find("input").focus(notificationInputWasFocused).blur(notificationInputWasBlurred);
-		}
+		application = new Application({
+			ID: fromAppID,
+			name: fromAppName,
+		    wasHiddenCallback: applicationWasHidden,
+		}, applicationDiv);
 		
-		// Add event listeners
-		notificationDiv.hover(notificationWasHoveredIn, notificationWasHoveredOut);
-		hideButtonForNotificationDiv(notificationDiv).click(notificationHideWasClicked);
+		saveApplication(application);
 	}
-	if (notificationIconPath) {
-		notificationDiv.children(".icon").attr("src", "file://" + notificationIconPath);
-		notificationDiv.children(".icon").show();
-	}
-	else {
-		notificationDiv.children(".icon").hide();
-	}
-	notificationDiv.children(".title").html(notificationTitle);
-	notificationDiv.children(".content").html(notificationContent);
 	
-	applicationsDiv().show();
+	var notification = application.notificationWithID(notificationID);
+	
+	if (!notification && !isUpdate) {
+		var notificationDiv = notificationDivMold().clone();
+		
+		notification = new Notification({
+			ID: notificationID,
+			application: application,
+			title: notificationTitle,
+			content: notificationContent,
+			input: notificationInput,
+			iconPath: notificationIconPath,
+		    wasHiddenCallback: notificationWasHidden,
+		    inputWasSubmittedCallback: notificationInputWasSubmitted
+		}, notificationDiv);
+		
+		application.setNotification(notification);
+	}
+	else if (notification && isUpdate) {
+		notification.setTitle(notificationTitle);
+		notification.setContent(notificationContent);
+		notification.setIconPath(notificationIconPath);
+		
+		notification.refreshDisplay();
+	}
 }
 
 function hideNotification (notificationID)
 {
-	var notificationDiv = notificationDivWithID(notificationID);
-	var applicationDiv = applicationDivForNotificationDiv(notificationDiv);
+	var notification = notificationWithID(notificationID);
 	
-	notificationDiv.remove();
-	
-	if (!applicationDiv.children(".notifications").children().length) {
-		applicationDiv.remove();
+	if (notification) {
+		notification.hide();
 	}
-	
-	if (!applicationsDiv().children().length) {
-		applicationsDiv().hide();
-		window.NotificationPaneController.UINotificationPaneWasHidden();
-	}
-	
-	window.NotificationPaneController.UINotificationWasHidden_(notificationID);
 }
 
-function submitNotificationInputForm(form, notificationID, buttonName)
+/*
+ * Event listeners
+ */
+
+function applicationWasHidden(application)
+{
+	clearApplication(application);
+}
+
+function notificationWasHidden(notification)
+{
+	window.NotificationPaneController.UINotificationWasHidden_(notification.ID());
+}
+
+function notificationInputWasSubmitted(form, notification, buttonName)
 {
 	var inputData = JSON.stringify(form.serializeObject());
-	window.NotificationPaneController.UIInputWasSubmittedForNotificationWithID_formName_buttonName_inputData_(notificationID, form.attr("name"), buttonName, inputData);
+	window.NotificationPaneController.UIInputWasSubmittedForNotificationWithID_formName_buttonName_inputData_(notification.ID(), form.attr("name"), buttonName, inputData);
 	
 	// Reset form
 	$(':input',form)
@@ -147,70 +146,6 @@ function submitNotificationInputForm(form, notificationID, buttonName)
 	.removeAttr('checked')
 	.removeAttr('selected');
 }
-
-/*
- * Event listeners
- */
-
-function notificationWasHoveredIn(e)
-{
-	focusNotificationDiv($(this));
-}
-
-function notificationWasHoveredOut(e)
-{
-	blurNotificationDiv($(this));
-}
-
-function focusNotificationDiv(notificationDiv)
-{
-	notificationDiv.find("input").animate({'opacity': ".95"});
-}
-
-function blurNotificationDiv(notificationDiv)
-{
-	if (!notificationDiv.find("input").is(":focus")) {
-		notificationDiv.find("input").animate({'opacity': ".45"});
-	}
-}
-
-function notificationInputButtonWasClicked(e)
-{	
-	if ($(this).hasClass("submit")) {
-		submitNotificationInputForm(formForInput($(this)), notificationDivForInput($(this)).attr("id"), $(this).attr("name"));
-	}
-	/*
-	else if (button.hasClass("show-form")) {
-		var targetForm = button.attr('rel');
-		if (targetForm) {
-
-		}
-	}
-	*/
-	
-	e.stopPropagation();               
-	e.preventDefault();
-}
-
-function notificationInputWasFocused(e)
-{
-	focusNotificationDiv(notificationDivForInput($(this)));
-}
-
-function notificationInputWasBlurred(e)
-{
-	blurNotificationDiv(notificationDivForInput($(this)));
-}
-
-function notificationHideWasClicked(e)
-{
-	var notificationDiv = notificationDivForHideButton($(this));
-	hideNotification(notificationDiv.attr("id"));
-}
-
-/*
- * NotificationPaneController event listeners
- */
 
 /*
  * jQuery extensions / plugins

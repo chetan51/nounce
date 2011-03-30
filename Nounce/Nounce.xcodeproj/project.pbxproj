@@ -46,6 +46,9 @@
 		61DEE2B6133FFE8500B90BAB /* jquery.ba-serializeobject.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2AC133FFE8500B90BAB /* jquery.ba-serializeobject.min.js */; };
 		61DEE2B7133FFE8500B90BAB /* NotificationPane.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2AE133FFE8500B90BAB /* NotificationPane.js */; };
 		61DEE2B8133FFE8500B90BAB /* NotificationStatus.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2B0133FFE8500B90BAB /* NotificationStatus.js */; };
+		61DEE2DC1342B31D00B90BAB /* Application.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2DA1342B31D00B90BAB /* Application.js */; };
+		61DEE2DD1342B31D00B90BAB /* Notification.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2DB1342B31D00B90BAB /* Notification.js */; };
+		61DEE2E01342B39600B90BAB /* jquery.plugin.js in Resources */ = {isa = PBXBuildFile; fileRef = 61DEE2DF1342B39600B90BAB /* jquery.plugin.js */; };
 		61E01D4B13088AB10075442B /* TransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E01D4813088AB10075442B /* TransparentWindow.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -123,6 +126,9 @@
 		61DEE2AC133FFE8500B90BAB /* jquery.ba-serializeobject.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery.ba-serializeobject.min.js"; sourceTree = "<group>"; };
 		61DEE2AE133FFE8500B90BAB /* NotificationPane.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NotificationPane.js; sourceTree = "<group>"; };
 		61DEE2B0133FFE8500B90BAB /* NotificationStatus.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = NotificationStatus.js; sourceTree = "<group>"; };
+		61DEE2DA1342B31D00B90BAB /* Application.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Application.js; sourceTree = "<group>"; };
+		61DEE2DB1342B31D00B90BAB /* Notification.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Notification.js; sourceTree = "<group>"; };
+		61DEE2DF1342B39600B90BAB /* jquery.plugin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.plugin.js; sourceTree = "<group>"; };
 		61E01D4813088AB10075442B /* TransparentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentWindow.m; sourceTree = "<group>"; };
 		61E01D4913088AB10075442B /* TransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentWindow.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Nounce-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Nounce-Info.plist"; sourceTree = "<group>"; };
@@ -373,7 +379,10 @@
 			isa = PBXGroup;
 			children = (
 				61DEE2AB133FFE8500B90BAB /* jquery-1.4.2.min.js */,
+				61DEE2DF1342B39600B90BAB /* jquery.plugin.js */,
 				61DEE2AC133FFE8500B90BAB /* jquery.ba-serializeobject.min.js */,
+				61DEE2DA1342B31D00B90BAB /* Application.js */,
+				61DEE2DB1342B31D00B90BAB /* Notification.js */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -508,8 +517,11 @@
 				61DEE2B4133FFE8500B90BAB /* NotificationStatus.html in Resources */,
 				61DEE2B5133FFE8500B90BAB /* jquery-1.4.2.min.js in Resources */,
 				61DEE2B6133FFE8500B90BAB /* jquery.ba-serializeobject.min.js in Resources */,
+				61DEE2E01342B39600B90BAB /* jquery.plugin.js in Resources */,
 				61DEE2B7133FFE8500B90BAB /* NotificationPane.js in Resources */,
 				61DEE2B8133FFE8500B90BAB /* NotificationStatus.js in Resources */,
+				61DEE2DC1342B31D00B90BAB /* Application.js in Resources */,
+				61DEE2DD1342B31D00B90BAB /* Notification.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

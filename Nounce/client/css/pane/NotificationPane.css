@@ -6,10 +6,6 @@ body {
 	display: none;
 }
 
-#applications {
-	display: none;
-}
-
 #applications > .application {
 	margin-bottom: 15px;
 	-webkit-box-shadow: 1px 1px 4px #333;
@@ -38,7 +34,6 @@ body {
 }
 
 #applications > .application > .notifications > .notification > .icon {
-	display: none;
 	height: 30px;
 	width: auto;
 	padding-right: 5px;
@@ -68,7 +63,6 @@ body {
 }
 
 #applications > .application > .notifications > .notification > .input {
-	display: none;
 	padding: 3px;
 	margin-top: 5px;
 	padding-right: 5px;
